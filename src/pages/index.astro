@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+    .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
+    .slice(0, 5);
+---
+
+<Layout title="Welcome to My Blog">
+ <h1>Welcome to My Site</h1>
+  <p>
+    👋 Hello! This is my personal corner of the internet. Feel free to explore and learn more about me.
+  </p>
+  
+  <nav class="homepage-nav">
+    <a href="/about" class="card">
+      <h2>About</h2>
+      <p>Learn more about who I am and what I do.</p>
+    </a>
+    <a href="/now" class="card">
+      <h2>Now</h2>
+      <p>See what I'm currently focused on.</p>
+    </a>
+    <a href="/resume" class="card">
+      <h2>Resume</h2>
+      <p>Check out my professional experience.</p>
+    </a>
+  </nav>
+
+  <style>
+    .homepage-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+    .card {
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(var(--accent-light), 0.33);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+    }
+    .card h2 {
+      margin: 0;
+      color: rgb(var(--accent));
+    }
+    .card p {
+      margin: 0.5rem 0 0;
+    }
+  </style>
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8">Latest Posts</h1>
+        <div class="space-y-8">
+            {posts.map(post => (
+                <article class="prose lg:prose-xl">
+                    <h2 class="mb-2">
+                        <a href={`/blog/${post.slug}`} class="text-2xl font-bold hover:text-blue-600">
+                            {post.data.title}
+                        </a>
+                    </h2>
+                    <time class="text-gray-600" datetime={post.data.publishedDate.toISOString()}>
+                        {post.data.publishedDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}
+                    </time>
+                    <p class="mt-2">{post.data.description}</p>
+                </article>
+            ))}
+        </div>
+        <div class="mt-12">
+            <a href="/blog" class="text-lg text-blue-600 hover:text-blue-800">
+                View all posts →
+            </a>
+        </div>
+    </main>
+</Layout>

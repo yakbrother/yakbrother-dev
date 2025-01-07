@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@content/*": ["../content/*"],
+      "@layouts/*": ["layouts/*"],
+      "@components/*": ["components/*"],
+      "@scripts/*": ["scripts/*"],
+      "@styles/*": ["styles/*"]
+    },
+    "jsx": "preserve"
+  }
+}

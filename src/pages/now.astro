@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const currentTime = new Date('2025-01-07T15:32:14+01:00');
+const formattedDate = currentTime.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Layout title="Now">
+  <h1>Now</h1>
+  <p>Last updated: {formattedDate}</p>
+  <section>
+    <h2>What I'm focused on right now:</h2>
+    <ul>
+      <li>Building this personal website</li>
+      <li>Learning and growing</li>
+      <li>Working on exciting projects</li>
+    </ul>
+  </section>
+</Layout>
