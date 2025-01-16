@@ -1,25 +1,25 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  site: 'https://glyptodon.dev',
+  site: "https://www.timeaton.dev/",
   base: "/",
-  integrations: [
-    mdx(),
-    sitemap(),
-  ],
-  content: {
-    collections: {
-      posts: {
-        directory: 'src/content/posts',
-      },
-    },
-  },
+  integrations: [sitemap(), mdx()],
   markdown: {
     shikiConfig: {
       theme: "material-theme-darker",
       langs: [],
+    },
+  },
+  content: {
+    collections: {
+      posts: {
+        schema: "src/content/config.ts#posts",
+      },
+      finds: {
+        schema: "src/content/config.ts#finds",
+      },
     },
   },
 });

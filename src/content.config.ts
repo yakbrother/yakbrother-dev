@@ -18,7 +18,7 @@ export enum FoundType {
 }
 
 const posts = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./content/posts" }),
+  loader: glob({ pattern: "*.md", base: "./src/content/posts" }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -33,7 +33,7 @@ const posts = defineCollection({
 });
 
 const finds = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./content/finds" }),
+  loader: glob({ pattern: "*.md", base: "./src/content/finds" }),
   schema: z.object({
     title: z.string(),
     link: z.string(),
@@ -44,7 +44,4 @@ const finds = defineCollection({
   }),
 });
 
-export const collections = {
-  posts,
-  finds,
-};
+export const collections = { posts, finds };
