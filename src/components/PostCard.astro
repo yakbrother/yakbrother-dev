@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  publicationDate: Date;
+  category: string;
+  slug: string;
+}
+
+const { title, description, publicationDate, category, slug } = Astro.props;
+
+const date = new Date(publicationDate);
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article class="post-card">
+  <div class="post-meta">
+    <span class="category">{category}</span>
+    <time datetime={publicationDate}>{formattedDate}</time>
+  </div>
+  <h3 class="post-title">
+    <a href={`/posts/${slug}`}>{title}</a>
+  </h3>
+  <p class="post-description">{description}</p>
+</article>
+
+<style>
+  .post-card {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .post-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .category {
+    text-transform: capitalize;
+    color: var(--color-text-base);
+    font-weight: 500;
+  }
+
+  .post-title {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .post-title a {
+    color: var(--color-text-base);
+    text-decoration: none;
+  }
+
+  .post-title a:hover {
+    color: var(--color-text-base);
+  }
+
+  .post-description {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+</style>

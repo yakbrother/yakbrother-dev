@@ -1,85 +1,264 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import LinkCard from '../components/LinkCard.astro';
+import PostCard from '../components/PostCard.astro';
 
-const posts = (await getCollection('blog'))
-    .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf())
-    .slice(0, 5);
+const posts = (await getCollection('posts', ({ data }) => {
+    return data.public !== false;
+}))
+    .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf())
+    .slice(0,5);
+
+const finds = (await getCollection('finds', ({ data }) => {
+    return data.public !== false;
+}))
+    .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf())
+    .slice(0, 10);
 ---
 
-<Layout title="Welcome to My Blog">
- <h1>Welcome to My Site</h1>
-  <p>
-    👋 Hello! This is my personal corner of the internet. Feel free to explore and learn more about me.
-  </p>
-  
-  <nav class="homepage-nav">
-    <a href="/about" class="card">
-      <h2>About</h2>
-      <p>Learn more about who I am and what I do.</p>
-    </a>
-    <a href="/now" class="card">
-      <h2>Now</h2>
-      <p>See what I'm currently focused on.</p>
-    </a>
-    <a href="/resume" class="card">
-      <h2>Resume</h2>
-      <p>Check out my professional experience.</p>
-    </a>
-  </nav>
+<Layout title="Home">
+ 	<section id="hero">
+      <div id="hero-title">
+        <img src="/assets/timeaton.png" alt="Avatar for Tim Eaton">
+        <div style="font-weight: 500;">
+            <h1 class="solway-regular" style="margin:0;">Timothy Eaton</h1>
+            <div id="subtitle">He/Him | Senior Full-Stack Developer | Nyon, Switzerland</div>
+        </div>
+      </div>
+	
+      <p>
+        With over 16 years of experience as a full-stack developer, I specialize in back-end development and user experience design. I build accessible, user-friendly tools and websites using PHP (Laravel), Node.js, React, Typescript, AWS, and various other technologies, whether I'm working from scratch or updating legacy code.
+      </p><p>
+        Recently, I've been focusing on creating websites that help reduce both carbon footprints and operating costs. To learn more about sustainable web design, check out <a href="http://sustainable.dev">sustainable.dev</a>.
+      </p><p>
+        I'm currently looking for a new job in the Geneva area. I'm also available for new projects and collaborations. Whether you need a full site or want to make your existing site more optimized, I'd love to discuss it with you. Email me to start a conversation!
+      </p>
+      
+      <ul id="action-links">
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="mailto:tim@timeaton.dev">Email</a></li>
+        <li><a href="https://github.com/yakbrother">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/tim-eaton-pluies/">LinkedIn</a></li>
+        <li><a href="https://bsky.app/profile/yakbrother.bsky.social">Bluesky</a></li>
+      </ul>
+      
+    </section>
 
+    <hr />
+
+    <section id="skills">
+        <h2 class="solway-regular">Skills</h2>
+          <ul class="pill-list">
+              <li>PHP</li>
+              <li>Javascript</li>
+              <li>HTML Standards</li>
+              <li>Modern CSS</li>
+              <li>Accessibility</li>
+              <li>User Experience</li>
+              <li>Design</li>
+              <li>Sustainable Energy Use</li>
+              <li>Laravel</li>
+              <li>Vue.js</li>
+              <li>Typescript</li>
+          </ul>
+        </section>
+
+	<hr />
+  
+  <section id="word">
+    <h2>Work Case Studies</h2>
+    <div class="work-grid">
+      <a href="/about" class="card">
+        <h3>Online Agreement System</h3>
+        <p>Building and managing a contract management system.</p>
+      </a>
+      <a href="/now" class="card">
+        <h3>Now</h3>
+        <p>See what I'm currently focused on.</p>
+      </a>
+      <a href="/resume" class="card">
+        <h3>Designs Through the Years</h3>
+        <p>How my design style has changed for this site.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="recent-posts" class="posts-section">
+    <h2 class="solway-regular">Latest Posts</h2>
+    <div class="posts-grid">
+        {posts.map(post => (
+            <PostCard
+                title={post.data.title}
+                description={post.data.description}
+                date={post.data.pubDate}
+                slug={post.data.slug}
+            />
+        ))}
+        <div>
+          <a href="/posts" class="button-primary">View all posts →</a>
+        </div>
+    </div>
+  </section>
+
+  <section id="finds">
+    <h2 class="solway-regular">Today I Found...</h2>
+      <div class="finds-box">
+    		{finds.map(entry => (
+        <LinkCard
+          type={entry.data.type}
+          title={entry.data.title}
+          publicationDate={entry.data.publicationDate}
+          description={entry.data.description}
+          link={entry.data.link}
+        />
+      ))}
+    </div>
+	</section>
+
+	<hr/>
   <style>
-    .homepage-nav {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
-      padding: 1rem 0;
-    }
     .card {
       padding: 1rem;
-      background: white;
+      background: var(--color-neutral-a40);
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(var(--accent-light), 0.33);
+      box-shadow: 0 2px 8px rgba(var(--border), 0.33);
       text-decoration: none;
       color: inherit;
       transition: transform 0.2s ease;
     }
     .card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
-    .card h2 {
+    .card h3 {
       margin: 0;
-      color: rgb(var(--accent));
     }
     .card p {
       margin: 0.5rem 0 0;
     }
+
+    .finds-box {
+        padding: 1em;
+    }
+
+    .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+
+    .button-primary {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 2px solid var(--color-button-border);
+        border-radius: 0.25rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .button-primary:hover {
+        background-color: var(--color-button-border);
+        color: var(--color-background);
+    }
+
+    /* ===== Hero Section ===== */
+    #hero {
+      padding-bottom: 1.5rem; 
+      padding-top: 2rem; 
+    }
+    #hero .subtitle {
+      margin: 0.5rem; 
+      font-size: var(--step-1);
+      line-height: 1.25rem; 
+    }
+    #hero-title {
+      display: flex; 
+      gap: 1rem; 
+      align-items: center;  
+    }
+    #hero h1 {
+      display: inline-block; 
+      margin: 0; 
+      font-size: var(--step-4);
+      line-height: 2.25rem; 
+      font-weight: 700; 
+
+    }
+    #hero img {
+      border-radius: 9999px; 
+      border: 4px solid var(--color-button-border); 
+      width: 8rem; 
+      height: 8rem;
+    }
+
+    #hero p {
+      margin-top: 1rem;
+      margin-bottom: 1rem; 
+    }
+    
+    #action-links {
+        display: flex; 
+        margin: 0.25rem; 
+        flex-wrap: wrap; 
+        list-style-type: none
+    }
+
+    #action-links li a {
+      display: block; 
+      padding: 0.25rem; 
+      margin-right: 0.5rem; 
+      font-weight: 700; 
+      border-color: var(--color-border);
+    }
+
+    .pill-list {
+      display: flex; 
+      margin-top: 2rem; 
+      flex-wrap: wrap; 
+      list-style-type: none
+    }
+
+    .pill-list li {
+      padding: 0.25rem; 
+      margin: 0.5rem; 
+      border-radius: 0.25rem; 
+      border: 1px solid var(--color-button-border); 
+      font-size: var(--step--1);
+      line-height: 1.25rem;
+    }
+
+    /* ===== Featured & Recent Posts Sections ===== */
+    #featured,
+    #skills,
+    #cases,
+    #til,
+    #recent-posts {
+      padding-bottom: 1.5rem; 
+      padding-top: 1.5rem; 
+    }
+
+    #featured h2,
+    #skills h2,
+    #cases h2,
+    #til h2,
+    #recent-posts h2 {
+      font-size: var(--step-2);
+      line-height: 1rem; 
+      font-weight: 600; 
+      letter-spacing: 0.025em; 
+    }
+    .all-posts-btn-wrapper { 
+      text-align: center; 
+    }
   </style>
-    <main class="max-w-4xl mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold mb-8">Latest Posts</h1>
-        <div class="space-y-8">
-            {posts.map(post => (
-                <article class="prose lg:prose-xl">
-                    <h2 class="mb-2">
-                        <a href={`/blog/${post.slug}`} class="text-2xl font-bold hover:text-blue-600">
-                            {post.data.title}
-                        </a>
-                    </h2>
-                    <time class="text-gray-600" datetime={post.data.publishedDate.toISOString()}>
-                        {post.data.publishedDate.toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        })}
-                    </time>
-                    <p class="mt-2">{post.data.description}</p>
-                </article>
-            ))}
-        </div>
-        <div class="mt-12">
-            <a href="/blog" class="text-lg text-blue-600 hover:text-blue-800">
-                View all posts →
-            </a>
-        </div>
-    </main>
 </Layout>

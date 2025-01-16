@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { formatDate } from '../../utils/date';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+  <article class="post">
+    <header class="post-header">
+      <h1>{post.data.title}</h1>
+      <div class="post-meta">
+        <time datetime={post.data.pubDate.toISOString()}>
+          {formatDate(post.data.pubDate)}
+        </time>
+        {post.data.category && (
+          <span class="category">{post.data.category}</span>
+        )}
+      </div>
+      {post.data.description && (
+        <p class="description">{post.data.description}</p>
+      )}
+    </header>
+    
+    <div class="content">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .post-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: var(--step-4);
+    margin: 0 0 1rem;
+    color: var(--color-text-base);
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--color-text-muted);
+    font-size: var(--step--1);
+  }
+
+  .category {
+    text-transform: capitalize;
+  }
+
+  .description {
+    font-size: var(--step-1);
+    color: var(--color-text-muted);
+    margin: 1rem 0 0;
+  }
+
+  .content {
+    line-height: 1.6;
+  }
+
+  .content :global(h2) {
+    font-size: var(--step-2);
+    margin: 2rem 0 1rem;
+    color: var(--color-text-base);
+  }
+
+  .content :global(h3) {
+    font-size: var(--step-1);
+    margin: 1.5rem 0 1rem;
+    color: var(--color-text-base);
+  }
+
+  .content :global(p) {
+    margin: 1rem 0;
+  }
+
+  .content :global(ul),
+  .content :global(ol) {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .content :global(li) {
+    margin: 0.5rem 0;
+  }
+
+  .content :global(pre) {
+    background: var(--color-card);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+
+  .content :global(code) {
+    font-family: monospace;
+  }
+
+  .content :global(a) {
+    color: var(--color-text-base);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .content :global(a:hover) {
+    text-decoration-thickness: 2px;
+  }
+
+  .content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .post {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: var(--step-3);
+    }
+  }
+</style>

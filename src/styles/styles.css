@@ -1,0 +1,305 @@
+:root {
+  --color-background: #263022;
+  --color-background-accent: #676e64;
+  --color-text-base: #ffe6d8;
+  --color-text-muted: #f3e8e2;
+  --color-accent: #b26acd;
+  --color-card: #3b4437;
+  --color-card-muted: #50594d;
+  --color-border: #4d4b3a;
+  --color-button-primary: #a601fe;
+  --color-button-primary-hover: #d68cff;
+  --color-button-border: #6f6f6e;
+
+  --color-list-video: #c12b05;
+  --color-list-article: #f47d3c;
+  --color-list-website: #a601fe;
+  --color-list-book: #58aa9c;
+
+  --color-link: #b26acd;
+  --color-link-bg: #4e5e73;
+
+  --background-gradient: radial-gradient(
+    at bottom left,
+    var(--color-background) 50%,
+    var(--color-background-accent)
+  );
+
+  /* https://colorffy.com/css-generator?color=384135 */
+
+  --color-neutral-a0: #ffffff;
+  --color-neutral-a10: #d4d6d3;
+  --color-neutral-a20: #aaaea8;
+  --color-neutral-a30: #82887f;
+  --color-neutral-a40: #5c6359;
+  --color-neutral-a50: #384135;
+  --color-neutral-a60: #2e352b;
+  --color-neutral-a70: #242922;
+  --color-neutral-a80: #1a1e19;
+  --color-neutral-a90: #10120f;
+  --color-neutral-a100: #000000;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #ffc6a6;
+    --color-background-accent: #e4a4a2;
+    --color-text-base: #575e79;
+    --color-accent: #ff1493;
+    --color-card: #263022;
+    --color-card-muted: #3b4437;
+    --color-border: #887391;
+
+    --color-button-border: #968f95;
+
+    --color-button-primary: #a601fe;
+    --color-button-primary-hover: #d68cff;
+    --color-button-border: #6f6f6e;
+
+    --color-list-video: #c12b05;
+    --color-list-article: #f47d3c;
+    --color-list-website: #a601fe;
+    --color-list-book: #58aa9c;
+
+    --color-link: #b26acd;
+    --color-link-bg: #4e5e73;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--background-gradient);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  line-height: 2em;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+  --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+}
+
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+}
+
+/* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --grid-max-width: 77.5rem;
+  --grid-gutter: var(
+    --space-s-l,
+    clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem)
+  );
+  --grid-columns: 12;
+}
+
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
+body {
+  --gap: 2rem;
+  margin: 0;
+  line-height: 1.5;
+  color: var(--color-text-base);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-gradient);
+}
+
+a {
+  color: var(--color-link);
+}
+
+main h2 a {
+  text-decoration: none;
+  color: var(--color-text-base);
+  opacity: 0;
+  transition: 0.218s ease;
+}
+
+main h2 a:before {
+  content: "#";
+  margin-inline-end: 0.25em;
+}
+
+main h2:hover a {
+  opacity: 1;
+}
+
+main img {
+  max-width: 150px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Solway", Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+/*
+header > * {
+  padding: 1rem 0;
+}
+
+header > a {
+  text-decoration: none;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  font-size: min(2rem, 10vw);
+}
+
+h1 svg {
+  margin-inline-end: 0.25em;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding-inline-start: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header li:not(:last-child) {
+  margin-inline-end: 1rem;
+}
+
+header ul a {
+  color: currentColor;
+}
+*/
+main {
+  --max-width: 900px;
+  --col-width: 100%;
+  --threshold: calc(var(--max-width) - 100px);
+  max-width: var(--max-width);
+  margin: auto;
+  padding: var(--gap) var(--gap) 4rem;
+  align-self: center;
+  font-size: var(--step-0);
+  font-weight: 400;
+  line-height: 2;
+}
+
+main > h2 {
+  min-width: calc(100% - var(--col-width) - var(--gap));
+  max-width: 100%;
+  width: calc((var(--threshold) - 100%) * 1000);
+  text-align: end;
+  font-size: min(3rem, 8vw);
+  padding-bottom: var(--gap);
+}
+
+main > :not(h2) {
+  margin: 0;
+  max-width: 100%;
+  min-width: var(--col-width);
+  width: calc((var(--threshold) - 100%) * 1000);
+  margin-left: auto;
+}
+
+main > hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  height: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: calc(var(--gap) / 2) 0;
+}
+
+main p {
+  margin-top: 0;
+  margin-bottom: var(--gap);
+}
+
+main code {
+  padding: 0.25em 0.5em;
+  line-height: 1;
+  background: var(--accent);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+main blockquote {
+  font-size: 1.5em;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+  padding: 1rem;
+  transform: translateY(calc(100% + 1rem));
+  opacity: 0;
+  transition: 0.218s ease;
+  z-index: 1;
+  background: inherit;
+  border: 1px solid;
+}
+
+#back-to-top.visible {
+  transform: translateY(0);
+  opacity: 1;
+}

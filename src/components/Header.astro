@@ -1,0 +1,185 @@
+---
+export interface Props {
+  activeNav?: string;
+}
+
+const { activeNav } = Astro.props;
+---
+
+<header class="header">
+      <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" baseProfile="tiny" version="1.2" viewBox="0 0 24 24" id="spiral">
+            <path fill="#ffe6d8" d="M12 11.8c1-.4.7-1.8 0-2.4-1.1-.9-2.7-.4-3.4.8-1.5 2.4.9 5 3.4 4.9 2.7-.2 4.3-2.9 3.7-5.4-.7-3-3.9-4.5-6.7-3.6-2.6.8-4.2 3.5-4 6.2.3 3 2.6 5.4 5.5 5.9 2.8.5 5.7-.8 7.2-3.2.7-1.1 1.2-2.4 1.2-3.8 0-.5.5-1 1.1-.9.8 0 1 .8.9 1.4-.4 4.7-4.5 8.6-9.3 8.6-5.9 0-10.5-6.2-8-11.8C6.1 3.1 13.9 2 16.9 7.3c1.5 2.5 1.2 5.8-.9 7.9-2 2-5.3 2.4-7.7.7-2.2-1.6-2.9-4.9-1.1-7.2 1.7-2.3 5.5-2.4 7 .2 1.1 1.9 0 5.2-2.5 4.9-1.6 0-3-1.7-2.1-3.2.6-.9 1.9-.6 2.3.1.2.8.1 1.1.1 1.1z"></path>
+        </svg>
+        <span><a href="/" id="home">
+        &nbsp;&gt;&nbsp;Home
+      </a></span>
+      </div>
+      <nav class="nav">
+        <button class="hamburger" aria-label="Toggle Menu">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </button>
+        <ul class="menu">
+          <li>
+            <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
+                Posts
+            </a>
+          </li>
+          <li>
+            <a href="/found/" class={activeNav === "found" ? "active" : ""}>
+                Found
+            </a>
+          </li>
+          <li>
+            <a href="/resume/" class={activeNav === "resume" ? "active" : ""}>
+              Resume
+            </a>
+          </li>
+          <li>
+            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/now/" class={activeNav === "now" ? "active" : ""}>
+              Now
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector('.menu');
+
+        hamburger?.addEventListener('click', () => {
+          menu?.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+          const target = event.target as HTMLElement;
+          if (!target.closest('.nav') && menu?.classList.contains('active')) {
+            menu.classList.remove('active');
+          }
+        });
+    </script>
+
+    <style>
+      .header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-background);
+        color: var(--color-text-base);
+        box-shadow: 2px 9px 24px 0px rgba(0,0,0,0.5);
+        -webkit-box-shadow: 2px 9px 24px 0px rgba(0,0,0,0.5);
+        -moz-box-shadow: 2px 9px 24px 0px rgba(0,0,0,0.5);
+        padding: 10px 20px;
+        z-index: 1000;
+        border-bottom: 2px solid var(--color-border); 
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        color: var(--color-text-base);
+      }
+
+      .logo svg {
+        width: 24px;
+      }
+
+      .logo svg path {
+        fill: #ffe6d8;
+      }
+
+      .logo #home {
+        font-size: var(--step-1);
+        margin-right: 10px;
+        color: var(--color-text-base);
+        text-decoration: none;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu li {
+        margin-left: 20px;
+      }
+
+      .menu li a {
+        color: var(--color-text-base);
+        text-decoration: none;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 2rem;
+          height: 2rem;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          z-index: 10;
+        }
+
+        .hamburger .line {
+          width: 2rem;
+          height: 0.25rem;
+          background-color: #ffe6d8;
+          margin: 0.25rem 0;
+          transition: all 0.3s linear;
+          position: relative;
+          transform-origin: 1px;
+        }
+
+        .menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background-color: var(--color-background);
+          padding: 1rem;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          border: 1px solid var(--color-border);
+        }
+
+        .menu.active {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .menu li {
+          margin: 0.5rem 0;
+          text-align: right;
+        }
+      }
+
+      article {
+        max-width: 700px;
+        padding: 1em;
+        margin: auto;
+      }
+    </style>

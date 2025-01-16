@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import LinkCard from '../../components/LinkCard.astro';
+import Pagination from '../../components/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const finds = (await getCollection('finds'))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  
+  return paginate(finds, { pageSize: 40 });
+}
+
+const { page } = Astro.props;
+const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found... - Page ${page.currentPage}`;
+---
+
+<Layout title={pageTitle}>
+  <div class="finds-container">
+    <h1>Today I Found...</h1>
+    
+    <div class="finds-grid">
+      {page.data.map((find) => (
+        <LinkCard
+          title={find.data.title}
+          description={find.data.description}
+          url={find.data.url}
+          date={find.data.pubDate}
+        />
+      ))}
+    </div>
+
+    <Pagination
+      currentPage={page.currentPage}
+      totalPages={page.lastPage}
+      baseUrl="/finds/"
+    />
+  </div>
+</Layout>
+
+<style>
+  .finds-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: var(--step-4);
+    margin: 0 0 2rem;
+    color: var(--color-text-base);
+    text-align: center;
+  }
+
+  .finds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .finds-container {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: var(--step-3);
+    }
+
+    .finds-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

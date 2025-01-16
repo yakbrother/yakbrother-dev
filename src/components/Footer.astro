@@ -1,0 +1,77 @@
+<footer>
+  <div class="footer-content">
+    <div class="footer-links">
+      <div class="column">
+        <ul>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/resume">Resume</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <ul>
+          <li><a href="https://github.com/yakbrother">Github</a></li>
+          <li><a href="https://www.linkedin.com/in/tim-eaton-pluies/">LinkedIn</a></li>
+          <li><a href="mailto:tim@timeaton.dev">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: auto;
+    padding: 2rem 1rem;
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .column li {
+    margin-bottom: 0.5rem;
+  }
+
+  .column a {
+    color: var(--color-text-base);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .column a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 640px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+const prevUrl = currentPage > 1 ? `${baseUrl}${currentPage - 1}` : null;
+const nextUrl = currentPage < totalPages ? `${baseUrl}${currentPage + 1}` : null;
+---
+
+<nav class="pagination" aria-label="Pagination">
+  <div class="pagination-links">
+    {prevUrl ? (
+      <a href={prevUrl} class="prev" aria-label="Previous page">←&nbsp;Previous</a>
+    ) : (
+      <span class="prev disabled">←&nbsp;Previous</span>
+    )}
+    
+    <span class="page-info">
+      Page {currentPage} of {totalPages}
+    </span>
+    
+    {nextUrl ? (
+      <a href={nextUrl} class="next" aria-label="Next page">Next&nbsp;→</a>
+    ) : (
+      <span class="next disabled">Next&nbsp;→</span>
+    )}
+  </div>
+</nav>
+
+<style>
+  .pagination {
+    margin: 2rem 0;
+  }
+
+  .pagination-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .prev,
+  .next {
+    padding: 0.5rem 1rem;
+    color: var(--color-text-base);
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+  }
+
+  .prev:hover,
+  .next:hover {
+    background-color: var(--color-border);
+  }
+
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .page-info {
+    color: var(--color-text-muted);
+    font-size: var(--step--1);
+  }
+
+  @media (max-width: 640px) {
+    .pagination-links {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

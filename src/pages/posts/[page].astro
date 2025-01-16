@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import Pagination from '../../components/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection('posts'))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${page.currentPage}`;
+---
+
+<Layout title={pageTitle}>
+  <div class="posts-container">
+    <h1>Blog Posts</h1>
+    
+    <div class="posts-grid">
+      {page.data.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.pubDate}
+          slug={post.slug}
+        />
+      ))}
+    </div>
+
+    <Pagination
+      currentPage={page.currentPage}
+      totalPages={page.lastPage}
+      baseUrl="/posts/"
+    />
+  </div>
+</Layout>
+
+<style>
+  .posts-container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: var(--step-4);
+    margin: 0 0 2rem;
+    color: var(--color-text-base);
+    text-align: center;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .posts-container {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: var(--step-3);
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
