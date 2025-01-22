@@ -1,8 +1,13 @@
 ---
-layout: ../layouts/Layout.astro
+layout: ../layouts/PageLayout.astro
 activeNav: "about"
 title: "About"
+description: "About Timothy Eaton - Developer and Designer"
 ---
+
+# About Me
+
+<hr/>
 
 Welcome! I created this site to showcase my work as I explore new opportunities in Switzerland, and to share my ongoing projects and thoughts about design and development. I've been a computer programmer since childhood, when my dad taught me how to build motherboards and play with MSDOS scripts and Visual Basic. Since then, I've worked as a professional developer for almost 20 years.
 

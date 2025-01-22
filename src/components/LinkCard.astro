@@ -41,7 +41,7 @@ const iconTypes = {
   </div>
   
   <div class="content">
-    <h3 class="title">{title}</h3>
+    <p class="title">{title}</p>
     {
       description && (<p class="description">{description}</p>)
     }
@@ -121,13 +121,13 @@ const iconTypes = {
 
   .title {
     margin: 0 0 0.25rem 0;
-    font-size: 1rem;
+    font-size: (--step-0);
     font-weight: 600;
   }
 
   .description {
     margin: 0 0 0.5rem 0;
-    font-size: 0.875rem;
+    font-size: var(--step--1);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

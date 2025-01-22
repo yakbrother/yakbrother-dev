@@ -39,6 +39,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
   .post-card:hover {
     transform: translateY(-2px);
+    border: 1px solid var(--color-text-base);
   }
 
   .post-meta {
@@ -64,10 +65,15 @@ const formattedDate = date.toLocaleDateString('en-US', {
   .post-title a {
     color: var(--color-text-base);
     text-decoration: none;
+    padding: 0;
   }
 
   .post-title a:hover {
-    color: var(--color-text-base);
+    color: var(--color-text-link);
+  }
+
+  .post-card:hover a {
+    color: var(--color-link);
   }
 
   .post-description {

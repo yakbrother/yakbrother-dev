@@ -1,0 +1,14 @@
+{
+    "name": "Glyptodon",
+    "short_name": "Glyptodon",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#ffe6d8",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}

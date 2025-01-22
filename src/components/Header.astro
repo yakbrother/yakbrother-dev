@@ -23,13 +23,8 @@ const { activeNav } = Astro.props;
         </button>
         <ul class="menu">
           <li>
-            <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
-                Posts
-            </a>
-          </li>
-          <li>
-            <a href="/found/" class={activeNav === "found" ? "active" : ""}>
-                Found
+            <a href="/now/" class={activeNav === "now" ? "active" : ""}>
+              Now
             </a>
           </li>
           <li>
@@ -42,9 +37,15 @@ const { activeNav } = Astro.props;
               About
             </a>
           </li>
+          
           <li>
-            <a href="/now/" class={activeNav === "now" ? "active" : ""}>
-              Now
+            <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
+                Posts
+            </a>
+          </li>
+          <li>
+            <a href="/found/" class={activeNav === "found" ? "active" : ""}>
+                Found
             </a>
           </li>
         </ul>
@@ -96,7 +97,7 @@ const { activeNav } = Astro.props;
       }
 
       .logo svg path {
-        fill: #ffe6d8;
+        fill: var(--color-text-base);
       }
 
       .logo #home {

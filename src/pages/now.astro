@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 
-const currentTime = new Date('2025-01-07T15:32:14+01:00');
+const currentTime = new Date('2025-01-22T14:28:00+01:00');
 const formattedDate = currentTime.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
@@ -9,9 +9,15 @@ const formattedDate = currentTime.toLocaleDateString('en-US', {
 });
 ---
 
-<Layout title="Now">
+<PageLayout 
+  title="Now" 
+  description="What I'm currently working on and focused on right now"
+>
   <h1>Now</h1>
+  <hr/>
+  
   <p>Last updated: {formattedDate}</p>
+  
   <section>
     <h2>What I'm focused on right now:</h2>
     <ul>
@@ -20,4 +26,4 @@ const formattedDate = currentTime.toLocaleDateString('en-US', {
       <li>Working on exciting projects</li>
     </ul>
   </section>
-</Layout>
+</PageLayout>

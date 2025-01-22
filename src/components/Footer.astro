@@ -1,25 +1,6 @@
 <footer>
   <div class="footer-content">
-    <div class="columns">
-      <div class="column">
-        <ul>
-          <li><a href="/posts">Posts</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/resume">Resume</a></li>
-        </ul>
-      </div>
-      <div class="column">
-        <ul>
-          <li><a href="https://github.com/yakbrother">Github</a></li>
-          <li><a href="https://www.linkedin.com/in/tim-eaton-pluies/">LinkedIn</a></li>
-          <li><a href="https://bsky.app/profile/yakbrother.bsky.social">Bluesky</a></li>
-          <li><a href="mailto:tim@timeaton.dev">Email</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved.</p>
-    </div>
+    <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved. This design is built with <a href="https://astro.build">Astro</a>, and you are free to download and use my code for your own personal or commercial projects.</p>
   </div>
 </footer>
 
@@ -37,46 +18,8 @@
 
   .footer-content {
     max-width: var(--max-width);
+    color: var(--color-text-muted);
     margin: 0 auto;
     padding: 2rem var(--gap);
-  }
-
-  .columns {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-
-  .column ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .column li {
-    margin-bottom: 0.5rem;
-  }
-
-  .column a {
-    color: var(--color-text-base);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .column a:hover {
-    color: var(--color-accent);
-  }
-
-  .footer-bottom {
-    text-align: center;
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
-  }
-
-  @media (max-width: 640px) {
-    .columns {
-      flex-direction: column;
-      gap: 1rem;
-    }
   }
 </style>

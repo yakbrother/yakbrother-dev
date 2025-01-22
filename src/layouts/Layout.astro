@@ -13,27 +13,10 @@ const { title = CONFIG.site_title, description = CONFIG.description, image = "/o
 		<HeadContent title={title} description={description} image={image} />
 	</head>
 	<body>
-			<Header />
-			<main>
-				<slot/>
-      <main>
-			<Footer />
+		<Header />
+		<main>
+			<slot/>
 		</main>
-
-    <style is:global>
-      /*
-      nav {
-        padding: 1rem 0;
-        display: flex;
-        gap: 1rem;
-      }
-      nav a {
-        color: rgb(var(--accent));
-        text-decoration: none;
-      }
-      nav a:hover {
-        text-decoration: underline;
-      }\*/
-    </style>
-  </body>
+		<Footer />
+	</body>
 </html>

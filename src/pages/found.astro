@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseLayout from '@layouts/BaseLayout.astro';
+import Layout from '@layouts/Layout.astro';
 import LinkCard from '@components/LinkCard.astro';
 
 const posts = await getCollection('finds', ({ data }) => {
@@ -8,11 +8,11 @@ const posts = await getCollection('finds', ({ data }) => {
 });
 
 const sortedPosts = posts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf()
 );
 ---
 
-<BaseLayout 
+<Layout 
   title="TIL"
   description="Read the latest interesting things I learned on the interwebs."
 >
@@ -25,9 +25,10 @@ const sortedPosts = posts.sort(
           title={post.data.title}
           link={post.data.link}
           description={post.data.description}
-          type={post.data.category}
+          type={post.data.type}
+          publicationDate={post.data.publicationDate}
         />
       ))}
     </div>
   </div>
-</BaseLayout>
+</Layout>

@@ -91,11 +91,12 @@ const finds = (await getCollection('finds', ({ data }) => {
             <PostCard
                 title={post.data.title}
                 description={post.data.description}
-                date={post.data.pubDate}
+                publicationDate={post.data.publicationDate}
+                category={post.data.category}
                 slug={post.data.slug}
             />
         ))}
-        <div>
+        <div style="display: flex; align-items: center; justify-content: center;">
           <a href="/posts" class="button-primary">View all posts →</a>
         </div>
     </div>
@@ -116,13 +117,12 @@ const finds = (await getCollection('finds', ({ data }) => {
     </div>
 	</section>
 
-	<hr/>
   <style>
     .card {
       padding: 1rem;
-      background: var(--color-neutral-a40);
+      background: var(--color-card);
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(var(--border), 0.33);
+      box-shadow: 0 2px 8px rgba(var(--color-border), 0.33);
       text-decoration: none;
       color: inherit;
       transition: transform 0.2s ease;
@@ -132,6 +132,9 @@ const finds = (await getCollection('finds', ({ data }) => {
     }
     .card h3 {
       margin: 0;
+    }
+    .card:hover h3 {
+      color: var(--color-link);
     }
     .card p {
       margin: 0.5rem 0 0;
@@ -153,22 +156,6 @@ const finds = (await getCollection('finds', ({ data }) => {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 2rem;
         margin: 2rem 0;
-    }
-
-
-    .button-primary {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        border: 2px solid var(--color-button-border);
-        border-radius: 0.25rem;
-        font-weight: 500;
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-    }
-
-    .button-primary:hover {
-        background-color: var(--color-button-border);
-        color: var(--color-background);
     }
 
     /* ===== Hero Section ===== */
