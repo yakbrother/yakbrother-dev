@@ -5,6 +5,7 @@ import { formatDate } from '../../utils/date';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
+  
   return posts.map(post => ({
     params: { slug: post.slug },
     props: { post },
