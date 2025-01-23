@@ -1,33 +1,24 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { CONFIG } from "../config";
 
 let posts = await getCollection("posts");
 
-posts = posts.sort(
-  (a, b) =>
-    new Date(b.data.updated || b.data.added).valueOf() -
-    new Date(a.data.updated || a.data.added).valueOf()
-);
+posts = posts
+  .filter(post => post.data.public)
+  .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 
 export const GET = () =>
   rss({
-    title: SITE_TITLE || "",
-    description: SITE_DESCRIPTION || "",
-    site: import.meta.env.SITE,
-    items: posts.map((post) => {
-      return {
-        link: `/post/${post.data.slug}`,
-        title: post.data.title,
-        pubDate: post.data.added,
-        description: post.data.description,
-        content: post.rendered.html,
-        customData: `<updated>${
-          post.data.updated ? post.data.updated : ""
-        }</updated>`,
-      };
-    }),
-    stylesheet: "/rss-styles.xsl",
+    title: CONFIG.site_title,
+    description: CONFIG.description,
+    site: "https://glyptodon.dev",
+    items: posts.map((post) => ({
+      link: `/posts/${post.slug}`,
+      title: post.data.title,
+      description: post.data.description,
+      pubDate: post.data.publicationDate,
+    })),
   });
 
 // TODO: re design.
