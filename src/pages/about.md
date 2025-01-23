@@ -5,10 +5,6 @@ title: "About"
 description: "About Timothy Eaton - Developer and Designer"
 ---
 
-# About Me
-
-<hr/>
-
 Welcome! I created this site to showcase my work as I explore new opportunities in Switzerland, and to share my ongoing projects and thoughts about design and development. I've been a computer programmer since childhood, when my dad taught me how to build motherboards and play with MSDOS scripts and Visual Basic. Since then, I've worked as a professional developer for almost 20 years.
 
 Code has as almost mystical sense of fun for me, whether I'm designing something or helping someone else realize their idea. For this reason I keep ending up coding "the hard way". I like writing my own HTML, CSS, and Javascript, not using libraries or frameworks - and I like using Vim or Sublime Text (or Windows Notebook in the old days) instead of an IDE. I'm not a purist by any means - I just love a beautiful HTML document. There's something deeply satisfying about crafting clean, efficient code that works exactly as intended, without any extra layers.

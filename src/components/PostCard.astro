@@ -18,14 +18,16 @@ const formattedDate = date.toLocaleDateString('en-US', {
 ---
 
 <article class="post-card">
+  <a href={`/posts/${slug}`}>
   <div class="post-meta">
     <span class="category">{category}</span>
-    <time datetime={publicationDate}>{formattedDate}</time>
+    <time datetime={date.toISOString()}>{formattedDate}</time>
   </div>
   <h3 class="post-title">
-    <a href={`/posts/${slug}`}>{title}</a>
+    {title}
   </h3>
   <p class="post-description">{description}</p>
+  </a>
 </article>
 
 <style>
@@ -40,6 +42,11 @@ const formattedDate = date.toLocaleDateString('en-US', {
   .post-card:hover {
     transform: translateY(-2px);
     border: 1px solid var(--color-text-base);
+    
+  }
+
+  .post-card a:hover {
+    text-decoration: none;
   }
 
   .post-meta {
