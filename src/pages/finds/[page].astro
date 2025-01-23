@@ -1,14 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
+import type { GetStaticPathsOptions } from 'astro';
 import Layout from '../../layouts/Layout.astro';
 import LinkCard from '../../components/LinkCard.astro';
 import Pagination from '../../components/Pagination.astro';
 
-export async function getStaticPaths({ paginate }) {
-  const finds = (await getCollection('finds'))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const allFinds = await getCollection('finds');
   
-  return paginate(finds, { pageSize: 40 });
+  const finds = allFinds
+    .filter(find => find.data.public)
+    .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
+
+  const pages = paginate(finds, { pageSize: 40 });
+  
+  return pages;
 }
 
 const { page } = Astro.props;
@@ -22,10 +28,11 @@ const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found..
     <div class="finds-grid">
       {page.data.map((find) => (
         <LinkCard
+          type={find.data.type}
           title={find.data.title}
           description={find.data.description}
-          url={find.data.url}
-          date={find.data.pubDate}
+          link={find.data.link}
+          publicationDate={find.data.publicationDate}
         />
       ))}
     </div>
@@ -54,23 +61,9 @@ const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found..
 
   .finds-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  @media (max-width: 640px) {
-    .finds-container {
-      padding: 1rem;
-    }
-
-    h1 {
-      font-size: var(--step-3);
-    }
-
-    .finds-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-  }
 </style>
