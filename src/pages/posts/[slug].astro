@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { formatDate } from '../../utils/date';
-import { renderComponentToString } from 'astro/runtime/server/render/component.js';
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -19,7 +18,7 @@ const { Content } = await render(post);
 
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} description={post.data.description}>
   <article class="page-content">
     <header class="post-header">
       <h1>{post.data.title}</h1>

@@ -10,9 +10,9 @@ interface Props {
 const { title, description, publicationDate, category, slug } = Astro.props;
 
 const date = new Date(publicationDate);
-const formattedDate = date.toLocaleDateString('en-US', {
+const formattedDate = date.toLocaleDateString('en-UK', {
   year: 'numeric',
-  month: 'long',
+  month: 'short',
   day: 'numeric'
 });
 ---

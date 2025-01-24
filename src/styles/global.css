@@ -12,7 +12,7 @@
   --color-card-muted: #475f64;
   --color-border: #475f64;
   --color-button-primary: #a601fe;
-  --color-button-primary-hover: #a601fe;
+  --color-button-primary-hover: #001217;
   --color-button-border: #b2bcbe;
 
   --color-list-video: #c12b05;
@@ -176,6 +176,7 @@ main img {
 .button-primary:hover {
   background-color: var(--color-button-border);
   color: var(--color-button-primary-hover);
+  text-decoration: none;
 }
 
 h1,
@@ -185,7 +186,7 @@ h3 {
   font-weight: 700;
   margin: 0;
   line-height: 1.1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 h1 {
