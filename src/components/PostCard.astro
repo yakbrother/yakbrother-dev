@@ -33,8 +33,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 <style>
   .post-card {
     padding: 1.5rem;
-    margin-bottom: 2rem;
-    border: 1px solid var(--color-border);
+    border: 0;
     border-radius: 0.5rem;
     transition: transform 0.2s ease-in-out;
   }
@@ -42,7 +41,6 @@ const formattedDate = date.toLocaleDateString('en-US', {
   .post-card:hover {
     transform: translateY(-2px);
     border: 1px solid var(--color-text-base);
-    
   }
 
   .post-card a:hover {

@@ -1,6 +1,6 @@
 ---
 import "@styles/fonts.css";
-import "@styles/styles.css";
+import "@styles/global.css";
 
 import { CONFIG } from "../config";
 
@@ -11,7 +11,11 @@ const { title = CONFIG.site_title, description = CONFIG.description, image = "/o
 	<!-- Global Metadata -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="timeaton.dev" />
 	<link rel="manifest" href="/site.webmanifest" />
 	<meta name="theme-color" content="#ffe6d8" />
 	<meta name="generator" content={Astro.generator} />

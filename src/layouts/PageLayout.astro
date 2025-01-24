@@ -13,90 +13,10 @@ const { title, description, image } = Astro.props;
 
 <Layout title={title} description={description} image={image}>
   <article class="page-content">
-    <h1>{title}</h1>
-    <hr/>
+    {title && <h1>{title}</h1>}
+    {title && <hr/>}
     <slot />
   </article>
+
+
 </Layout>
-
-<style>
-  .page-content {
-    max-width: 65ch;
-    margin: 0 auto;
-    padding: var(--gap);
-  }
-
-  .page-content :global(h1) {
-    font-size: var(--step-4);
-    margin-bottom: var(--gap);
-  }
-
-  .page-content :global(h2) {
-    font-size: var(--step-2);
-    margin: 2em 0 1em;
-  }
-
-  .page-content :global(h3) {
-    font-size: var(--step-1);
-    margin: 1.5em 0 0.75em;
-  }
-
-  .page-content :global(p) {
-    margin-bottom: 1.5em;
-    line-height: 1.6;
-  }
-
-  .page-content :global(ul),
-  .page-content :global(ol) {
-    margin: 1em 0;
-    padding-left: 1.5em;
-  }
-
-  .page-content :global(li) {
-    margin-bottom: 0.5em;
-  }
-
-  .page-content :global(hr) {
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin: 2em 0;
-    width: 50%;
-  }
-
-  .page-content :global(blockquote) {
-    border-left: 3px solid var(--color-accent);
-    margin: 1.5em 0;
-    padding-left: 1em;
-    font-style: italic;
-    color: var(--color-text-muted);
-  }
-
-  .page-content :global(img) {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin: 1.5em 0;
-  }
-
-  .page-content :global(code) {
-    background: var(--color-card);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-size: 0.9em;
-    color: var(--color-text-base);
-  }
-
-  .page-content :global(pre) {
-    background: var(--color-card);
-    padding: 1em;
-    border-radius: 4px;
-    overflow-x: auto;
-    margin: 1.5em 0;
-  }
-
-  .page-content :global(pre code) {
-    background: none;
-    padding: 0;
-    font-size: var(--step--1);
-  }
-</style>

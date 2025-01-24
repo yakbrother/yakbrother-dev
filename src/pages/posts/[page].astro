@@ -18,8 +18,9 @@ const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${p
 ---
 
 <Layout title={pageTitle}>
-  <div class="posts-container">
+  <div class="page-content">
     <h1>Blog Posts</h1>
+    <hr/>
     
     <div class="posts-grid">
       {page.data.map((post) => (
@@ -33,7 +34,11 @@ const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${p
       ))}
     </div>
 
-    <Pagination page={page} />
+    <Pagination 
+      currentPage={page.currentPage} 
+      totalPages={page.lastPage} 
+      baseUrl="/posts/"
+    />
   </div>
 </Layout>
 
@@ -49,14 +54,14 @@ const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${p
     margin-bottom: 2rem;
   }
 
+  hr {
+    padding-bottom: var(--gap);
+  }
+
   .posts-grid {
     display: grid;
+    grid-template-columns: repeat(1fr);
     gap: 2rem;
   }
 
-  @media (min-width: 768px) {
-    .posts-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
 </style>

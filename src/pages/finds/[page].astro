@@ -22,8 +22,9 @@ const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found..
 ---
 
 <Layout title={pageTitle}>
-  <div class="finds-container">
+  <div class="page-content">
     <h1>Today I Found...</h1>
+    <hr/>
     
     <div class="finds-grid">
       {page.data.map((find) => (
@@ -56,8 +57,9 @@ const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found..
     font-size: var(--step-4);
     margin: 0 0 2rem;
     color: var(--color-text-base);
-    text-align: center;
+    width: 50%;
   }
+
 
   .finds-grid {
     display: grid;
