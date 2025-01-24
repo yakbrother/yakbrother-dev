@@ -1,5 +1,5 @@
 ---
-publicationDate: 2024-12-03
+publicationDate: 2024-01-22
 title: "How to load web fonts for the best page load performance"
 description: ""
 public: true

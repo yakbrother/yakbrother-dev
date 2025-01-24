@@ -3,7 +3,7 @@ title: Job Searchin' Blues
 author: Tim Eaton
 publicationDate: 2023-07-21T03:42:51Z
 slug: job-searchin-blues
-public: true;
+public: true
 description: Ain't got no money, ain't got no job...
 category: life
 ---
