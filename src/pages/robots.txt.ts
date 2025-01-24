@@ -1,10 +1,11 @@
 import type { APIRoute } from "astro";
+import { CONFIG } from "../config";
 
 const robots = `
 User-agent: *
 Allow: /
 
-Sitemap: https://glyptodon.dev/sitemap-index.xml
+Sitemap: ${CONFIG.site_url}/sitemap-index.xml
 `.trim();
 
 export const GET: APIRoute = () =>

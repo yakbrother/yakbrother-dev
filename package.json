@@ -1,6 +1,6 @@
 {
   "name": "glyptodon",
-  "version": "0.2.1",
+  "version": "1.0.1",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -10,10 +10,10 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.2",
+    "@astrojs/mdx": "^4.0.7",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.1.3",
+    "astro": "^5.1.9",
     "astro-embed": "^0.9.0",
     "astro-og-canvas": "^0.5.5"
   }

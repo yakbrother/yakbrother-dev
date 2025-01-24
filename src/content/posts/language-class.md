@@ -5,7 +5,7 @@ description: "How I accidentally told my language teacher I was a pregnant helic
 publicationDate: 2025-01-05
 category: "life"
 public: true
-author: "Glyptodon"
+author: "Tim Eaton"
 ---
 
 The problem with learning German is that one wrong syllable can transform you from a polite tourist into someone accidentally declaring war on Switzerland. My language teacher, Frau Schmidt, had the patience of a saint and the expression of someone watching a car crash in slow motion.

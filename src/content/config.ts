@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import { CONFIG } from "config";
 
 export const posts = defineCollection({
   type: "content",
@@ -9,7 +10,7 @@ export const posts = defineCollection({
     category: z.enum(["dev", "musings", "life"]),
     public: z.boolean().default(true),
     editDate: z.coerce.date().optional(),
-    author: z.string().default("Glyptodon"),
+    author: z.string().default(CONFIG.author),
     externalUrl: z.string().optional(),
   }),
 });

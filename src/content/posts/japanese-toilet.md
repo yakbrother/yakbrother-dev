@@ -5,7 +5,7 @@ description: "My first encounter with a Japanese smart toilet, and how I acciden
 publicationDate: 2025-01-02
 category: "life"
 public: true
-author: "Glyptodon"
+author: "Tim Eaton"
 ---
 
 The toilet in my Tokyo hotel room had more buttons than a space shuttle. There was a control panel on the side with symbols that looked like hieroglyphics designed by a committee of drunk robots. One button had what appeared to be a musical note being struck by lightning – was this for emergency karaoke situations?

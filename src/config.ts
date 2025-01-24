@@ -9,6 +9,7 @@ export const PATHS = {
 
 export const CONFIG = {
   site_title: "Timothy Eaton | Full-stack Developer",
+  site_url: "https://www.timeaton.dev",
   author: "Tim Eaton",
   email: "tim@timeaton.dev",
   description:

@@ -5,7 +5,7 @@ description: "That time I tried to explain why I had a rubber chicken in my carr
 publicationDate: 2025-01-03
 category: "life"
 public: true
-author: "Glyptodon"
+author: "Tim Eaton"
 ---
 
 The TSA agent held up my carry-on bag, which contained what I thought was a perfectly reasonable art installation: three rubber ducks, a vintage toaster, and a copy of Richard Nixon's autobiography connected by yarn. "Sir," she said with the weary tone of someone who's seen everything but still manages to be surprised, "what exactly is this?"

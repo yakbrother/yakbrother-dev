@@ -5,7 +5,7 @@ description: "How I managed to offend three generations with one mistranslated c
 publicationDate: 2025-01-01
 category: "life"
 public: true
-author: "Glyptodon"
+author: "Tim Eaton"
 ---
 
 My mother approached Thanksgiving dinner the way some people approach defusing bombs: with a mixture of precision, terror, and the persistent feeling that everything could explode at any moment. The turkey was less a meal than a yearly referendum on our family's stability.
