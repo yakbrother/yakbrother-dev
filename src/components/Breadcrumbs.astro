@@ -1,0 +1,65 @@
+---
+interface Props {
+  path: string[];
+}
+
+const { path } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol>
+    <li><a href="/">Home</a></li>
+    {path.map((item, index) => (
+      <li>
+        {index === path.length - 1 ? (
+          <span aria-current="page">{item}</span>
+        ) : (
+          <a href={`/${path.slice(0, index + 1).join('/')}`}>{item.charAt(0).toUpperCase() + item.slice(1)}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    margin: 1rem 0 2rem;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: "/";
+    margin-left: 0.5rem;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  .breadcrumbs [aria-current="page"] {
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+</style>

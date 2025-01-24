@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { formatDate } from '../../utils/date';
 import { render } from 'astro:content';
 
@@ -20,6 +21,7 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title} description={post.data.description}>
   <article class="page-content">
+    <Breadcrumbs path={['posts', post.data.title]} />
     <header class="post-header">
       <h1>{post.data.title}</h1>
       <hr/>
