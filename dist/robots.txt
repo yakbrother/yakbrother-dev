@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://glyptodon.dev/sitemap-index.xml
+Sitemap: https://www.timeaton.dev/sitemap-index.xml
