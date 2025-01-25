@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import type { GetStaticPathsOptions } from 'astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Layout from '../../layouts/Layout.astro';
 import PostCard from '../../components/PostCard.astro';
 import Pagination from '../../components/Pagination.astro';
@@ -19,6 +20,7 @@ const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${p
 
 <Layout title={pageTitle}>
   <div class="page-content">
+    <Breadcrumbs path={['posts']} />
     <h1>Blog Posts</h1>
     <hr/>
     

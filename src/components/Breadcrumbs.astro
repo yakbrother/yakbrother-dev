@@ -4,6 +4,10 @@ interface Props {
 }
 
 const { path } = Astro.props;
+
+function ucFirst(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 ---
 
 <nav aria-label="Breadcrumb" class="breadcrumbs">
@@ -12,9 +16,9 @@ const { path } = Astro.props;
     {path.map((item, index) => (
       <li>
         {index === path.length - 1 ? (
-          <span aria-current="page">{item}</span>
+          <span aria-current="page">{ucFirst(item)}</span>
         ) : (
-          <a href={`/${path.slice(0, index + 1).join('/')}`}>{item.charAt(0).toUpperCase() + item.slice(1)}</a>
+          <a href={`/${path.slice(0, index + 1).join('/')}`}>{ucFirst(item)}</a>
         )}
       </li>
     ))}
