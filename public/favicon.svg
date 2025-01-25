@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1115)"><rect width="1000" height="1000" fill="#000000"></rect><g transform="matrix(29.166666666666668,0,0,29.166666666666668,150,150)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <style>
-    svg { color: #001217; }
+    svg { color: #ffffff; }
     @media (prefers-color-scheme: dark) {
       svg { color: #d5e6f0; }
     }
