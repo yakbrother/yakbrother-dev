@@ -6,6 +6,7 @@ import { CONFIG } from "config";
 
 export enum PostType {
   dev = "dev",
+  design = "design",
   musings = "musings",
   life = "life",
 }
