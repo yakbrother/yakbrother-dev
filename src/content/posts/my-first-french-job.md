@@ -1,5 +1,5 @@
 ---
-description: Part-time teaching
+description: Starting a part-time job as a teacher in Paris.
 title: My First French Job
 author: Tim Eaton
 publicationDate: 2023-11-11T03:42:51Z
