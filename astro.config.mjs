@@ -10,12 +10,7 @@ export default defineConfig({
   site: "https://www.timeaton.dev/",
   author: "Tim Eaton",
   base: "/",
-  integrations: [
-    sitemap(),
-    mdx(),
-    expressiveCode(),
-    playformCompress(),
-  ],
+  integrations: [sitemap(), expressiveCode(), mdx(), playformCompress()],
   markdown: {
     shikiConfig: {
       theme: "material-theme-darker",
