@@ -47,6 +47,17 @@ const finds = (await getCollection('finds', ({ data }) => {
 
     <hr />
 
+    <section id="recent-work">
+        <h2 class="solway-regular">Recent work</h2>
+          <ul>
+              <li>Consulting on design and digital strategy with <a href="https://www.transcontinentalfreedom.org">Trans Continental Freedom.</a></li>
+              <li>Designing <a href="https://astro.build/themes/details/glyptodon/">Glyptodon</a>, an open source theme for Astro based on this site.</li>
+
+          </ul>
+        </section>
+        
+    <hr />
+
     <section id="skills">
         <h2 class="solway-regular">Skills</h2>
           <ul class="pill-list">
@@ -231,6 +242,7 @@ const finds = (await getCollection('finds', ({ data }) => {
     /* ===== Featured & Recent Posts Sections ===== */
     #featured,
     #skills,
+    #recent-work,
     #cases,
     #til,
     #recent-posts {
@@ -239,6 +251,7 @@ const finds = (await getCollection('finds', ({ data }) => {
     }
 
     #featured h2,
+    #recent-work h2,
     #skills h2,
     #cases h2,
     #til h2,
