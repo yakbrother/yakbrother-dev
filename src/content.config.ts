@@ -15,6 +15,7 @@ export enum FoundType {
   video = "video",
   article = "article",
   book = "book",
+  tool = "tool",
   website = "website",
 }
 

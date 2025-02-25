@@ -14,4 +14,4 @@ Code has as almost mystical sense of fun for me, whether I'm designing something
 
 Beyond coding, both music and travel shape my life. I love making friends across cultures and learning their stories, especially when it involves playing my mandolin or ukulele around a campfire with new friends. This love of different perspectives eventually led me to Switzerland, where I now live with my brilliant wife - and two cats (whose evil-to-cuteness ratio fluctuates dramatically from moment to moment).
 
-I'm always open to chat with other programmers, designers, and musicians. If you happen to live in the Nyon/Lausanne area, and would like to meet up, I'd be happy to make a new friend! Email me at <a href="mailto:tim@timeaton.dev">tim@timeaton.dev</a>.
+I'm always open to chat with other programmers, designers, and musicians. If you happen to live in the Nyon/Lausanne area, and would like to meet up, I'd be happy to make a new friend! Email me at <a href="mailto:hello@timeaton.dev">hello@timeaton.dev</a>.
