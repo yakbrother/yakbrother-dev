@@ -166,6 +166,12 @@ main img {
   margin-bottom: 1rem;
 }
 
+figcaption {
+  font-size: var(--step--1);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
 .button-primary {
   display: inline-block;
   padding: 0.5rem 1rem;
