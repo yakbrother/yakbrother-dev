@@ -1,5 +1,5 @@
 ---
-title: Responsive Typography with CSS Clamps - My Current Approach.
+title: Responsive Typography with CSS Clamps - My Current Approach
 author: Tim Eaton
 publicationDate: 2025-03-24T03:42:51Z
 slug: fluid-font-size
