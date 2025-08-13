@@ -4,13 +4,11 @@ import mdx from "@astrojs/mdx";
 
 import expressiveCode from "astro-expressive-code";
 
-import playformCompress from "@playform/compress";
-
 export default defineConfig({
   site: "https://www.timeaton.dev/",
   author: "Tim Eaton",
   base: "/",
-  integrations: [sitemap(), expressiveCode(), mdx(), playformCompress()],
+  integrations: [sitemap(), expressiveCode(), mdx()],
   markdown: {
     shikiConfig: {
       theme: "material-theme-darker",
