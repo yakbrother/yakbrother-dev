@@ -12,7 +12,7 @@ category: dev
 If you haven't learned about Bento Box Design yet, it's a newer trend for displaying information in a compact and fun (and delicious) way. It's based on the design of Japanese lunches, split into divided squares and rectangles for the different ingredients.
 
 <figure>
-    <img src="/assets/bento-food.jpg" alt="Bento Box Example">
+    <img src="/bento-food.jpg" alt="Bento Box Example">
     <figcaption>Example of a Bento Box by <a href="https://unsplash.com/@kofookoo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">kofookoo.de</a> on <a href="https://unsplash.com/photos/red-and-green-ceramic-bowls-on-brown-wooden-tray-UQE3rtWMfV4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
       </figcaption>
 </figure>
@@ -20,7 +20,7 @@ If you haven't learned about Bento Box Design yet, it's a newer trend for displa
 If you haven't already, I recommend checking out the [bentobox](https://bentobox.com/). It's a gorgeous gallery of Bento Box Designs around the web?
 
 <figure>
-    <img src="/assets/bento-design.jpg" alt="Bento Box Example on the internet">
+    <img src="/bento-design.jpg" alt="Bento Box Example on the internet">
     <figcaption>Example of an unused bento box design for the web
       </figcaption>
 </figure>

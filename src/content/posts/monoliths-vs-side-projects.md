@@ -15,7 +15,6 @@ Refactoring such a big program into Laravel was actually quite fun. My team ofte
 
 Recently, I created a Laravel project from scratch - the first new one I had started in a while - and decided to use Inertia and Vue for the front end. I called the site “the Marx Dormoy Chess Club”, for a fictional organisation in my neighbourhood.
 
-![MDCC website](/assets/images/posts/mdcc-screenshot-1.png)
 
 Now this was fun! I was amazed how quickly and easily Inertia came together (I had never built a site with it), and I found writing quick templates in Vue to be more intuitive than React.
 
