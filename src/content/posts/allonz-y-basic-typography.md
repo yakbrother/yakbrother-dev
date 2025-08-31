@@ -1,5 +1,5 @@
 ---
-title: Allonz-Y - Basic CSS Typography
+title: Allons-Y - Basic CSS Typography
 author: Tim Eaton
 publicationDate: 2023-05-14T03:42:51Z
 slug: allonz-y-basic-typography
@@ -8,6 +8,8 @@ public: true
 description: A few notes on starting my first UI framework.
 category: dev
 ---
+
+<b>UPDATE 01/09/2025</b>: this has changed drastically - I will post about the new version later.
 
 Part of me appreciates Tailwind CSS. It’s easy to use, especially for layouts, but I think that “utility” approaches to CSS are a bit much sometimes. This is especially the case in rendering dynamic content - such as a blog or user-edited pages.
 
