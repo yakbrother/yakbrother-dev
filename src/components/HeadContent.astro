@@ -50,5 +50,34 @@ const { title = CONFIG.site_title, description = CONFIG.description } = Astro.pr
 
 	<!-- Sitemap -->
 	<link rel="sitemap" href="/sitemap-index.xml" />
+
+	<!-- Structured Data: BlogPosting -->
+	<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": "{title}",
+	"description": "{description}",
+	"image": [
+		"{image ? image : '/og-default.jpg'}"
+	],
+	"author": {
+		"@type": "Person",
+		"name": "Tim Eaton"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": "timeaton.dev",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "/favicon-96x96.png"
+		}
+	},
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "{Astro.url}"
+	}
+}
+	</script>
 	
 </head>
