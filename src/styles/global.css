@@ -1,3 +1,4 @@
+/* Dark theme (default) */
 :root {
   color-scheme: light dark;
 
@@ -24,7 +25,7 @@
   --color-link: #b26acd;
   --color-link-bg: #475f64;
 
-  /* Generated at https://colorffy.com/mesh-gradient-generator?colors=001217-002027-002E36-003C45-004954 */
+  /* Generated at https://colorffy.com/mesh-gradient-generator */
   --background-gradient: radial-gradient(
       at 51% 61%,
       #001217 0px,
@@ -36,38 +37,38 @@
     radial-gradient(at 35% 98%, #004954 0px, transparent 50%) #000000;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    /* https://colorffy.com/color-scheme-generator */
-    --color-background: #d5e6f0;
-    --color-text-base: #4f5559;
-    --color-text-muted: #5c6359;
-    --color-accent: #ff1493;
-    --color-card: #aec2cd;
-    --color-card-muted: #a4b1bb;
-    --color-border: #4f5559;
+/* Light theme */
+:root.light {
+  --color-background: #d5e6f0;
+  --color-text-base: #4f5559;
+  --color-text-muted: #5c6359;
+  --color-accent: #ff1493;
+  --color-card: #aec2cd;
+  --color-card-muted: #a4b1bb;
+  --color-border: #4f5559;
+  --color-button-border: #968f95;
+  --color-button-primary: #a601fe;
+  --color-button-primary-hover: #d68cff;
+  --color-button-border: #6f6f6e;
 
-    --color-button-border: #968f95;
+  --color-list-video: #c12b05;
+  --color-list-article: #f47d3c;
+  --color-list-website: #a601fe;
+  --color-list-book: #64901a;
+  --color-list-tool: #4a9eff;
 
-    --color-button-primary: #a601fe;
-    --color-button-primary-hover: #d68cff;
-    --color-button-border: #6f6f6e;
+  --color-link: #b26acd;
+  --color-link-bg: #e0ecf4;
 
-    --color-list-video: #c12b05;
-    --color-list-article: #f47d3c;
-    --color-list-website: #a601fe;
-    --color-list-book: #64901a;
-    --color-list-tool: #4a9eff;
-
-    --color-link: #b26acd;
-    --color-link-bg: #e0ecf4;
-
-    /* Generated at https://colorffy.com/mesh-gradient-generator?colors=001217-002027-002E36-003C45-004954 */
-    --background-gradient: radial-gradient(
-        at 51% 61%,
-        #d2e3f0 0px,
-        transparent 50%
-      ),
+  --background-gradient: radial-gradient(
+      at 51% 61%,
+      #d2e3f0 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 23% 11%, #e0ecf4 0px, transparent 50%),
+    radial-gradient(at 77% 9%, #f0f7fa 0px, transparent 50%),
+    radial-gradient(at 42% 2%, #ffffff 0px, transparent 50%),
+    radial-gradient(at 35% 98%, #d5e6f0 0px, transparent 50%) #ffffff;
       radial-gradient(at 23% 11%, #c1d9e9 0px, transparent 50%),
       radial-gradient(at 77% 9%, #aed0e2 0px, transparent 50%),
       radial-gradient(at 42% 2%, #9ab7d9 0px, transparent 50%),
