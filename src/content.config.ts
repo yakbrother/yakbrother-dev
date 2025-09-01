@@ -39,7 +39,7 @@ const finds = defineCollection({
   schema: z.object({
     title: z.string(),
     link: z.string(),
-    description: z.string(),
+    description: z.string().nullable().optional(),
     type: z.nativeEnum(FoundType),
     publicationDate: z.coerce.date(),
     public: z.boolean().default(true),

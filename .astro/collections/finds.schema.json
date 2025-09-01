@@ -11,7 +11,10 @@
           "type": "string"
         },
         "description": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "type": {
           "type": "string",
@@ -50,7 +53,6 @@
       "required": [
         "title",
         "link",
-        "description",
         "type",
         "publicationDate"
       ],
