@@ -1,23 +1,105 @@
-@font-face {
-  font-family: "Radio Canada";
-  src: url(/fonts/radiocanada-webfont.woff);
-  font-display: swap;
+/* Font Families */
+
+/* Radio Canada Variable Font */
+.radio-canada-light {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
-@font-face {
-  font-family: "Solway";
-  src: url(/fonts/solway-bold-webfont.woff);
-  font-display: swap;
+.radio-canada-regular {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
-.solway-regular {
-  font-family: "Solway", Georgia, "Times New Roman", Times, serif;
+.radio-canada-medium {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.radio-canada-semibold {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.radio-canada-bold {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* Miriam Libre Variable Font */
+.miriam-libre-regular {
+  font-family: "Miriam Libre", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.miriam-libre-bold {
+  font-family: "Miriam Libre", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
 
-html,
-.radio-canada {
+/* Fira Code Variable Font */
+.fira-code-light {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.fira-code-regular {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fira-code-medium {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.fira-code-semibold {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.fira-code-bold {
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Default body font */
+html {
+  font-family: "Radio Canada", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
   font-family: "Radio Canada", "Trebuchet MS", Helvetica, Arial, sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
