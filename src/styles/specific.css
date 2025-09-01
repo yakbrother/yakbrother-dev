@@ -3,6 +3,8 @@
 }
 
 .hero-region h1 {
+  font-family: "Miriam Libre", sans-serif;
+  font-weight: 700;
   font-size: var(--size-step-7);
   line-height: var(--leading-flat);
   margin-block-end: var(--region-space);
