@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Uses";
+const description = "Software, hardware, and tools I use daily.";
+---
+
+<Layout title={title} description={description}>
+  <article class="page-content">
+    <h1>{title}</h1>
+    <p class="lead">{description}</p>
+
+    <section>
+      <h2>Development</h2>
+      <ul>
+        <li><strong>Editor:</strong> VS Code with GitHub theme</li>
+        <li><strong>Terminal:</strong> iTerm2 with Oh My Zsh</li>
+        <li><strong>Font:</strong> Fira Code for coding</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Hardware</h2>
+      <ul>
+        <li><strong>Computer:</strong> Your main computer</li>
+        <li><strong>Display:</strong> Your monitor setup</li>
+        <li><strong>Keyboard:</strong> Your keyboard</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Software</h2>
+      <ul>
+        <li><strong>Browser:</strong> Your preferred browser</li>
+        <li><strong>Design:</strong> Your design tools</li>
+        <li><strong>Notes:</strong> Your note-taking app</li>
+      </ul>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  section {
+    margin-top: var(--space-xl);
+  }
+
+  .lead {
+    font-size: var(--size-step-1);
+    margin-bottom: var(--space-l);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: var(--space-s);
+  }
+
+  strong {
+    color: var(--color-text-muted);
+  }
+</style>

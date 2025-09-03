@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* Base fonts */
+  --font-body: "Radio Canada", sans-serif;
+  --font-heading: "Miriam Libre", sans-serif;
+  --font-code: "Fira Code", monospace;
+}
+
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
@@ -35,7 +42,7 @@ ul[role="list"] {
 }
 
 body {
-  font-family: "Radio Canada", sans-serif;
+  font-family: var(--font-body);
   font-optical-sizing: auto;
   font-weight: 400;
   font-variation-settings: "wdth" 100;
@@ -44,58 +51,71 @@ body {
 }
 
 /* Heading Styles */
-h1 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: 3rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(
+    --font-heading
+  ) !important; /* Ensure Miriam Libre is always used */
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.1;
 }
 
 h2 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
+  font-size: clamp(2rem, 4vw, 2.75rem);
 }
 
 h3 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
 }
 
-h4, h5, h6 {
-  font-family: "Miriam Libre", sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
+h4 {
+  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+}
+
+h5 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+h6 {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
 }
 
 /* Code Styles */
-pre, code {
-  font-family: "Fira Code", monospace;
+pre,
+code {
+  font-family: var(--font-code);
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 /* Text Styles */
-em, i {
+em,
+i {
   font-style: italic;
 }
 
-strong, b {
-  font-family: "Radio Canada", sans-serif;
+strong,
+b {
+  font-family: var(--font-body);
   font-weight: 600;
 }
 
 /* Combined styles */
-strong em, em strong, 
-b i, i b {
+strong em,
+em strong,
+b i,
+i b {
   font-weight: 600;
   font-style: italic;
 }
@@ -155,17 +175,29 @@ textarea:not([rows]) {
 }
 
 :root {
+  --bg-light: radial-gradient(
+    circle at 50% 50%,
+    #f3f0ff,
+    #f1ecff,
+    #efe7ff,
+    #eee3ff,
+    #eedeff,
+    #edd9ff,
+    #edd4ff,
+    #eecfff
+  );
+
   --color-accent: currentColor;
   --color-disabled: var(--color-mid);
-  --color-light: #fefbf6;
+  --color-light: #F7F2FF;
   --color-light-shade: #d4d1cd;
-  --color-dark: #2b2b2b;
-  --color-dark-glare: #4b4a49;
-  --color-mid: #6a6968;
-  --color-mid-shade: #a6a5a4;
-  --color-primary: #e01616;
-  --color-primary-glare: #e64443;
-  --color-primary-shade: #bc1a1a;
+  --color-dark: #1c242a;
+  --color-dark-glare: #3b5263;
+  --color-mid: #466378;
+  --color-mid-shade: #c4bcd0;
+  --color-primary: #f0e6ff;
+  --color-primary-glare: #f0e6ff;
+  --color-primary-shade: #c4bcd0;
   --color-global-bg: var(--color-light);
   --color-global-link-color: currentColor;
   --color-global-text: var(--color-dark);
@@ -179,9 +211,9 @@ textarea:not([rows]) {
   --heading-line-height: var(--leading-fine);
   --heading-font-family: var(--font-display);
   --heading-font-weight: var(--font-medium);
-  --font-base: "Saans", system-ui, sans-serif;
-  --font-display: "HafferMedium", system-ui, sans-serif;
-  --font-statement: "HafferXH", system-ui, sans-serif;
+  --font-base: "Radio Canada", system-ui, sans-serif;
+  --font-display: "Miriam Libre", system-ui, sans-serif;
+  --font-statement: "Fira Code", system-ui, sans-serif;
   --font-mono: inherit;
   --font-normal: 400;
   --font-medium: 500;
@@ -371,14 +403,14 @@ textarea:not([rows]) {
 }
 
 main {
-  background: var(--color-light);
+  background: var(--button-gap);
   position: relative;
   transform: translateZ(0);
   z-index: 1;
 }
 
 body {
-  background: var(--color-global-bg);
+  background: background: radial-gradient(circle at 57% 115%, #f0e6ff , #f5edff , #f7f2ff );
   color: var(--color-global-text);
   container-type: inline-size;
   font-family: var(--font-base);

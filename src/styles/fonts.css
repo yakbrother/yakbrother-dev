@@ -94,7 +94,7 @@
 
 /* Default body font */
 html {
-  font-family: "Radio Canada", sans-serif;
+  font-family: "Radio Canada", "Trebuchet MS", Helvetica, Arial, sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;

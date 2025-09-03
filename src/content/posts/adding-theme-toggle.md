@@ -19,7 +19,7 @@ First, I created a new component `ThemeToggle.astro` that includes both the togg
 const { class: className } = Astro.props;
 ---
 
-<button 
+<button
   id="theme-toggle"
   class={`theme-toggle ${className || ''}`}
   title="Toggle dark/light mode"
@@ -37,28 +37,31 @@ The JavaScript handles theme persistence and switching:
 
 ```javascript
 const theme = (() => {
-  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-    return localStorage.getItem('theme');
+  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+    return localStorage.getItem("theme");
   }
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
   }
-  return 'light';
+  return "light";
 })();
 
-if (theme === 'light') {
-  document.documentElement.classList.remove('dark');
+if (theme === "light") {
+  document.documentElement.classList.remove("dark");
 } else {
-  document.documentElement.classList.add('dark');
+  document.documentElement.classList.add("dark");
 }
 
-window.localStorage.setItem('theme', theme);
+window.localStorage.setItem("theme", theme);
 
 const handleToggleClick = () => {
   const element = document.documentElement;
-  element.classList.toggle('dark');
-  localStorage.setItem('theme', element.classList.contains('dark') ? 'dark' : 'light');
-}
+  element.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    element.classList.contains("dark") ? "dark" : "light",
+  );
+};
 ```
 
 ## Styling
@@ -104,4 +107,4 @@ Finally, I added the toggle to the site header:
 
 The theme toggle uses a custom SVG icon that rotates smoothly between dark and light modes, providing a delightful user experience while maintaining accessibility with proper ARIA labels and keyboard navigation.
 
-*Updated: 2025-09-02*
+_Updated: 2025-09-02_

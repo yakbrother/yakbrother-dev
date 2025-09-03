@@ -30,9 +30,12 @@ Here's how to use these fonts in your Astro project:
 1. Add Google Fonts links to your head:
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Miriam+Libre:wght@400..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Miriam+Libre:wght@400..700&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 2. Create utility classes for different weights:
@@ -74,4 +77,4 @@ Here's how to use these fonts in your Astro project:
 
 The fonts are now being served by Google Fonts, which means they'll be fast, reliable, and automatically optimized for different devices and browsers.
 
-*Updated: 2025-09-02*
+_Updated: 2025-09-02_

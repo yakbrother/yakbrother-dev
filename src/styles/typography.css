@@ -42,7 +42,8 @@ h4 {
   margin-bottom: 0.5em;
 }
 
-h5, h6 {
+h5,
+h6 {
   font-family: "Miriam Libre", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
@@ -51,27 +52,32 @@ h5, h6 {
 }
 
 /* Code Elements */
-pre, code {
+pre,
+code {
   font-family: "Fira Code", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-feature-settings: "liga" 1;  /* Enable ligatures */
+  font-feature-settings: "liga" 1; /* Enable ligatures */
 }
 
 /* Emphasis and Strong */
-em, i {
+em,
+i {
   font-style: italic;
 }
 
-strong, b {
+strong,
+b {
   font-family: "Radio Canada", sans-serif;
   font-weight: 600;
 }
 
 /* Combined emphasis */
-strong em, em strong, 
-b i, i b {
+strong em,
+em strong,
+b i,
+i b {
   font-weight: 600;
   font-style: italic;
 }
