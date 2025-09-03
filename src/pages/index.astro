@@ -4,8 +4,6 @@ import { getCollection } from 'astro:content';
 import LinkCard from '../components/LinkCard.astro';
 import PostCard from '../components/PostCard.astro';
 import { Image } from 'astro:assets';
-import avatar from '../assets/timeaton.jpg';
-
 const posts = (await getCollection('posts', ({ data }) => {
     return data.public !== false;
 }))
@@ -22,7 +20,10 @@ const finds = (await getCollection('finds', ({ data }) => {
 <Layout title="Home">
  	<section id="hero">
       <div id="hero-title">
-        <Image src={avatar} alt="Avatar for Tim Eaton" />
+        <picture>
+          <source srcset="/tim_avatar.webp" type="image/webp">
+          <img src="/tim_avatar.jpg" alt="Avatar for Tim Eaton" width="200" height="200" loading="lazy">
+        </picture>
         <div style="font-weight: 500;">
             <h1 class="solway-regular" style="margin:0;">Timothy Eaton</h1>
             <div id="subtitle">He/Him | Senior Full-Stack Developer | Nyon, Switzerland</div>

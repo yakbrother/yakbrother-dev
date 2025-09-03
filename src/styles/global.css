@@ -36,6 +36,12 @@ p {
   margin-block-end: 0;
 }
 
+blockquote,
+p,
+li {
+  max-width: 55em;
+}
+
 ol[role="list"],
 ul[role="list"] {
   list-style: none;
@@ -175,6 +181,12 @@ textarea:not([rows]) {
 }
 
 :root {
+  --bg-light-alt: radial-gradient(
+    circle at 57% 115%,
+    #f0e6ff,
+    #f5edff,
+    #f7f2ff
+  );
   --bg-light: radial-gradient(
     circle at 50% 50%,
     #f3f0ff,
@@ -187,9 +199,9 @@ textarea:not([rows]) {
     #eecfff
   );
 
-  --color-accent: currentColor;
+  --color-accent: #3267b5;
   --color-disabled: var(--color-mid);
-  --color-light: #F7F2FF;
+  --color-light: #f7f2ff;
   --color-light-shade: #d4d1cd;
   --color-dark: #1c242a;
   --color-dark-glare: #3b5263;
@@ -407,18 +419,6 @@ main {
   position: relative;
   transform: translateZ(0);
   z-index: 1;
-}
-
-body {
-  background: background: radial-gradient(circle at 57% 115%, #f0e6ff , #f5edff , #f7f2ff );
-  color: var(--color-global-text);
-  container-type: inline-size;
-  font-family: var(--font-base);
-  font-size: var(--text-size-base);
-  font-size-adjust: from-font;
-  letter-spacing: var(--kerning);
-  line-height: var(--leading);
-  margin: 0;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
