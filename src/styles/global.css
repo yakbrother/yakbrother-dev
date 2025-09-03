@@ -40,6 +40,7 @@ blockquote,
 p,
 li {
   max-width: 55em;
+  font-size: var(--text-size-prose);
 }
 
 ol[role="list"],
