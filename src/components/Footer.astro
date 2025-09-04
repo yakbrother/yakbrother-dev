@@ -1,5 +1,5 @@
 <footer>
-  <div class="footer-content">
+  <div class="footer-content flow">
     <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved. This design is built with <a href="https://astro.build">Astro</a>, and you are free to <a href="https://github.com/yakbrother/glyptodon">download</a> and use my code for your own personal or commercial projects.</p>
   </div>
 </footer>
@@ -9,22 +9,14 @@
     margin-top: auto;
     width: 100%;
     min-height: 200px;
-    background-image: url("/svg/footer-dark.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--color-primary);
+    color: var(--color-light);
     border-top: 1px solid var(--color-border);
-  }
-
-  @media (prefers-color-scheme: light) {
-    footer {
-      background-image: url("/svg/footer-light.svg");
-    }
   }
 
   .footer-content {
     max-width: var(--max-width);
-    color: var(--color-text-muted);
+    color: var(--color-light);
     margin: 0 auto;
     padding: 2rem var(--gap);
   }

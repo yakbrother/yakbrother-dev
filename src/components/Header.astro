@@ -8,18 +8,9 @@ const { activeNav } = Astro.props;
 
 <header class="header">
       <div class="logo">
-        <a href="/" id="home">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M18 12c0-3.3-2.7-6-6-6s-6 2.7-6 6"/>
-            <path d="M15 9c0-1.7-1.3-3-3-3S9 7.3 9 9"/>
-            <path d="M21 12c0-5-4-9-9-9s-9 4-9 9"/>
-            <path d="M15.5 15.5l2 2"/>
-            <path d="M8.5 15.5l-2 2"/>
-            <path d="M12 15v3"/>
-          </svg>
-          <span>&gt;&nbsp;Home</span>
-        </a>
+        <h1><a href="/" id="home">
+          <span>Home</span>
+        </a></h1>
       </div>
       <nav class="nav">
         <ul class="menu">
@@ -102,20 +93,11 @@ const { activeNav } = Astro.props;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--color-background);
-        color: var(--color-text-base);
-        box-shadow: 2px 9px 24px 0px rgba(0,0,0,0.5);
-        -webkit-box-shadow: 2px 9px 24px 0px rgba(0,0,0,0.5);
-        -moz-box-shadow: 2px 9px 24px 0px rgba(0,0,0,0.5);
+        background-color: var(--color-accent);
+        color: var(--color-light);
         padding: 10px 20px;
         z-index: 1000;
         border-bottom: 2px solid var(--color-border); 
-      }
-
-      .logo {
-        display: flex;
-        align-items: center;
-        color: var(--color-text-base);
       }
 
       .logo a {
@@ -127,17 +109,6 @@ const { activeNav } = Astro.props;
 
       .logo #home:hover {
         color: var(--color-link);
-      }
-
-      .logo svg {
-        width: 24px;
-        height: 24px;
-        margin-bottom: -2px;
-      }
-
-      .logo svg path,
-      .logo svg circle {
-        stroke: currentColor;
       }
 
       .logo #home {

@@ -145,10 +145,6 @@
   padding-block-end: var(--space-xs);
 }
 
-.features-region : is(ul,ol) {
-  margin-block: 0;
-}
-
 .features-region :is(li, p) {
   font-size: var(--size-step--1);
 }
@@ -691,7 +687,6 @@
 .navigation a,
 .navigation li {
   display: block;
-  text-box: trim-both cap alphabetic;
   font-family: var(--font-display);
   font-size: var(--size-step--3);
   font-weight: var(--font-medium);

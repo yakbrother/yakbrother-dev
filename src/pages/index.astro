@@ -18,14 +18,14 @@ const finds = (await getCollection('finds', ({ data }) => {
 ---
 
 <Layout title="Home">
- 	<section id="hero">
+ 	<section id="hero flow">
       <div id="hero-title">
         <picture>
           <source srcset="/tim_avatar.webp" type="image/webp">
           <img src="/tim_avatar.jpg" alt="Avatar for Tim Eaton" width="200" height="200" loading="lazy" class="avatar-image">
         </picture>
         <div style="font-weight: 500;">
-            <h1 class="solway-regular" style="margin:0;">Timothy Eaton</h1>
+            <h1 style="margin:0;">Timothy Eaton</h1>
             <div id="subtitle">He/Him | Senior Full-Stack Developer | Nyon, Switzerland</div>
         </div>
       </div>
@@ -55,7 +55,7 @@ const finds = (await getCollection('finds', ({ data }) => {
     <hr />
 
     <section id="recent-work">
-        <h2 class="solway-regular">Recent work</h2>
+        <h2>Recent work</h2>
           <ul>
               <li>Working with Ranova.ai in Python and Typescript - on the data pipeline, app, and API sides.</li>
 	      <li>Designing a (secret) Swift-based Mac app.</li>
@@ -71,7 +71,7 @@ const finds = (await getCollection('finds', ({ data }) => {
     <hr />
 
     <section id="skills">
-        <h2 class="solway-regular">Skills</h2>
+        <h2>Skills</h2>
           <ul class="pill-list">
               <li>PHP</li>
               <li>Javascript</li>
@@ -114,7 +114,7 @@ const finds = (await getCollection('finds', ({ data }) => {
  -->
 
   <section id="recent-posts" class="posts-section">
-    <h2 class="solway-regular">Latest Posts</h2>
+    <h2>Latest Posts</h2>
     <div class="posts-grid">
         {posts.map(post => (
             <PostCard
@@ -133,7 +133,7 @@ const finds = (await getCollection('finds', ({ data }) => {
 
   <hr />
   <section id="finds">
-    <h2 class="solway-regular">Today I Found...</h2>
+    <h2>Today I Found...</h2>
       <div class="finds-box">
     		{finds.map(entry => (
         <LinkCard
