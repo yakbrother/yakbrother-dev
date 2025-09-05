@@ -18,7 +18,8 @@ const finds = (await getCollection('finds', ({ data }) => {
 ---
 
 <Layout title="Home">
- 	<section id="hero flow">
+  <article class="page-content">
+ 	<section id="hero" class="flow">
       <div id="hero-title">
         <picture>
           <source srcset="/tim_avatar.webp" type="image/webp">
@@ -29,9 +30,16 @@ const finds = (await getCollection('finds', ({ data }) => {
             <div id="subtitle">He/Him | Senior Full-Stack Developer | Nyon, Switzerland</div>
         </div>
       </div>
+    </section>
 
+    <section id="intro" class="flow">
       <p>
-        With over 18 years of experience as a full-stack developer, I specialize in back-end development and user experience design. I build accessible, user-friendly tools and websites using Python, PHP (Laravel), Go, Node.js, React, Typescript, AWS, and various other technologies, whether I'm working from scratch or updating legacy code.
+        Greetings, people of earth! I specialize in back-end development and user experience design. I build accessible, user-friendly tools and websites using Python, PHP (Laravel), Go, Node.js, React, Typescript, AWS, and various other technologies, whether I'm working from scratch or updating legacy code.
+      </p><p>
+        I have very strong views on AI that constantly change. In general, I'm a fan of it being my intern. All work must be checked by me, line by line. I don't use it to write content, but for a boilerplate API or a first draft of a feature, it helps to save time.
+        </p>
+      <p>
+        But don't let it touch your CSS. Maybe it's because it's my favorite part of development, but I've argued with Claude enough this year to know that it's terrible at CSS.
       </p><p>
         Recently, I've been focused on two things:
         <ul>
@@ -39,11 +47,10 @@ const finds = (await getCollection('finds', ({ data }) => {
             <li>MCP server creation, agent training, data engineering, and AI development.</li>
           </ul>
       </p><p>
-        I'm currently looking for a new job in the Geneva area. I'm also available for new projects and collaborations. Whether you need a full site or want to make your existing site more optimized, I'd love to discuss it with you. Email me to start a conversation!
+        I'm in the Geneva area, working as a developer, but also available for new projects and collaborations. Or coffee and a lunch spent talking about insects and plants and not mentioning computers. Email me to start a conversation!
       </p>
 
       <ul id="action-links">
-        <li><a href="/resume">Resume</a></li>
         <li><a href="mailto:hello@timeaton.dev">Email</a></li>
         <li><a href="https://github.com/yakbrother">Github</a></li>
         <li><a href="https://www.linkedin.com/in/tim-eaton-pluies/">LinkedIn</a></li>
@@ -70,29 +77,6 @@ const finds = (await getCollection('finds', ({ data }) => {
 
     <hr />
 
-    <section id="skills">
-        <h2>Skills</h2>
-          <ul class="pill-list">
-              <li>PHP</li>
-              <li>Javascript</li>
-              <li>Typescript</li>
-              <li>Node.js</li>
-              <li>Astro.js</li>
-              <li>React</li>
-              <li>JAMstacks</li>
-              <li>Laravel</li>
-              <li>HTML Standards</li>
-              <li>Security</li>
-              <li>Modern CSS</li>
-              <li>Accessibility</li>
-              <li>User Experience</li>
-              <li>Design</li>
-              <li>Sustainable Energy Use</li>
-
-          </ul>
-        </section>
-
-	<hr />
   <!--
   <section id="word">
     <h2>Work Case Studies</h2>
@@ -153,12 +137,15 @@ const finds = (await getCollection('finds', ({ data }) => {
       background: var(--color-card);
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(var(--color-border), 0.33);
+      border: 1px solid transparent;
       text-decoration: none;
       color: inherit;
       transition: transform 0.2s ease;
     }
     .card:hover {
       transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-accent);
     }
     .card h3 {
       margin: 0;
@@ -202,6 +189,9 @@ const finds = (await getCollection('finds', ({ data }) => {
       display: flex;
       gap: 1rem;
       align-items: center;
+      margin-bottom: 1rem;
+      /* reset to left-aligned avatar */
+      flex-direction: row;
     }
     #hero h1 {
       display: inline-block;
@@ -280,4 +270,5 @@ const finds = (await getCollection('finds', ({ data }) => {
       text-align: center;
     }
   </style>
+  </article>
 </Layout>

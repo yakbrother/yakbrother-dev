@@ -104,6 +104,19 @@ const formattedDate = date.toLocaleDateString('en-UK', {
     transform: rotate(360deg);
   }
 
+  .link-card:hover {
+    background-color: var(--color-pink-hover);
+    border-color: var(--color-accent);
+    color: var(--color-dark);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .link-card:hover .description,
+  .link-card:hover time,
+  .link-card:hover .external-link {
+    color: var(--color-dark);
+  }
+
   .icon-container.video {
     color: var(--color-list-video);
   }

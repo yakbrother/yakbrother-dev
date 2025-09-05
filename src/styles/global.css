@@ -40,6 +40,10 @@
   --color-primary: #5da271;
   --color-primary-glare: #5da271;
   --color-primary-shade: #898989;
+  /* Lighter hover tint for pink accents */
+  --color-pink-hover: #F0DADF;
+  /* Subtle hover elevation used across cards */
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
   --color-global-bg: var(--color-light);
   --color-global-link-color: var(--color-accent);
   --color-global-text: var(--color-dark);
@@ -70,6 +74,13 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+}
+
+/* Remove default browser margins around the page */
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
@@ -117,6 +128,8 @@ body {
   font-variation-settings: "wdth" 100;
   line-height: 1.5;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-light);
   color: var(--color-dark);
 }
@@ -221,7 +234,7 @@ h4 {
 
 .avatar-image {
   border: 3px solid var(--color-accent);
-  border-radius: 4px;
+  border-radius: 50%;
 }
 
 .card[data-type="article"] {
@@ -420,6 +433,7 @@ textarea:not([rows]) {
   --color-primary: #5da271;
   --color-primary-glare: #5da271;
   --color-primary-shade: #898989;
+  --color-card: #ffffff;
   --color-global-bg: var(--color-light);
   --color-global-link-color: currentColor;
   --color-global-text: var(--color-dark);
@@ -626,9 +640,18 @@ textarea:not([rows]) {
 
 main {
   background: var(--button-gap);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  flex: 1;
   position: relative;
   transform: translateZ(0);
   z-index: 1;
+}
+
+.page-content {
+  max-width: 55em;
+  padding: 1em;
+  margin: 0 auto;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -829,7 +852,7 @@ blockquote q {
 
 :is(img, picture) {
   display: block;
-  height: auto;
+  /* height: auto; */
   max-width: 100%;
 }
 

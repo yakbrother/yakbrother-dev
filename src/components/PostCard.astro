@@ -32,26 +32,31 @@ const formattedDate = date.toLocaleDateString('en-UK', {
 
 <style>
   .post-card {
-    padding: 1.5rem;
-    border: 0;
-    border-radius: 0.5rem;
-    border: 1px solid transparent;
-    transition: transform 0.2s ease-in-out;
+    padding: 1rem;
+    background: var(--color-card);
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
   }
 
   .post-card:hover {
-    border: 1px solid var(--color-text-base);
+    border-color: var(--color-accent);
+    background: var(--color-pink-hover);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
   }
 
-  .post-card a:hover {
+  .post-card a {
     text-decoration: none;
+    color: inherit;
+    display: block;
   }
 
   .post-meta {
     display: flex;
     gap: 1rem;
     margin-bottom: 0.5rem;
-    font-size: 0.875rem;
+    font-size: var(--size-step--1);
     color: var(--color-text-muted);
   }
 
@@ -64,6 +69,7 @@ const formattedDate = date.toLocaleDateString('en-UK', {
   .post-title {
     margin: 0;
     margin-bottom: 0.5rem;
+    font-size: var(--size-step-0);
     font-weight: 600;
   }
 
@@ -73,16 +79,13 @@ const formattedDate = date.toLocaleDateString('en-UK', {
     padding: 0;
   }
 
-  .post-title a:hover {
-    color: var(--color-text-link);
-  }
-
-  .post-card:hover a {
-    color: var(--color-link);
-  }
+  .post-card:hover a { color: var(--color-dark); }
+  .post-card:hover .post-description,
+  .post-card:hover .post-meta { color: var(--color-dark); }
 
   .post-description {
     margin: 0;
+    font-size: var(--size-step--1);
     color: var(--color-text-muted);
   }
 </style>

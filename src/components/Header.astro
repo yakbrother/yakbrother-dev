@@ -9,7 +9,7 @@ const { activeNav } = Astro.props;
 <header class="header">
       <div class="logo">
         <h1><a href="/" id="home">
-          <span>Home</span>
+          <span>yakbrother.dev</span>
         </a></h1>
       </div>
       <nav class="nav">
@@ -32,16 +32,6 @@ const { activeNav } = Astro.props;
           <li>
             <a href="/now/">
               Now
-            </a>
-          </li>
-          <li>
-            <a href="/uses/">
-              Uses
-            </a>
-          </li>
-          <li>
-            <a href="/projects/">
-              Projects
             </a>
           </li>
           <li>
@@ -97,7 +87,7 @@ const { activeNav } = Astro.props;
         color: var(--color-light);
         padding: 10px 20px;
         z-index: 1000;
-        border-bottom: 2px solid var(--color-border); 
+        border-bottom: 10px solid #D4A0A7;
       }
 
       .logo a {
@@ -111,12 +101,18 @@ const { activeNav } = Astro.props;
         color: var(--color-link);
       }
 
+      .logo h1 {
+        margin: 0;
+        font-size: var(--size-step-0);
+        line-height: 1;
+      }
+
       .logo #home {
-        font-size: var(--step-1);
         color: var(--color-text-base);
         text-decoration: none;
         display: flex;
         align-items: center;
+        white-space: nowrap;
       }
 
       .logo #home span {
@@ -155,6 +151,8 @@ const { activeNav } = Astro.props;
 
       .menu li a:hover {
         color: var(--color-link);
+        text-decoration: underline;
+        text-underline-offset: 2px;
       }
 
       .hamburger {
