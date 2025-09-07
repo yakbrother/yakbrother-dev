@@ -1,4 +1,4 @@
-# Glyptodon - Personal Website Theme
+# Yakbrother.dev - Personal Website Theme
 
 A clean and modern personal website theme built with Astro, using fluid type and grid sizing for smooth size transitions.
 
@@ -7,9 +7,6 @@ A clean and modern personal website theme built with Astro, using fluid type and
 - Responsive design
 - Clean and minimal
 - Fluid typography
-- Dark and light mode (chosen by user's system preference)
-- About page
-- Now page (inspired by [nownownow.com](https://nownownow.com))
 - Microblog for found links (Today I Found...)
 - Blog for personal projects
 
@@ -46,11 +43,14 @@ The colors were chosen using several tools to insure accessibility and contrast.
 
 - https://colorfly.io/
 - https://www.learnui.design/tools/accessible-color-generator.html
-- https://colorffy.com/mesh-gradient-generator (for the background gradient)
+
+## CSS
+
+- Made using principles from CUBE and Utopia.fyi, with a liberal sprinkling of Picalilly articles I've read over time.
 
 ## Credits
 
-Built by Tim Eaton - [timeaton.dev](https://timeaton.dev).
+Built by Tim Eaton - @yakbrother on Github.
 
 ## License
 
