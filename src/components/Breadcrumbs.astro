@@ -30,7 +30,7 @@ function ucFirst(str: string) {
     margin: 1rem 0 2rem;
     padding-left: 0; /* ensure no left indent */
     font-size: var(--text-size-meta);
-    color: var(--color-text-muted);
+    color: var(--color-mid);
   }
 
   .breadcrumbs ol {
@@ -52,7 +52,7 @@ function ucFirst(str: string) {
   .breadcrumbs li:not(:last-child)::after {
     content: "/";
     margin-left: 0.5rem;
-    color: var(--color-text-muted);
+    color: var(--color-mid);
   }
 
   .breadcrumbs a {
@@ -62,7 +62,7 @@ function ucFirst(str: string) {
   }
 
   .breadcrumbs a:hover {
-    color: var(--color-link);
+    color: var(--color-global-link-color);
     text-decoration: underline;
   }
 

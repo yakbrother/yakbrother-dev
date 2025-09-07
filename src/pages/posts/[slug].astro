@@ -40,7 +40,7 @@ const { Content } = await render(post);
 
 <style>
   .post {
-    max-width: var(--max-width);
+    max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 2rem 1rem;
   }
@@ -52,7 +52,7 @@ const { Content } = await render(post);
   h1 {
     font-size: var(--size-step-4);
     margin: 0 0 1rem;
-    color: var(--color-text-base);
+    color: var(--color-global-text);
   }
 
   /* In-article heading scale (scoped to post content) */
@@ -65,7 +65,7 @@ const { Content } = await render(post);
   .post-meta {
     display: flex;
     gap: 1rem;
-    color: var(--color-text-muted);
+    color: var(--color-mid);
     font-size: var(--text-size-meta);
     align-items: center;
   }
@@ -75,7 +75,7 @@ const { Content } = await render(post);
 
   .page-content :global(p:first-of-type) {
     font-size: var(--size-step-1);
-    color: var(--color-text-muted);  
+    color: var(--color-mid);  
   }
 
 </style>

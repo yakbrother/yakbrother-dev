@@ -21,10 +21,6 @@ body {
   margin-block: 0;
 }
 
-.content {
-  max-width: 55em;
-}
-
 blockquote,
 body,
 dd,
@@ -82,27 +78,11 @@ label {
   border-radius: 50%;
 }
 
-.card[data-type="article"] {
-  color: var(--color-list-article);
-}
-
-.card[data-type="website"] {
-  color: var(--color-list-website);
-}
-
-.card[data-type="tool"] {
-  border-color: #96c93d;
-}
-
-.card[data-type="video"] {
-  border-color: #845ec2;
-}
-
 /* Base Typography */
 
 blockquote strong,
 blockquote b {
-  color: var(--color-text-base);
+  color: var(--color-global-text);
 }
 
 /* Links */
@@ -228,11 +208,11 @@ main {
   margin: 0 auto;
   flex: 1;
   position: relative;
-  transform: translateZ(0);
   z-index: 1;
 }
 
-.page-content {
+.page-content,
+.content {
   max-width: 55em;
   padding: 1em;
   margin: 0 auto;
@@ -550,10 +530,16 @@ form > * + * {
   color: var(--global-style-input-color);
   padding: var(--global-style-input-padding);
   width: 100%;
-  &::placeholder {
-    color: var(--global-style-input-placeholder-color);
-    opacity: 1;
-  }
+}
+
+/* Placeholder styling (no nesting to ensure plain CSS compatibility) */
+:is(
+    input:not([type="checkbox"], [type="radio"], [type="color"]),
+    select,
+    textarea
+  )::placeholder {
+  color: var(--global-style-input-placeholder-color);
+  opacity: 1;
 }
 
 label {
@@ -679,7 +665,7 @@ details[open] summary {
 }
 
 .reel::-webkit-scrollbar {
-  block-size: var(--scroll-bar-size);
+  block-size: var(--scroll-bar-size, 8px);
 }
 
 .reel::-webkit-scrollbar-track {
@@ -783,7 +769,7 @@ details[open] summary {
 }
 
 .overflow::-webkit-scrollbar {
-  block-size: var(--scroll-bar-size);
+  block-size: var(--scroll-bar-size, 8px);
 }
 
 .overflow::-webkit-scrollbar-track {
@@ -840,8 +826,6 @@ details[open] summary {
   border-color: var(--button-border-color, var(--color-mid));
   border-radius: var(--button-radius, var(--radius));
   border-style: var(--button-border-style, solid);
-  border-width: var(--button-border-width, var(--stroke-weight-heavy));
-  box-shadow: var(--button-box-shadow, none);
   color: var(--button-text, var(--color-surface-text));
   cursor: pointer;
   display: inline-flex;
@@ -855,7 +839,6 @@ details[open] summary {
   padding: var(--button-padding, var(--space-2xs, 0.8em) var(--space-m, 2em));
   text-decoration: none;
   text-transform: var(--button-text-transform, uppercase);
-  text-box: trim-both cap alphabetic;
 }
 
 .button:hover {
