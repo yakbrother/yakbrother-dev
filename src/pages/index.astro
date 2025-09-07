@@ -198,7 +198,6 @@ const finds = (await getCollection('finds', ({ data }) => {
     #hero h1 {
       display: inline-block;
       margin: 0;
-      font-size: var(--step-4);
       line-height: 2.25rem;
       font-weight: 700;
 
@@ -217,14 +216,17 @@ const finds = (await getCollection('finds', ({ data }) => {
 
     #action-links {
         display: flex;
+        align-items: baseline; /* typographic baseline alignment */
         margin: 0.25rem;
         flex-wrap: wrap;
         list-style-type: none
     }
 
     #action-links li a {
-      display: block;
-      padding: 0.25rem;
+      display: inline-flex; /* participate in baseline alignment */
+      align-items: baseline;
+      line-height: 1; /* normalize inline box metrics */
+      padding: 0.25rem 0.25rem 0.25rem 0; /* keep spacing without lifting baseline */
       margin-right: 0.5rem;
       font-weight: 700;
       border-color: var(--color-mid);
