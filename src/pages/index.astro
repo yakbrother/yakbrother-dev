@@ -153,14 +153,28 @@ const finds = (await getCollection('finds', ({ data }) => {
       margin: 0;
     }
     .card:hover h3 {
-      color: var(--color-global-link-color);
+      color: var(--color-accent);
     }
     .card p {
       margin: 0.5rem 0 0;
     }
 
     .finds-box {
-        padding: 1em;
+      padding: 0;
+      border: 1px solid var(--color-mid);
+      border-radius: var(--radius-m);
+      overflow: hidden; /* ensures only outer corners are rounded */
+    }
+
+    /* Make the finds list appear as one big rounded square */
+    #finds .link-card {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    #finds .link-card:hover {
+      border-color: transparent; /* keep no inner borders on hover */
     }
 
     .posts-grid {
@@ -254,19 +268,13 @@ const finds = (await getCollection('finds', ({ data }) => {
     #recent-work,
     #cases,
     #til,
-    #recent-posts {
+    #recent-posts,
+    #finds {
       padding-bottom: 1.5rem;
       padding-top: 1.5rem;
     }
 
-    #featured h2,
-    #recent-work h2,
-    #skills h2,
-    #cases h2,
-    #til h2,
-    #recent-posts h2 {
-      font-size: var(--step-2);
-      line-height: 1rem;
+    section h2 {
       font-weight: 600;
       letter-spacing: 0.025em;
     }

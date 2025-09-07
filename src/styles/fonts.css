@@ -1,5 +1,65 @@
 /* Font Families */
 
+/* Adventura (self-hosted) */
+@font-face {
+  font-family: "Adventura";
+  src: url("/fonts/Adventura-BF689aeb9be0f74.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Self-hosted font faces */
+@font-face {
+  font-family: "Brophy Script";
+  src: url("/fonts/brophy-script.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oleo Script";
+  src: url("/fonts/OleoScript-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oleo Script";
+  src: url("/fonts/OleoScript-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Radio Canada";
+  src: url("/fonts/radiocanada-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Radio Canada";
+  src: url("/fonts/radiocanada-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Radio Canada";
+  src: url("/fonts/radiocanada-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Radio Canada";
+  src: url("/fonts/radiocanada-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Radio Canada Variable Font */
 .radio-canada-light {
   font-family: "Radio Canada", sans-serif;
@@ -41,56 +101,9 @@
   font-variation-settings: "wdth" 100;
 }
 
-/* Miriam Libre Variable Font */
-.miriam-libre-regular {
-  font-family: "Miriam Libre", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
+/* Miriam Libre removed; headings use Fira Code via --font-display */
 
-.miriam-libre-bold {
-  font-family: "Miriam Libre", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Fira Code Variable Font */
-.fira-code-light {
-  font-family: "Fira Code", monospace;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-.fira-code-regular {
-  font-family: "Fira Code", monospace;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.fira-code-medium {
-  font-family: "Fira Code", monospace;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.fira-code-semibold {
-  font-family: "Fira Code", monospace;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-}
-
-.fira-code-bold {
-  font-family: "Fira Code", monospace;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
+/* Code font uses system monospace stack via --font-mono */
 
 /* Default body font */
 html {

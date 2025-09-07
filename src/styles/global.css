@@ -82,7 +82,7 @@ label {
 
 blockquote strong,
 blockquote b {
-  color: var(--color-global-text);
+  color: var(--color-dark);
 }
 
 /* Links */
@@ -123,21 +123,18 @@ textarea {
   --color-primary-glare: #5da271;
   --color-primary-shade: #898989;
   --color-card: #ffffff;
-  --color-global-bg: var(--color-light);
-  --color-global-link-color: currentColor;
   /* Added to replace commented-out earlier declarations */
   --color-pink-hover: #f0dadf;
   --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
-  --color-global-text: var(--color-dark);
   --color-selection-bg: var(--color-dark);
   --color-selection-text: var(--color-light);
   --flow-space: var(--space-xs);
   --focus-color: var(--color-primary);
   --focus-ring: 2px solid currentColor;
   --focus-ring-offset: 2px;
-  --font-base: "Miriam Libre", system-ui, monospace;
-  --font-display: "Fira Code", system-ui, sans-serif;
-  --font-mono: "Fira Code", monospace;
+  --font-base: "Radio Canada", system-ui, sans-serif;
+  --font-display: "Brophy Script", system-ui, cursive;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   --font-normal: 400;
   --font-medium: 500;
   --font-bold: 700;
@@ -457,7 +454,7 @@ caption {
 }
 
 a:not([class]) {
-  color: var(--color-global-link-color);
+  color: var(--color-accent);
   text-decoration: var(--global-style-link-text-decoration, revert);
 }
 
@@ -622,6 +619,11 @@ details[open] summary {
   margin-block-start: var(--flow-space, 1em);
 }
 
+/* Reduce space immediately after h2 headings within flow containers */
+.flow > h2 + * {
+  margin-block-start: var(--space-3xs);
+}
+
 .grid {
   display: grid;
   gap: var(--gutter, var(--space-s-l));
@@ -639,6 +641,11 @@ details[open] summary {
 .grid[data-layout="thirds"] {
   --grid-placement: auto-fit;
   --grid-min-item-size: clamp(16rem, 33%, 20rem);
+}
+
+.grid[data-layout="50-50"] {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(16rem, 50vw, 26rem);
 }
 
 .reel {

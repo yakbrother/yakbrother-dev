@@ -87,11 +87,12 @@ const { activeNav } = Astro.props;
       }
 
       .logo #home:hover {
-        color: var(--color-global-link-color);
+        color: var(--color-light);
       }
 
       .logo h1 {
         margin: 0;
+        font-size: var(--size-step-2);
         line-height: 1;
       }
 
@@ -138,7 +139,7 @@ const { activeNav } = Astro.props;
       }
 
       .menu li a:hover {
-        color: var(--color-global-link-color);
+        color: var(--color-light);
         text-decoration: underline;
         text-underline-offset: 2px;
       }
@@ -179,7 +180,7 @@ const { activeNav } = Astro.props;
       }
 
       .rss-link:hover {
-        color: var(--color-global-link-color);
+        color: var(--color-light);
       }
 
       .sr-only {
@@ -204,7 +205,7 @@ const { activeNav } = Astro.props;
           position: absolute;
           top: 100%;
           right: 0;
-          background-color: var(--color-global-bg);
+          background-color: var(--color-light);
           padding: 1rem;
           box-shadow: 0 2px 5px rgba(0,0,0,0.1);
           border: 1px solid var(--color-mid);

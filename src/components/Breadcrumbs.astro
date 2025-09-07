@@ -41,12 +41,13 @@ function ucFirst(str: string) {
     margin-left: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: baseline; /* align crumb items to typographic baseline */
     gap: 0.5rem;
   }
 
   .breadcrumbs li {
     display: flex;
-    align-items: center;
+    align-items: baseline; /* ensure separators/links share baseline */
   }
 
   .breadcrumbs li:not(:last-child)::after {
@@ -59,15 +60,21 @@ function ucFirst(str: string) {
     color: inherit;
     text-decoration: none;
     transition: color 0.2s;
+    display: inline-flex;
+    align-items: baseline;
+    line-height: 1; /* normalize inline box metrics */
   }
 
   .breadcrumbs a:hover {
-    color: var(--color-global-link-color);
+    color: var(--color-accent);
     text-decoration: underline;
   }
 
   .breadcrumbs [aria-current="page"] {
     color: inherit;
     font-weight: 500;
+    display: inline-flex;
+    align-items: baseline;
+    line-height: 1;
   }
 </style>

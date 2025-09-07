@@ -5,7 +5,7 @@
     </svg>
   </div>
   <section id="footer-content" class="footer-content flow">
-    <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved. This design is built with <a href="https://astro.build">Astro</a>, and you are free to <a href="https://github.com/yakbrother/glyptodon">download</a> and use my code for your own personal or commercial projects. <a href="https://mostlytrue.life/stories/how-yaks-took-over-my-life/">Why Yak?</a></p>
+    <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved. This design is built with <a href="https://astro.build">Astro</a>, and you are free to <a href="https://github.com/yakbrother/glyptodon">download</a> and use my code for your own personal or commercial projects. In case youre wondering: <a href="https://mostlytrue.life/stories/how-yaks-took-over-my-life/">Why Yak?</a></p>
   </section>
 </footer>
 
@@ -23,7 +23,7 @@
   section.footer-content {
     max-width: 55em;
     color: var(--color-light);
-    margin: 3em auto;
+    margin: 0 auto;
     padding: 1em;
   }
 
@@ -48,7 +48,13 @@
       fill: var(--color-light); /* use var(--color-mid-shade) for pink instead */
   }
 
-  a:hover {
+  footer a {
     color: var(--color-light);
   }
+
+  footer a:hover {
+    color: var(--color-light);
+  }
+
+  
 </style>
