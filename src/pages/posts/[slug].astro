@@ -29,9 +29,6 @@ const { Content } = await render(post);
         <time datetime={post.data.publicationDate.toISOString()}>
           {formatDate(post.data.publicationDate)}
         </time>
-        {post.data.category && (
-          <span class="category">{post.data.category}</span>
-        )}
         By {post.data.author}
       </div>
     </header>
@@ -68,16 +65,12 @@ const { Content } = await render(post);
   .post-meta {
     display: flex;
     gap: 1rem;
-    color: var(--color-text-base);
-    font-size: var(--size-step--1);
+    color: var(--color-text-muted);
+    font-size: var(--text-size-meta);
     align-items: center;
   }
 
-  .category {
-    text-transform: capitalize;
-    padding: 0.5rem;
-    background: var(--color-card);
-  }
+  /* category removed from UI */
 
 
   .page-content :global(p:first-of-type) {

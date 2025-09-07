@@ -4,72 +4,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  /* Base fonts */
-  --font-body: "Fira Code", monospace;
-  --font-heading: "Miriam Libre", sans-serif;
-  --font-code: "Fira Code", monospace;
-
-  /* Colors */
-  --bg-light-alt: radial-gradient(
-    circle at 57% 115%,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3
-  );
-  --bg-light: radial-gradient(
-    circle at 50% 50%,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3,
-    #d4a0a7
-  );
-
-  --color-accent: #c84630;
-  --color-disabled: var(--color-mid);
-  --color-light: #e3e3e3;
-  --color-light-shade: #898989;
-  --color-dark: #1c242a;
-  --color-dark-glare: #5da271;
-  --color-mid: #898989;
-  --color-mid-shade: #d4a0a7;
-  --color-primary: #5da271;
-  --color-primary-glare: #5da271;
-  --color-primary-shade: #898989;
-  /* Lighter hover tint for pink accents */
-  --color-pink-hover: #F0DADF;
-  /* Subtle hover elevation used across cards */
-  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
-  --color-global-bg: var(--color-light);
-  --color-global-link-color: var(--color-accent);
-  --color-global-text: var(--color-dark);
-  --color-selection-bg: var(--color-accent);
-  --color-selection-text: var(--color-light);
-
-  --color-list-article: #ff6b6b;
-  --color-list-website: #4ecdc4;
-  --color-list-tool: #96c93d;
-  --color-list-video: #845ec2;
-
-  /* Other variables */
-  --flow-space: var(--space-xs);
-  --focus-color: var(--color-primary);
-  --focus-ring: 2px solid currentColor;
-  --focus-ring-offset: 2px;
-  --heading-kerning: var(--kerning-tight);
-  --heading-line-height: var(--leading-fine);
-  --heading-font-family: var(--font-display);
-  --heading-font-weight: var(--font-medium);
-  --font-base: "Fira Code", system-ui, monospace;
-  --font-display: "Miriam Libre", system-ui, sans-serif;
-  --font-statement: "Miriam Libre", system-ui, sans-serif;
-  --font-mono: "Fira Code", monospace;
-}
-
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
@@ -122,7 +56,6 @@ ul[role="list"] {
 }
 
 body {
-  font-family: var(--font-body);
   font-optical-sizing: auto;
   font-weight: 400;
   font-variation-settings: "wdth" 100;
@@ -134,87 +67,6 @@ body {
   color: var(--color-dark);
 }
 
-/* Heading Styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(
-    --font-heading
-  ) !important; /* Ensure Miriam Libre is always used */
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  line-height: 1.1;
-}
-
-h2 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-}
-
-h3 {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-}
-
-h4 {
-  font-size: clamp(1.5rem, 2.5vw, 1.75rem);
-}
-
-h5 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-}
-
-h6 {
-  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
-}
-
-/* Code Styles */
-pre,
-code {
-  font-family: var(--font-code);
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Text Styles */
-em,
-i {
-  font-style: italic;
-}
-
-strong,
-b {
-  font-family: var(--font-body);
-  font-weight: 600;
-}
-
-/* Combined styles */
-strong em,
-em strong,
-b i,
-i b {
-  font-weight: 600;
-  font-style: italic;
-}
-
-/* Blockquote styles */
-blockquote {
-  font-family: "Fira Code", monospace;
-  font-weight: 300;
-  font-style: italic;
-  max-width: 55em;
-  border-left: 4px solid var(--color-accent);
-  padding-left: 1em;
-  margin-left: 0;
-}
-
 button,
 h1,
 h2,
@@ -223,13 +75,6 @@ h4,
 input,
 label {
   line-height: 1.1;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
 }
 
 .avatar-image {
@@ -254,101 +99,6 @@ h4 {
 }
 
 /* Base Typography */
-body {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-variation-settings: "wdth" 100;
-  line-height: 1.5;
-}
-
-/* Heading Hierarchy */
-h1 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 0.5em;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
-  letter-spacing: -0.01em;
-}
-
-h3 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
-}
-
-h4 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 0.5em;
-}
-
-h5,
-h6 {
-  font-family: "Miriam Libre", sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 0.5em;
-}
-
-/* Code Elements */
-pre,
-code {
-  font-family: "Fira Code", monospace;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-feature-settings: "liga" 1; /* Enable ligatures */
-}
-
-/* Emphasis and Strong */
-em,
-i {
-  font-style: italic;
-}
-
-strong,
-b {
-  font-family: "Radio Canada", sans-serif;
-  font-weight: 600;
-}
-
-/* Combined emphasis */
-strong em,
-em strong,
-b i,
-i b {
-  font-weight: 600;
-  font-style: italic;
-}
-
-/* Blockquotes */
-blockquote {
-  font-family: "Radio Canada", sans-serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: 1.1em;
-  line-height: 1.6;
-  border-left: 4px solid var(--color-accent);
-  padding-left: 1.5em;
-  margin: 1.5em 0;
-  color: var(--color-text-muted);
-}
 
 blockquote strong,
 blockquote b {
@@ -372,21 +122,6 @@ small {
   font-weight: 300;
 }
 
-a:not([class]) {
-  color: var(--color-accent);
-  text-decoration-skip-ink: auto;
-}
-
-a:not([class]):hover {
-  color: var(--color-primary);
-}
-
-img,
-picture {
-  display: block;
-  max-width: 100%;
-}
-
 button,
 input,
 select,
@@ -395,33 +130,7 @@ textarea {
   font-size: inherit;
 }
 
-textarea:not([rows]) {
-  min-height: 10em;
-}
-
-:target {
-  scroll-margin-block: 5ex;
-}
-
 :root {
-  --bg-light-alt: radial-gradient(
-    circle at 57% 115%,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3
-  );
-  --bg-light: radial-gradient(
-    circle at 50% 50%,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3,
-    #d4a0a7,
-    #e3e3e3,
-    #d4a0a7
-  );
-
   --color-accent: #c84630;
   --color-disabled: var(--color-mid);
   --color-light: #e3e3e3;
@@ -436,6 +145,9 @@ textarea:not([rows]) {
   --color-card: #ffffff;
   --color-global-bg: var(--color-light);
   --color-global-link-color: currentColor;
+  /* Added to replace commented-out earlier declarations */
+  --color-pink-hover: #f0dadf;
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
   --color-global-text: var(--color-dark);
   --color-selection-bg: var(--color-dark);
   --color-selection-text: var(--color-light);
@@ -443,31 +155,15 @@ textarea:not([rows]) {
   --focus-color: var(--color-primary);
   --focus-ring: 2px solid currentColor;
   --focus-ring-offset: 2px;
-  --heading-kerning: var(--kerning-tight);
-  --heading-line-height: var(--leading-fine);
-  --heading-font-family: var(--font-display);
-  --heading-font-weight: var(--font-medium);
-  --font-base: "Fira Code", system-ui, monospace;
-  --font-display: "Miriam Libre", system-ui, sans-serif;
-  --font-statement: "Miriam Libre", system-ui, sans-serif;
+  --font-base: "Miriam Libre", system-ui, monospace;
+  --font-display: "Fira Code", system-ui, sans-serif;
   --font-mono: "Fira Code", monospace;
   --font-normal: 400;
   --font-medium: 500;
   --font-bold: 700;
-  --font-black: 900;
-  --gutter: var(--space-s-m);
-  --gutter-l: var(--space-3xl);
   --kerning: normal;
-  --kerning-loose: 0.05ch;
-  --kerning-tight: -0.04ch;
   --kerning-caps: 0.1ch;
   --leading: 1.45;
-  --leading-tight: 0.8;
-  --leading-short: 1.36;
-  --leading-slim: 1.18;
-  --leading-fine: 1.09;
-  --leading-flat: 1;
-  --leading-loose: 1.7;
   --measure: 65ch;
   --measure-heading-1: 30ch;
   --measure-heading-2: 45ch;
@@ -479,51 +175,22 @@ textarea:not([rows]) {
   --measure-m: 50ch;
   --measure-s: 45ch;
   --measure-xs: 20ch;
-  --off-screen-trigger-height: 1.5rem;
-  --radius: 0.5em;
-  --radius-l: 2em;
-  --radius-m: 1em;
-  --radius-s: 0.25em;
-  --container-max-width: 57rem;
-  --wrapper-max-width: 1566px;
   --region-space: var(--space-xl-2xl);
-  --stroke: 1px solid var(--stroke-color, currentColor);
-  --stroke-weight-heavy: 6px;
-  --stroke-weight-medium: 4px;
-  --stroke-weight-light: 1px;
   --text-size-base: var(--size-step-0);
-  --text-size-heading-1: var(--size-step-5);
-  --text-size-heading-2: var(--size-step-4);
-  --text-size-heading-3: var(--size-step-3);
+  --text-size-heading-1: var(--size-step-4);
+  --text-size-heading-2: var(--size-step-3);
+  --text-size-heading-3: var(--size-step-2);
   --text-size-heading-4: var(--size-step-2);
   --text-size-heading-5: var(--size-step-2);
   --text-size-heading-6: var(--size-step-2);
   --text-size-lede: var(--size-step-1);
   --text-size-meta: var(--size-step--1);
-  --text-size-prose: var(--size-step-0); /* Ensuring consistent base size */
+  --text-size-prose: var(--size-step--1); /* One step smaller for readability */
   --text-size-small: 0.75em;
   --scroll-bar-track-color: var(--color-light-shade);
   --scroll-bar-thumb-color: var(--color-mid);
   --scroll-bar-radius: 0;
   --scroll-bar-offset: var(--space-l);
-  --button-gap: var(--gutter);
-  --button-padding: var(--space-2xs) var(--space-s);
-  --button-bg: var(--color-accent);
-  --button-text: var(--color-light);
-  --button-leading: var(--leading-flat);
-  --button-border-color: var(--color-accent);
-  --button-border-width: var(--stroke-weight-medium);
-  --button-border-style: solid;
-  --button-radius: var(--space-m);
-  --button-box-shadow: none;
-  --button-text-transform: none;
-  --button-font-weight: var(--font-bold);
-  --button-font-size: var(--size-step--1);
-  --button-font-family: var(--font-statement);
-  --button-kerning: var(--kerning);
-  --button-interact-bg: var(--color-primary);
-  --button-interact-text: var(--color-light);
-  --button-interact-border-color: var(--color-dark);
   --space-3xs: clamp(0.3125rem, 0.2483rem + 0.321vw, 0.5625rem);
   --space-2xs: clamp(0.5625rem, 0.418rem + 0.7223vw, 1.125rem);
   --space-xs: clamp(0.875rem, 0.6663rem + 1.0433vw, 1.6875rem);
@@ -553,89 +220,6 @@ textarea:not([rows]) {
   --size-step-5: clamp(2.625rem, 1.6754rem + 4.7482vw, 6.75rem);
   --size-step-6: clamp(3rem, 0.0504rem + 14.7482vw, 15.8125rem);
   --size-step-7: clamp(3.8125rem, 0.0427rem + 18.8489vw, 20.1875rem);
-  --global-style-accent-color: var(--color-dark);
-  --global-style-blockquote-foot-space: 0;
-  --global-style-blockquote-footer-color: inherit;
-  --global-style-blockquote-size: var(--size-step-1);
-  --global-style-blockquote-footer-size: var(--size-step--1);
-  --global-style-blockquote-footer-font-family: var(--font-display);
-  --global-style-blockquote-footer-text-transform: none;
-  --global-style-blockquote-footer-kerning: var(--kerning-tight);
-  --global-style-blockquote-footer-order: 0;
-  --global-style-blockquote-quote-font-family: var(--font-display);
-  --global-style-blockquote-quote-style: normal;
-  --global-style-blockquote-quote-max-width: 39ch;
-  --global-style-blockquote-gap: var(--space-s);
-  --global-style-dd-dt-relation-spacing: var(--space-xs);
-  --global-style-dd-indent: 1.5ch;
-  --global-style-dt-dd-relation-spacing: var(--space-xs);
-  --global-style-dt-font-weight: var(--font-medium);
-  --global-style-details-open-space: var(--space-s);
-  --global-style-fieldset-padding: var(--space-s);
-  --global-style-fieldset-stroke: var(--stroke);
-  --global-style-figure-margin-inline: 0;
-  --global-style-figcaption-font: var(--font-base);
-  --global-style-figcaption-size: var(--size-step--2);
-  --global-style-figcaption-space: var(--space-2xs);
-  --global-style-font-size-adjust-fallback: 0.8em;
-  --global-style-link-text-decoration: revert;
-  --global-style-link-hover-text-decoration: revert;
-  --global-style-heading-link-hover-underline-offset: 0.3ex;
-  --global-style-heading-link-underline-offset: 0.2ex;
-  --global-style-heading-link-underline-thickness: 0.1ex;
-  --global-style-hr-space: var(--flow-space, var(--space-xl));
-  --global-style-hr-stroke: var(--stroke);
-  --global-style-input-bg: var(--color-light);
-  --global-style-input-color: var(--color-dark);
-  --global-style-input-disabled-color: var(--color-mid);
-  --global-style-input-padding: var(--space-2xs) var(--space-s);
-  --global-style-input-placeholder-color: var(--color-mid-shade);
-  --global-style-input-radius: var(--space-2xs);
-  --global-style-input-stroke: var(--stroke);
-  --global-style-label-font-size: var(--size-step-1);
-  --global-style-label-font-weight: var(--font-medium);
-  --global-style-label-font-family: var(--font-display);
-  --global-style-label-display: inherit;
-  --global-style-label-leading: var(--leading-fine);
-  --global-style-label-kerning: var(--heading-kerning);
-  --global-style-label-text-transform: none;
-  --global-style-label-with-input-flow-space: var(--space-s-m);
-  --global-style-label-with-input-gap: var(--space-s);
-  --global-style-legend-font-weight: var(--font-medium);
-  --global-style-legend-padding: var(--space-xs);
-  --global-style-link-hover-underline-offset: 0.2lh;
-  --global-style-mono-element-padding: 0;
-  --global-style-ol-indent-space: 1.6rem;
-  --global-style-ol-list-item-extra-space: var(--space-2xs);
-  --global-style-ol-marker-size: 1em;
-  --global-style-li-font-size: var(--text-size-prose);
-  --global-style-q-font-style: italic;
-  --global-style-scroll-margin: 5lh;
-  --global-style-summary-font-weight: 400;
-  --global-style-svg-height: 1cap;
-  --global-style-ul-indent-space: 1.15rem;
-  --global-style-ul-list-item-extra-space: var(--space-2xs);
-  --global-style-ul-list-style: disc;
-  --global-style-ul-marker-size: 2.2ex;
-  --global-style-list-vertical-space: 0;
-  --global-style-table-border: none;
-  --global-style-table-th-padding: 0 0 var(--space-xs) 0;
-  --global-style-table-th-font-size: var(--size-step-3);
-  --global-style-table-th-font-family: var(--font-display);
-  --global-style-table-th-font-weight: var(--font-medium);
-  --global-style-table-th-kerning: var(--heading-kerning);
-  --global-style-table-th-bg: none;
-  --global-style-table-th-border-end: var(--stroke);
-  --global-style-table-td-padding: var(--space-s) 0;
-  --global-style-table-td-font-size: var(--size-step--1);
-  --global-style-table-cell-border-inline: none;
-  --global-style-table-cell-border-start: var(--stroke);
-  --project-card-top: 0;
-  --project-card-right: 0;
-  --project-card-bottom: 0;
-  --project-card-left: 0;
-  --project-card-x: 0;
-  --project-card-y: 0;
 }
 
 main {
@@ -655,7 +239,7 @@ main {
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--heading-font-family);
+  font-family: var(--font-display);
   font-feature-settings: "cpsp" on;
   font-weight: var(--heading-font-weight);
   letter-spacing: var(--heading-kerning, var(--kerning));
@@ -723,12 +307,6 @@ small {
   box-decoration-break: clone;
 }
 
-@supports not (font-size-adjust: from-font) {
-  :is(code, kbd, samp) {
-    font-size: var(--global-style-font-size-adjust-fallback);
-  }
-}
-
 pre:has(code) {
   max-width: 100%;
   overflow-x: auto;
@@ -739,40 +317,6 @@ pre code {
   background: none;
   border: none;
   padding: 0;
-}
-
-kbd {
-  border: var(--stroke);
-  text-box-trim: trim-start cap;
-}
-
-q {
-  font-style: var(--global-style-q-font-style);
-}
-
-ul {
-  list-style-type: var(--global-style-ul-list-style);
-  padding-inline-start: var(--global-style-ul-indent-space);
-}
-
-ol {
-  padding-inline-start: var(--global-style-ol-indent-space);
-}
-
-ul:not([class]) > li {
-  padding-inline-start: var(--global-style-ul-list-item-extra-space);
-}
-
-ol:not([class]) > li {
-  padding-inline-start: var(--global-style-ol-list-item-extra-space);
-}
-
-ul::marker {
-  font-size: var(--global-style-ul-marker-size);
-}
-
-ol ::marker {
-  font-size: var(--global-style-ol-marker-size);
 }
 
 li {
@@ -852,7 +396,7 @@ blockquote q {
 
 :is(img, picture) {
   display: block;
-  /* height: auto; */
+  height: auto;
   max-width: 100%;
 }
 
@@ -975,9 +519,11 @@ a:not([class]):hover {
 }
 
 hr {
-  border: none;
-  border-block-start: var(--global-style-hr-stroke);
+  border: 0;
+  height: 10px;
+  background: var(--color-mid-shade); /* pink bar */
   margin-block: var(--global-style-hr-space);
+  display: block;
 }
 
 svg[role="img"][width][height] {

@@ -20,7 +20,6 @@ const formattedDate = date.toLocaleDateString('en-UK', {
 <article class="post-card">
   <a href={`/posts/${slug}`}>
   <div class="post-meta">
-    <span class="category">{category}</span>
     <time datetime={date.toISOString()}>{formattedDate}</time>
   </div>
   <h3 class="post-title">
@@ -60,11 +59,7 @@ const formattedDate = date.toLocaleDateString('en-UK', {
     color: var(--color-text-muted);
   }
 
-  .category {
-    text-transform: capitalize;
-    color: var(--color-text-base);
-    font-weight: 500;
-  }
+  /* category removed from UI */
 
   .post-title {
     margin: 0;

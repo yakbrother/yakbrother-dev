@@ -28,13 +28,17 @@ function ucFirst(str: string) {
 <style>
   .breadcrumbs {
     margin: 1rem 0 2rem;
-    font-size: 0.9rem;
+    padding-left: 0; /* ensure no left indent */
+    font-size: var(--text-size-meta);
+    color: var(--color-text-muted);
   }
 
   .breadcrumbs ol {
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-left: 0;
+    margin-left: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -52,7 +56,7 @@ function ucFirst(str: string) {
   }
 
   .breadcrumbs a {
-    color: var(--color-text-muted);
+    color: inherit;
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -63,7 +67,7 @@ function ucFirst(str: string) {
   }
 
   .breadcrumbs [aria-current="page"] {
-    color: var(--color-text-muted);
+    color: inherit;
     font-weight: 500;
   }
 </style>
