@@ -125,6 +125,12 @@ textarea {
   --color-card: #ffffff;
   /* Added to replace commented-out earlier declarations */
   --color-pink-hover: #f0dadf;
+  /* Icon colors for link cards */
+  --color-list-video: #e74c3c;
+  --color-list-article: #3498db;
+  --color-list-website: #2ecc71;
+  --color-list-book: #9b59b6;
+  --color-list-tool: #f39c12;
   --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
   --color-selection-bg: var(--color-dark);
   --color-selection-text: var(--color-light);
@@ -133,7 +139,7 @@ textarea {
   --focus-ring: 2px solid currentColor;
   --focus-ring-offset: 2px;
   --font-base: "Radio Canada", system-ui, sans-serif;
-  --font-display: "Brophy Script", system-ui, cursive;
+  --font-display: "Oleo Script", system-ui, cursive;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   --font-normal: 400;
   --font-medium: 500;
@@ -498,7 +504,7 @@ a:not([class]):hover {
 hr {
   border: 0;
   height: 10px;
-  background: var(--color-mid-shade); /* pink bar */
+  background: var(--color-primary); /* green bar to match footer */
   margin-block: var(--global-style-hr-space);
   display: block;
 }

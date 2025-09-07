@@ -220,5 +220,13 @@ const { activeNav } = Astro.props;
           margin: 0.5rem 0;
           text-align: right;
         }
+
+        .menu.active li a {
+          color: var(--color-dark);
+        }
+
+        .menu.active li a:hover {
+          color: var(--color-accent);
+        }
       }
     </style>

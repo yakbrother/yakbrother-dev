@@ -161,20 +161,58 @@ const finds = (await getCollection('finds', ({ data }) => {
 
     .finds-box {
       padding: 0;
-      border: 1px solid var(--color-mid);
-      border-radius: var(--radius-m);
-      overflow: hidden; /* ensures only outer corners are rounded */
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      margin: 2rem 0;
     }
 
-    /* Make the finds list appear as one big rounded square */
+    /* Remove all borders from finds list */
     #finds .link-card {
-      border: 0;
+      border: none;
       border-radius: 0;
       box-shadow: none;
     }
 
     #finds .link-card:hover {
-      border-color: transparent; /* keep no inner borders on hover */
+      border: none;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    /* Round the first and last items to create a unified box appearance */
+    #finds .link-card:first-child {
+      border-radius: 8px 8px 0 0;
+    }
+
+    #finds .link-card:last-child {
+      border-radius: 0 0 8px 8px;
+    }
+
+    /* If there's only one item, round all corners */
+    #finds .link-card:only-child {
+      border-radius: 8px;
+    }
+
+    /* Define icon colors for finds */
+    #finds .icon-container.video {
+      color: #e74c3c; /* red for videos */
+    }
+
+    #finds .icon-container.article {
+      color: #3498db; /* blue for articles */
+    }
+
+    #finds .icon-container.website {
+      color: #2ecc71; /* green for websites */
+    }
+
+    #finds .icon-container.book {
+      color: #9b59b6; /* purple for books */
+    }
+
+    #finds .icon-container.tool {
+      color: #f39c12; /* orange for tools */
     }
 
     .posts-grid {
@@ -218,7 +256,7 @@ const finds = (await getCollection('finds', ({ data }) => {
     }
     #hero img {
       border-radius: 9999px;
-      border: 4px solid var(--color-mid);
+      border: 4px solid var(--color-accent);
       width: 8rem;
       height: 8rem;
     }

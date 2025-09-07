@@ -15,7 +15,7 @@ const path = pathname.split('/').filter(segment => segment !== '');
 ---
 
 <Layout title={title} description={description} image={image}>
-  <article class="page-content">
+  <article class="page-content flow">
     {path.length > 0 && <Breadcrumbs path={path} />}
     {title && <h1>{title}</h1>}
     {title && <hr/>}

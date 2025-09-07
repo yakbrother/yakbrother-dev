@@ -21,7 +21,18 @@ const { title = CONFIG.site_title, description = CONFIG.description } = Astro.pr
 	
 	<!-- Preload self-hosted critical fonts -->
 	<link rel="preload" href="/fonts/brophy-script.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="/fonts/radiocanada-webfont.woff" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/radiocanada-webfont.woff" as="font" type="font/woff" crossorigin>
+	
+	<!-- Direct font loading to bypass build optimization -->
+	<style>
+		@font-face {
+			font-family: "Brophy Script";
+			src: url("/fonts/brophy-script.ttf") format("truetype");
+			font-weight: 400;
+			font-style: normal;
+			font-display: swap;
+		}
+	</style>
 	<meta name="generator" content={Astro.generator} />
 
 	<!-- Primary Meta Tags -->
