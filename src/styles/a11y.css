@@ -1,0 +1,60 @@
+/* Accessibility Improvements */
+
+/* High contrast theme variables */
+:root {
+  --color-accent: #b93721;        /* Darker red for better contrast */
+  --color-dark: #2d2d2d;         /* Darker gray for text */
+  --color-light: #ffffff;        /* Pure white background */
+  --color-mid: #656565;         /* Medium gray for better contrast */
+  --color-mid-shade: #4a4a4a;   /* Darker medium gray */
+}
+
+/* High contrast specific styles */
+.high-contrast {
+  color: var(--color-dark) !important;
+  background-color: var(--color-light) !important;
+}
+
+.button-primary.high-contrast {
+  color: var(--color-light) !important;
+  background-color: var(--color-accent) !important;
+  border: 2px solid var(--color-accent);
+}
+
+.button-primary.high-contrast:hover,
+.button-primary.high-contrast:focus {
+  background-color: var(--color-dark) !important;
+  border-color: var(--color-dark);
+}
+
+/* Visually hidden but screen reader accessible */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Focus styles */
+a:focus,
+button:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Link styles */
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-dark);
+  text-decoration-thickness: 0.2em;
+}
