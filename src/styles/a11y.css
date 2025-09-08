@@ -2,13 +2,14 @@
 
 /* High contrast theme variables */
 :root {
-  --color-accent: #d4311d; /* Increased contrast red */
+  --color-accent: #c41e0b; /* Even higher contrast red */
   --color-dark: #1a1a1a; /* Darker text for better contrast */
   --color-light: #ffffff; /* Pure white background */
-  --color-mid: #767676; /* Darker medium gray for better contrast */
+  --color-mid: #595959; /* Much darker gray for better contrast */
   --color-mid-shade: #4a4a4a; /* Darker medium gray */
-  --color-date: #666666; /* Date text color with proper contrast */
-  --color-footer: #2d2d2d; /* Footer text color */
+  --color-date: #595959; /* Darker date text color */
+  --color-footer: #000000; /* Black footer text for maximum contrast */
+  --color-nav: #000000; /* Black navigation text */
 }
 
 /* High contrast specific styles */
@@ -53,36 +54,51 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.2em;
+  font-weight: 500;
 }
 
 a:hover,
 a:focus {
   color: var(--color-dark);
   text-decoration-thickness: 0.2em;
+  background-color: var(--color-light);
 }
 
 /* Date and metadata styles */
 time {
-  color: var(--color-dark) !important;
+  color: var(--color-date) !important;
+  font-weight: 500;
 }
 
 .post-description {
-  color: var(--color-dark) !important;
+  color: var(--color-mid) !important;
+  font-weight: 500;
 }
 
 /* Footer styles */
 #footer-content {
   color: var(--color-footer);
+  background-color: var(--color-light);
+  padding: 1rem;
 }
 
 #footer-content a {
   color: var(--color-accent);
+  font-weight: 600;
 }
 
 /* Navigation styles */
 .nav a {
-  color: var(--color-dark);
-  font-weight: 500;
+  color: var(--color-nav);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5em;
+}
+
+.nav a:hover,
+.nav a:focus {
+  background-color: var(--color-accent);
+  color: var(--color-light);
 }
 
 /* Make sure skip link is visible when focused */
