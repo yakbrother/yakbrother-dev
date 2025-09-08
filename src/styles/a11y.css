@@ -1,16 +1,120 @@
 /* Accessibility Improvements */
 
+/* Reset any existing styles that might interfere */
+.nav a,
+.post-description,
+time,
+#footer-content,
+#footer-content a {
+  color: inherit;
+}
+
+/* High contrast navigation */
+.nav a {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5em 1em;
+}
+
+.nav a:hover,
+.nav a:focus {
+  background-color: #9f0f00;
+  color: #ffffff;
+}
+
+/* Post and date styles */
+.post-description {
+  color: #333333 !important;
+  font-weight: 500;
+}
+
+time {
+  color: #333333 !important;
+  font-weight: 500;
+}
+
+/* Link styles */
+a {
+  color: #9f0f00;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+  font-weight: 600;
+}
+
+a:hover,
+a:focus {
+  color: #000000;
+  text-decoration-thickness: 0.2em;
+  background-color: #ffffff;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+  background-color: #9f0f00;
+  color: #ffffff;
+}
+
+/* Footer styles */
+#footer-content {
+  color: #000000;
+  background-color: #ffffff;
+  padding: 1rem;
+}
+
+#footer-content a {
+  color: #9f0f00;
+  font-weight: 600;
+}
+
+/* Content styles */
+h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Ensure interactive elements have sufficient size */
+button,
+a.button-primary,
+.nav a,
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Focus styles */
+:focus {
+  outline: 3px solid #9f0f00;
+  outline-offset: 3px;
+}
+
 /* High contrast theme variables */
 :root {
-  --color-accent: #b41200; /* Maximum contrast red */
+  --color-accent: #9f0f00; /* Maximum contrast red */
   --color-dark: #000000; /* Pure black for text */
   --color-light: #ffffff; /* Pure white background */
-  --color-mid: #595959; /* Much darker gray for better contrast */
-  --color-mid-shade: #4a4a4a; /* Darker medium gray */
-  --color-date: #4d4d4d; /* Even darker date text color */
+  --color-mid: #444444; /* Very dark gray for better contrast */
+  --color-mid-shade: #333333; /* Even darker medium gray */
+  --color-date: #333333; /* Very dark date text color */
   --color-footer: #000000; /* Black footer text */
   --color-nav: #000000; /* Black navigation text */
   --color-heading: #000000; /* Black headings */
+  --color-link: #850c00; /* Very dark red for links */
 }
 
 /* High contrast specific styles */
@@ -51,11 +155,11 @@ button:focus {
 
 /* Link styles */
 a {
-  color: var(--color-accent);
+  color: var(--color-link);
   text-decoration: underline;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.2em;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 a:hover,
@@ -63,6 +167,8 @@ a:focus {
   color: var(--color-dark);
   text-decoration-thickness: 0.2em;
   background-color: var(--color-light);
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
 /* Date and metadata styles */
