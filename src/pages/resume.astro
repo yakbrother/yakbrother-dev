@@ -10,13 +10,33 @@ const formattedDate = currentTime.toLocaleDateString('en-US', {
 ---
 
 <PageLayout
-title="Resume"
-description="Download Resume for Timothy Eaton"
-
+  title="Resume"
+  description="Download Resume for Timothy Eaton"
 >
-  
-    <p><a class="button-primary" href="/Timothy_Eaton_Full_Stack_Resume.pdf">Download PDF</a></p>
+  <main class="resume-section">
+    <h1 class="visually-hidden">Resume</h1>
+    
+    <p>
+      <a 
+        class="button-primary high-contrast" 
+        href="/Timothy_Eaton_Full_Stack_Resume.pdf"
+        aria-label="Download Resume as PDF"
+        download
+      >
+        Download PDF
+      </a>
+    </p>
 
-    <p>Prefer another format? Email me at <a href="hello@timeaton.dev">hello@timeaton.dev</a> for alternate versions.</p>
-
+    <p>
+      Prefer another format? Email me at 
+      <a 
+        href="mailto:hello@timeaton.dev"
+        class="high-contrast"
+        aria-label="Email me for alternate resume formats"
+      >
+        hello@timeaton.dev
+      </a> 
+      for alternate versions.
+    </p>
+  </main>
 </PageLayout>
