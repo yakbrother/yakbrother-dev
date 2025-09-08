@@ -1,7 +1,6 @@
 ---
 import "@styles/fonts.css";
 import "@styles/global.css";
-import "@styles/a11y.css";
 
 import { CONFIG } from "../config";
 
@@ -40,6 +39,9 @@ const { title = CONFIG.site_title, description = CONFIG.description } = Astro.pr
 	<title>{`Tim Eaton | ${title}`}</title>
 	<meta name="title" content={`Tim Eaton | ${title}`} />
 	<meta name="description" content={description} />
+
+
+	</style>
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />

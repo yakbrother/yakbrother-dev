@@ -29,6 +29,7 @@ a {
   font-weight: 600;
 }
 
+
 /* Skip navigation */
 .skip-link {
   position: absolute;
@@ -53,12 +54,7 @@ a {
 }
 
 /* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+h1, h2, h3, h4, h5, h6,
 .post-card time,
 .post-meta time,
 #footer-content a,
@@ -77,6 +73,8 @@ a.button-primary,
   align-items: center;
   justify-content: center;
 }
+
+/* Focus management */
 
 /* Screen reader only content */
 .visually-hidden {
