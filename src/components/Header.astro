@@ -6,26 +6,27 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header class="header">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="header" role="banner">
       <div class="logo">
-        <h1><a href="/" id="home">
+        <h1><a href="/" id="home" aria-label="Return to homepage">
           <span>yakbrother.dev</span>
         </a></h1>
       </div>
-      <nav class="nav">
-        <ul class="menu">
-          <li>
-            <a href="/posts/">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <ul class="menu" role="menubar">
+          <li role="none">
+            <a href="/posts/" role="menuitem">
               Blog
             </a>
           </li>
-          <li>
-            <a href="/finds/">
+          <li role="none">
+            <a href="/finds/" role="menuitem">
               Finds
             </a>
           </li>
-          <li>
-            <a href="/about/">
+          <li role="none">
+            <a href="/about/" role="menuitem">
               About
             </a>
           </li>

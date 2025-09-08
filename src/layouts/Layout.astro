@@ -8,13 +8,13 @@ const { title = CONFIG.site_title, description = CONFIG.description, image = "/o
 ---
 
 <!doctype html>
-<html lang="en-us">
+<html lang="en-US">
 	<head>
 		<HeadContent title={title} description={description} image={image} />
 	</head>
 	<body>
 		<Header />
-		<main class="content flow">
+		<main id="main-content" class="content flow" role="main" tabindex="-1">
 			<slot/>
 		</main>
 		<Footer />
