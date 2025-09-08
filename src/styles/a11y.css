@@ -2,11 +2,13 @@
 
 /* High contrast theme variables */
 :root {
-  --color-accent: #b93721;        /* Darker red for better contrast */
-  --color-dark: #2d2d2d;         /* Darker gray for text */
-  --color-light: #ffffff;        /* Pure white background */
-  --color-mid: #656565;         /* Medium gray for better contrast */
-  --color-mid-shade: #4a4a4a;   /* Darker medium gray */
+  --color-accent: #d4311d; /* Increased contrast red */
+  --color-dark: #1a1a1a; /* Darker text for better contrast */
+  --color-light: #ffffff; /* Pure white background */
+  --color-mid: #767676; /* Darker medium gray for better contrast */
+  --color-mid-shade: #4a4a4a; /* Darker medium gray */
+  --color-date: #666666; /* Date text color with proper contrast */
+  --color-footer: #2d2d2d; /* Footer text color */
 }
 
 /* High contrast specific styles */
@@ -57,4 +59,40 @@ a:hover,
 a:focus {
   color: var(--color-dark);
   text-decoration-thickness: 0.2em;
+}
+
+/* Date and metadata styles */
+time {
+  color: var(--color-dark) !important;
+}
+
+.post-description {
+  color: var(--color-dark) !important;
+}
+
+/* Footer styles */
+#footer-content {
+  color: var(--color-footer);
+}
+
+#footer-content a {
+  color: var(--color-accent);
+}
+
+/* Navigation styles */
+.nav a {
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+/* Make sure skip link is visible when focused */
+.skip-link:focus {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  width: auto;
+  background: var(--color-accent);
+  color: var(--color-light);
+  padding: 0.5em 1em;
+  z-index: 100;
 }
