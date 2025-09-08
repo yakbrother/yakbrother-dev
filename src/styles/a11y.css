@@ -2,14 +2,15 @@
 
 /* High contrast theme variables */
 :root {
-  --color-accent: #c41e0b; /* Even higher contrast red */
-  --color-dark: #1a1a1a; /* Darker text for better contrast */
+  --color-accent: #b41200; /* Maximum contrast red */
+  --color-dark: #000000; /* Pure black for text */
   --color-light: #ffffff; /* Pure white background */
   --color-mid: #595959; /* Much darker gray for better contrast */
   --color-mid-shade: #4a4a4a; /* Darker medium gray */
-  --color-date: #595959; /* Darker date text color */
-  --color-footer: #000000; /* Black footer text for maximum contrast */
+  --color-date: #4d4d4d; /* Even darker date text color */
+  --color-footer: #000000; /* Black footer text */
   --color-nav: #000000; /* Black navigation text */
+  --color-heading: #000000; /* Black headings */
 }
 
 /* High contrast specific styles */
@@ -99,6 +100,54 @@ time {
 .nav a:focus {
   background-color: var(--color-accent);
   color: var(--color-light);
+}
+
+/* Post styles */
+.post-card time,
+.post-meta time {
+  color: var(--color-date) !important;
+  font-weight: 600;
+}
+
+/* Content styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
+}
+
+.high-contrast {
+  color: var(--color-dark) !important;
+}
+
+/* Link styles enhancement */
+a[href^="http"] {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+a[href^="http"]:hover,
+a[href^="http"]:focus {
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Ensure all interactive elements have sufficient padding */
+button,
+a.button-primary,
+.nav a,
+[role="button"] {
+  padding: 0.5em 1em;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Make sure skip link is visible when focused */
