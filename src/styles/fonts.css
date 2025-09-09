@@ -1,22 +1,6 @@
 /* Font Families */
 
-/* Adventura (self-hosted) */
-@font-face {
-  font-family: "Adventura";
-  src: url("/fonts/Adventura-BF689aeb9be0f74.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Self-hosted font faces */
-@font-face {
-  font-family: "Brophy Script";
-  src: url("/fonts/brophy-script.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* Oleo Script - Display font for headings */
 @font-face {
   font-family: "Oleo Script";
   src: url("/fonts/OleoScript-Regular.ttf") format("truetype");
@@ -24,84 +8,15 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Oleo Script";
-  src: url("/fonts/OleoScript-Regular.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+
+/* Radio Canada - Main body font (variable font) */
 @font-face {
   font-family: "Radio Canada";
   src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 400;
+  font-weight: 300 700;
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Radio Canada Variable Font */
-.radio-canada-light {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-regular {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-medium {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-semibold {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-bold {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-/* Miriam Libre removed; headings use Fira Code via --font-display */
 
 /* Code font uses system monospace stack via --font-mono */
 

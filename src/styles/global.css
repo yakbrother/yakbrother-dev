@@ -119,7 +119,7 @@ textarea {
   --color-dark-glare: #5da271;
   --color-mid: #898989;
   --color-mid-shade: #d4a0a7;
-  --color-primary: #5da271;
+  --color-primary: #437250;
   --color-primary-glare: #5da271;
   --color-primary-shade: #898989;
   --color-card: #ffffff;
@@ -140,7 +140,9 @@ textarea {
   --focus-ring-offset: 2px;
   --font-base: "Radio Canada", system-ui, sans-serif;
   --font-display: "Oleo Script", system-ui, cursive;
+  --font-statement: "Oleo Script", system-ui, cursive;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    monospace;
   --font-normal: 400;
   --font-medium: 500;
   --font-bold: 700;
