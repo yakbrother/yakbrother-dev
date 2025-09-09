@@ -12,6 +12,8 @@ Every once in a while, I like to take another look at SEO strategies, since they
 
 This makes for nicer looking Google results, better search previews, and all those good things.
 
+_<em>\_Edit 09/09/25: In the first version, I didn't escape the quotes, which was quickly spotted later in a security check. Oops!_
+
 ## How to Add JSON-LD in Astro
 
 Add a `<script type="application/ld+json">` block to your main head component. For a blog post, use the `BlogPosting` schema from [schema.org](https://schema.org/BlogPosting).
@@ -35,7 +37,7 @@ Add a `<script type="application/ld+json">` block to your main head component. F
   },
   "publisher": {
     "@type": "Organization",
-    "name": "timeaton.dev",
+    "name": "yakbrother.dev",
     "logo": {
       "@type": "ImageObject",
       "url": new URL('/favicon-96x96.png', Astro.url).href
@@ -67,6 +69,7 @@ Add a `<script type="application/ld+json">` block to your main head component. F
 ```
 
 The secure method uses:
+
 - `JSON.stringify()` to properly escape all dynamic content
 - `set:html` directive for safe HTML injection
 - `Astro.url.href` and `new URL()` for proper URL construction

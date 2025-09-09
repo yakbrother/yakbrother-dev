@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 import expressiveCode from "astro-expressive-code";
 
 export default defineConfig({
-  site: "https://www.timeaton.dev/",
+  site: "https://www.yakbrother.dev/",
   author: "Tim Eaton",
   base: "/",
   integrations: [sitemap(), expressiveCode(), mdx()],

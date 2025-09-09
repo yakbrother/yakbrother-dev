@@ -7,6 +7,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 Smilodon is a clean, modern personal website theme built with Astro. It features Tim Eaton's personal website with responsive design, fluid typography, dark/light mode support, and content collections for blog posts and curated finds.
 
 **Key Technologies:**
+
 - Astro 5.13.0 with TypeScript
 - Content Collections (MDX support)
 - Responsive design with fluid typography
@@ -15,6 +16,7 @@ Smilodon is a clean, modern personal website theme built with Astro. It features
 ## Development Commands
 
 ### Core Development
+
 ```bash
 # Start development server (hot reload enabled)
 npm run dev
@@ -32,13 +34,16 @@ npm install
 ```
 
 ### Content Management
+
 Content is managed through Astro's Content Collections system:
+
 - Blog posts: `src/content/posts/*.md`
 - Curated finds: `src/content/finds/*.md`
 
 ## Architecture
 
 ### Directory Structure
+
 - `src/config.ts` - Site-wide configuration and constants
 - `src/content.config.ts` - Content collection schemas and types
 - `src/layouts/` - Page layouts (Layout.astro, PageLayout.astro)
@@ -47,14 +52,18 @@ Content is managed through Astro's Content Collections system:
 - `src/content/` - Content collections (posts, finds)
 
 ### Content Collections
+
 Two main content types:
+
 1. **Posts** - Blog posts with categories (dev, design, musings, life)
 2. **Finds** - Curated links with types (video, article, book, tool, website)
 
 Both collections use frontmatter schemas defined in `content.config.ts` with required fields for title, dates, and publication status.
 
 ### Path Aliases
+
 TypeScript path mapping configured in `tsconfig.json`:
+
 - `@content/*` → `src/content/*`
 - `@layouts/*` → `src/layouts/*`
 - `@components/*` → `src/components/*`
@@ -62,12 +71,14 @@ TypeScript path mapping configured in `tsconfig.json`:
 - `@styles/*` → `src/styles/*`
 
 ### Page Generation
+
 - Static pages in `src/pages/`
 - Dynamic routing for blog posts: `[slug].astro`
 - Pagination for collections: `[page].astro`
 - Home page aggregates recent posts and finds
 
 ### Styling Approach
+
 - Component-scoped styles in `.astro` files
 - CSS custom properties for theming (light/dark mode)
 - Fluid typography and responsive grid layouts
@@ -76,7 +87,9 @@ TypeScript path mapping configured in `tsconfig.json`:
 ## Content Creation
 
 ### Adding Blog Posts
+
 Create new `.md` files in `src/content/posts/` with required frontmatter:
+
 ```yaml
 ---
 title: "Post Title"
@@ -89,7 +102,9 @@ public: true
 ```
 
 ### Adding Finds
+
 Create new `.md` files in `src/content/finds/` with required frontmatter:
+
 ```yaml
 ---
 title: "Link Title"
@@ -104,20 +119,25 @@ public: true
 ## Configuration
 
 ### Site Settings
+
 Edit `src/config.ts` for:
+
 - Site metadata (title, URL, author, email)
 - Navigation paths
 - Global constants
 
 ### Astro Configuration
+
 Key settings in `astro.config.mjs`:
-- Site URL: https://www.timeaton.dev/
+
+- Site URL: https://www.yakbrother.dev/
 - Integrations: sitemap, expressiveCode, mdx
 - Content collections schema references
 
 ## Build and Deploy
 
 The project generates a static site in the `dist/` directory. The build includes:
+
 - Optimized HTML, CSS, and JavaScript
 - Processed images (WebP conversion for avatars)
 - RSS feed and sitemap generation

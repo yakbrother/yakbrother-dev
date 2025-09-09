@@ -15,7 +15,7 @@ Here are my 5 of my favorite free typefaces for websites at the moment, in no pa
 
 ### Radio Canada
 
-CBC/Radio-Canada is Canada's national public broadcaster, and they had this font designed by Charles Dauad in 2017. While ultra-readable and friendly-looking, it’s an underused option. My website, timeaton.dev, uses it for all content. I just love the little details like the angled tops of the <strong>l</strong> and <strong>t</strong>.
+CBC/Radio-Canada is Canada's national public broadcaster, and they had this font designed by Charles Dauad in 2017. While ultra-readable and friendly-looking, it’s an underused option. My website, yakbrother.dev, uses it for all content. I just love the little details like the angled tops of the <strong>l</strong> and <strong>t</strong>.
 
 <figure>
     <img src="/assets/posts/radio-canada.png" alt="Radio Canada font preview">
