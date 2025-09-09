@@ -33,8 +33,12 @@ FONTS_TO_SUBSET = [
         "output": "OleoScript-Regular-latin.woff2"
     },
     {
-        "input": "RadioCanada-Italic-VariableFont_wdth,wght.ttf", 
-        "output": "RadioCanada-latin.woff2"
+        "input": "RadioCanada-Regular.woff2", 
+        "output": "RadioCanada-Regular-latin.woff2"
+    },
+    {
+        "input": "RadioCanada-Italic.woff2", 
+        "output": "RadioCanada-Italic-latin.woff2"
     }
 ]
 
