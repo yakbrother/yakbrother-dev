@@ -21,6 +21,10 @@ const finds = (await getCollection('finds', ({ data }) => {
   <article class="page-content" role="main">
  	<section id="hero" class="flow" aria-labelledby="hero-heading">
       <div class="hero-title">
+        <div class="hero-text">
+            <h1 id="hero-heading" class="high-contrast">Timothy Eaton</h1>
+            <p id="subtitle" class="high-contrast">He/Him | Senior Full-Stack Developer | Nyon, Switzerland</p>
+        </div>
         <picture>
           <source srcset="/tim_avatar.webp" type="image/webp">
           <img 
@@ -33,10 +37,6 @@ const finds = (await getCollection('finds', ({ data }) => {
             role="img"
           >
         </picture>
-        <div class="hero-text">
-            <h1 id="hero-heading" class="high-contrast">Timothy Eaton</h1>
-            <p id="subtitle" class="high-contrast">He/Him | Senior Full-Stack Developer | Nyon, Switzerland</p>
-        </div>
       </div>
     </section>
 
@@ -249,12 +249,12 @@ const finds = (await getCollection('finds', ({ data }) => {
       font-size: var(--step-1);
       line-height: 1.4;
     }
-    #hero-title {
+    .hero-title {
       display: flex;
       gap: 2rem;
       align-items: center;
       margin-bottom: 1rem;
-      flex-direction: row;
+      flex-direction: row-reverse;
       justify-content: flex-start;
       max-width: var(--content-width);
       margin-inline: auto;
@@ -263,9 +263,14 @@ const finds = (await getCollection('finds', ({ data }) => {
       margin: 0;
       line-height: 1.2;
       font-weight: 700;
+      text-align: left;
     }
     .hero-text {
       flex: 1;
+      text-align: left;
+    }
+    #subtitle {
+      text-align: left;
     }
     #hero img {
       border-radius: 9999px;
@@ -281,7 +286,7 @@ const finds = (await getCollection('finds', ({ data }) => {
     }
 
     @media (max-width: 640px) {
-      #hero-title {
+      .hero-title {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
@@ -300,8 +305,8 @@ const finds = (await getCollection('finds', ({ data }) => {
     #action-links {
         display: flex;
         align-items: baseline; /* typographic baseline alignment */
-        margin-bottom: 2rem; /* restore spacing */
         margin: 0.25rem;
+        margin-bottom: 2rem; /* this needs to come after the general margin */
         flex-wrap: wrap;
         list-style-type: none
     }
