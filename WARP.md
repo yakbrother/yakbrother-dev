@@ -4,7 +4,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 
 ## Project Overview
 
-Glyptodon is a clean, modern personal website theme built with Astro. It features Tim Eaton's personal website with responsive design, fluid typography, dark/light mode support, and content collections for blog posts and curated finds.
+Smilodon is a clean, modern personal website theme built with Astro. It features Tim Eaton's personal website with responsive design, fluid typography, dark/light mode support, and content collections for blog posts and curated finds.
 
 **Key Technologies:**
 - Astro 5.13.0 with TypeScript

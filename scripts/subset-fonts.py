@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Font Subsetting Script for Glyptodon
+Font Subsetting Script for Smilodon
 Automatically creates optimized Latin subsets for web fonts.
 """
 
