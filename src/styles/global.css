@@ -324,6 +324,14 @@ h6 {
   max-width: var(--measure-heading-6);
 }
 
+/* Subheadings use body font (Radio Canada) */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-base);
+}
+
 small {
   font-size: var(--text-size-small);
 }
