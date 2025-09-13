@@ -1,107 +1,38 @@
 /* Font Families */
 
-/* Adventura (self-hosted) */
+/* Oleo Script - Display font for headings */
 @font-face {
-  font-family: "Adventura";
-  src: url("/fonts/Adventura-BF689aeb9be0f74.otf") format("opentype");
+  font-family: "Oleo Script";
+  src: url("/fonts/OleoScript-Regular-latin.woff2") format("woff2"),
+       url("/fonts/OleoScript-Regular.woff2") format("woff2"),
+       url("/fonts/OleoScript-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2013, U+2014, U+2018, U+2019, U+201C, U+201D;
 }
 
-/* Self-hosted font faces */
+/* Radio Canada - Main body font (regular weight) */
 @font-face {
-  font-family: "Brophy Script";
-  src: url("/fonts/brophy-script.ttf") format("truetype");
+  font-family: "Radio Canada";
+  src: url("/fonts/RadioCanada-Regular-latin.woff2") format("woff2"),
+       url("/fonts/RadioCanada-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2013, U+2014, U+2018, U+2019, U+201C, U+201D;
 }
-@font-face {
-  font-family: "Oleo Script";
-  src: url("/fonts/OleoScript-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Oleo Script";
-  src: url("/fonts/OleoScript-Regular.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+
+/* Radio Canada - Italic */
 @font-face {
   font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
+  src: url("/fonts/RadioCanada-Italic-latin.woff2") format("woff2"),
+       url("/fonts/RadioCanada-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F, U+2013, U+2014, U+2018, U+2019, U+201C, U+201D;
 }
-@font-face {
-  font-family: "Radio Canada";
-  src: url("/fonts/radiocanada-webfont.woff") format("woff");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Radio Canada Variable Font */
-.radio-canada-light {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-regular {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-medium {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-semibold {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-.radio-canada-bold {
-  font-family: "Radio Canada", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-/* Miriam Libre removed; headings use Fira Code via --font-display */
 
 /* Code font uses system monospace stack via --font-mono */
 

@@ -12,11 +12,49 @@ Every once in a while, I like to take another look at SEO strategies, since they
 
 This makes for nicer looking Google results, better search previews, and all those good things.
 
+_Edit 09/09/25: In the first version, I didn't escape the quotes, which was quickly spotted later in a security check. Oops!_
+
 ## How to Add JSON-LD in Astro
 
-Add a `<script type="application/ld+json">` block to your main head component. For a blog post, use the `BlogPosting` schema from [schema.org](https://schema.org/BlogPosting):
+Add a `<script type="application/ld+json">` block to your main head component. For a blog post, use the `BlogPosting` schema from [schema.org](https://schema.org/BlogPosting).
+
+**⚠️ Security Note:** Always use proper templating and escaping when adding dynamic data to JSON-LD. Never use plain string interpolation as it can lead to XSS vulnerabilities.
+
+**✅ Secure Method (Recommended):**
 
 ```astro
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": [
+    new URL('/og-default.jpg', Astro.url).href
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Tim Eaton"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "yakbrother.dev",
+    "logo": {
+      "@type": "ImageObject",
+      "url": new URL('/favicon-96x96.png', Astro.url).href
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": Astro.url.href
+  }
+})}
+></script>
+```
+
+**❌ Insecure Method (Don't Use):**
+
+```astro
+<!-- DON'T DO THIS - Vulnerable to XSS attacks -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,26 +63,17 @@ Add a `<script type="application/ld+json">` block to your main head component. F
   "description": "{description}",
   "image": [
     "{image ? image : '/og-default.jpg'}"
-  ],
-  "author": {
-    "@type": "Person",
-    "name": "Tim Eaton"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "timeaton.dev",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "/favicon-96x96.png"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{Astro.url}"
-  }
+  ]
 }
 </script>
 ```
+
+The secure method uses:
+
+- `JSON.stringify()` to properly escape all dynamic content
+- `set:html` directive for safe HTML injection
+- `Astro.url.href` and `new URL()` for proper URL construction
+- Direct variable references instead of string interpolation
 
 ## In general...
 

@@ -7,26 +7,26 @@ const { activeNav } = Astro.props;
 ---
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<header class="header" role="banner">
+<header class="header">
       <div class="logo">
         <h1><a href="/" id="home" aria-label="Return to homepage">
           <span>yakbrother.dev</span>
         </a></h1>
       </div>
-      <nav class="nav" role="navigation" aria-label="Main navigation">
-        <ul class="menu" role="menubar">
-          <li role="none">
-            <a href="/posts/" role="menuitem">
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="menu">
+          <li>
+            <a href="/posts/">
               Blog
             </a>
           </li>
-          <li role="none">
-            <a href="/finds/" role="menuitem">
+          <li>
+            <a href="/finds/">
               Finds
             </a>
           </li>
-          <li role="none">
-            <a href="/about/" role="menuitem">
+          <li>
+            <a href="/about/">
               About
             </a>
           </li>
