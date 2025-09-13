@@ -441,13 +441,19 @@ blockquote q {
   max-width: 100%;
 }
 
+figure img {
+  width: 100%;
+  max-width: 100%;
+}
+
 picture img {
   width: 100%;
 }
 
 figure {
   margin-block-start: inherit;
-  margin-inline: var(--global-style-figure-margin-inline, revert);
+  margin-inline: var(--global-style-figure-margin-inline, 0);
+  max-width: 100%;
 }
 
 figcaption {

@@ -12,7 +12,7 @@ Every once in a while, I like to take another look at SEO strategies, since they
 
 This makes for nicer looking Google results, better search previews, and all those good things.
 
-_<em>\_Edit 09/09/25: In the first version, I didn't escape the quotes, which was quickly spotted later in a security check. Oops!_
+_Edit 09/09/25: In the first version, I didn't escape the quotes, which was quickly spotted later in a security check. Oops!_
 
 ## How to Add JSON-LD in Astro
 
@@ -20,7 +20,7 @@ Add a `<script type="application/ld+json">` block to your main head component. F
 
 **⚠️ Security Note:** Always use proper templating and escaping when adding dynamic data to JSON-LD. Never use plain string interpolation as it can lead to XSS vulnerabilities.
 
-### ✅ Secure Method (Recommended):
+**✅ Secure Method (Recommended):**
 
 ```astro
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -51,7 +51,7 @@ Add a `<script type="application/ld+json">` block to your main head component. F
 ></script>
 ```
 
-### ❌ Insecure Method (Don't Use):
+**❌ Insecure Method (Don't Use):**
 
 ```astro
 <!-- DON'T DO THIS - Vulnerable to XSS attacks -->
