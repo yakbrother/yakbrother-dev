@@ -15,24 +15,14 @@ const { title = CONFIG.site_title, description = CONFIG.description } = Astro.pr
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<link rel="shortcut icon" href="/favicon.ico" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-	<meta name="apple-mobile-web-app-title" content="timeaton.dev" />
+	<meta name="apple-mobile-web-app-title" content="yakbrother.dev" />
 	<link rel="manifest" href="/site.webmanifest" />
 	<meta name="theme-color" content="#ffe6d8" />
 	
-	<!-- Preload self-hosted critical fonts -->
-	<link rel="preload" href="/fonts/brophy-script.ttf" as="font" type="font/ttf" crossorigin>
-	<link rel="preload" href="/fonts/radiocanada-webfont.woff" as="font" type="font/woff" crossorigin>
-	
-	<!-- Direct font loading to bypass build optimization -->
-	<style>
-		@font-face {
-			font-family: "Brophy Script";
-			src: url("/fonts/brophy-script.ttf") format("truetype");
-			font-weight: 400;
-			font-style: normal;
-			font-display: swap;
-		}
-	</style>
+	<!-- Preload critical fonts -->
+	<link rel="preload" href="/fonts/RadioCanada-Regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/RadioCanada-Italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/fonts/OleoScript-Regular-latin.woff2" as="font" type="font/woff2" crossorigin>
 	<meta name="generator" content={Astro.generator} />
 
 	<!-- Primary Meta Tags -->
@@ -70,32 +60,31 @@ const { title = CONFIG.site_title, description = CONFIG.description } = Astro.pr
 	<link rel="sitemap" href="/sitemap-index.xml" />
 
 	<!-- Structured Data: BlogPosting -->
-	<script type="application/ld+json">
-{
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
-	"headline": "{title}",
-	"description": "{description}",
-	"image": [
-		"{image ? image : '/og-default.jpg'}"
-	],
-	"author": {
-		"@type": "Person",
-		"name": "Tim Eaton"
-	},
-	"publisher": {
-		"@type": "Organization",
-		"name": "timeaton.dev",
-		"logo": {
-			"@type": "ImageObject",
-			"url": "/favicon-96x96.png"
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": title,
+		"description": description,
+		"image": [
+			new URL('/og-default.jpg', Astro.url).href
+		],
+		"author": {
+			"@type": "Person",
+			"name": "Tim Eaton"
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": "yakbrother.dev",
+			"logo": {
+				"@type": "ImageObject",
+				"url": new URL('/favicon-96x96.png', Astro.url).href
+			}
+		},
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": Astro.url.href
 		}
-	},
-	"mainEntityOfPage": {
-		"@type": "WebPage",
-		"@id": "{Astro.url}"
-	}
-}
-	</script>
+	})}
+	></script>
 	
 </head>

@@ -3,7 +3,6 @@ import HeadContent from	"@components/HeadContent.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { CONFIG } from "../config";
-import "@styles/a11y.css";
 
 const { title = CONFIG.site_title, description = CONFIG.description, image = "/og-default.jpg" } = Astro.props;
 ---
@@ -15,7 +14,7 @@ const { title = CONFIG.site_title, description = CONFIG.description, image = "/o
 	</head>
 	<body>
 		<Header />
-		<main id="main-content" class="content flow" role="main" tabindex="-1">
+		<main id="main-content" class="content flow" tabindex="-1">
 			<slot/>
 		</main>
 		<Footer />

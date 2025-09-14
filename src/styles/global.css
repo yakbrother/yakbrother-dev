@@ -63,6 +63,7 @@ body {
   color: var(--color-dark);
 }
 
+/* Navigation and button base styles */
 button,
 h1,
 h2,
@@ -71,6 +72,28 @@ h4,
 input,
 label {
   line-height: 1.1;
+}
+
+.nav a {
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button,
+a.button-primary,
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5em 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .avatar-image {
@@ -87,8 +110,33 @@ blockquote b {
 
 /* Links */
 a {
+  color: inherit;
+  text-decoration: underline;
   text-decoration-thickness: 0.1em;
-  text-underline-offset: 0.15em;
+  text-underline-offset: 0.2em;
+  font-weight: 600;
+}
+
+a[href^="http"] {
+  font-weight: 600;
+}
+
+/* Skip navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  width: auto;
+  top: 0;
+  padding: 0.5em 1em;
 }
 
 /* Lists */
@@ -98,7 +146,7 @@ li {
 
 /* Small Text */
 small {
-  font-size: 0.875em;
+  font-size: var(--text-size-small);
   font-weight: 300;
 }
 
@@ -119,7 +167,7 @@ textarea {
   --color-dark-glare: #5da271;
   --color-mid: #898989;
   --color-mid-shade: #d4a0a7;
-  --color-primary: #5da271;
+  --color-primary: #437250;
   --color-primary-glare: #5da271;
   --color-primary-shade: #898989;
   --color-card: #ffffff;
@@ -140,7 +188,9 @@ textarea {
   --focus-ring-offset: 2px;
   --font-base: "Radio Canada", system-ui, sans-serif;
   --font-display: "Oleo Script", system-ui, cursive;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --font-statement: "Oleo Script", system-ui, cursive;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
   --font-normal: 400;
   --font-medium: 500;
   --font-bold: 700;
@@ -274,6 +324,14 @@ h6 {
   max-width: var(--measure-heading-6);
 }
 
+/* Subheadings use body font (Radio Canada) */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-base);
+}
+
 small {
   font-size: var(--text-size-small);
 }
@@ -383,13 +441,19 @@ blockquote q {
   max-width: 100%;
 }
 
+figure img {
+  width: 100%;
+  max-width: 100%;
+}
+
 picture img {
   width: 100%;
 }
 
 figure {
   margin-block-start: inherit;
-  margin-inline: var(--global-style-figure-margin-inline, revert);
+  margin-inline: var(--global-style-figure-margin-inline, 0);
+  max-width: 100%;
 }
 
 figcaption {
@@ -822,15 +886,31 @@ details[open] summary {
 }
 
 .visually-hidden {
-  border: 0;
   clip: rect(0 0 0 0);
-  height: 0;
-  margin: 0;
+  clip-path: inset(50%);
+  height: 1px;
   overflow: hidden;
-  padding: 0;
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+/* Footer */
+#footer-content {
+  padding: 1rem;
+  color: inherit;
+}
+
+#footer-content a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.post-card time,
+.post-meta time,
+.post-description {
+  color: inherit;
+  font-weight: 600;
 }
 
 .button {
