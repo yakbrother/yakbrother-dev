@@ -10,7 +10,7 @@ const { activeNav } = Astro.props;
 <header class="header">
       <div class="logo">
         <h1><a href="/" id="home" aria-label="Return to homepage">
-          <span>yakbrother.dev</span>
+          <span id="logo">yakbrother</span>
         </a></h1>
       </div>
       <nav class="nav" aria-label="Main navigation">
@@ -30,20 +30,42 @@ const { activeNav } = Astro.props;
               About
             </a>
           </li>
+          <li>
+            <a href="/rss.xml" title="RSS Feed" class="rss-menu-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem; vertical-align: text-bottom;">
+                <path d="M4 11a9 9 0 0 1 9 9" />
+                <path d="M4 4a16 16 0 0 1 16 16" />
+                <circle cx="5" cy="19" r="1" />
+              </svg>
+              RSS
+            </a>
+          </li>
         </ul>
         <div class="nav-right">
-          <a href="/rss.xml" title="RSS Feed" class="rss-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 11a9 9 0 0 1 9 9" />
-              <path d="M4 4a16 16 0 0 1 16 16" />
-              <circle cx="5" cy="19" r="1" />
-            </svg>
-            <span class="sr-only">RSS Feed</span>
-          </a>
           <button class="hamburger" aria-label="Toggle Menu">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="4" y1="12" x2="20" y2="12"></line>
+              <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+          </button>
+          <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme" data-mode="light">
+            <!-- Moon icon (shown in light mode to switch to dark) -->
+            <svg class="icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+            <!-- Sun icon (shown in dark mode to switch to light) -->
+            <svg class="icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
           </button>
         </div>
       </nav>
@@ -52,6 +74,9 @@ const { activeNav } = Astro.props;
     <script>
         const hamburger = document.querySelector('.hamburger');
         const menu = document.querySelector('.menu');
+        const themeBtn = document.querySelector<HTMLButtonElement>('.theme-toggle');
+        const iconMoon = document.querySelector<SVGElement>('.icon-moon');
+        const iconSun = document.querySelector<SVGElement>('.icon-sun');
 
         hamburger?.addEventListener('click', () => {
           menu?.classList.toggle('active');
@@ -62,6 +87,59 @@ const { activeNav } = Astro.props;
           const target = event.target as HTMLElement;
           if (!target.closest('.nav') && menu?.classList.contains('active')) {
             menu.classList.remove('active');
+          }
+        });
+
+        // Theme handling with data-theme on <html>
+        const rootEl = document.documentElement;
+        const storedTheme = localStorage.getItem('theme');
+
+        function setIcons(mode) {
+          if (!iconMoon || !iconSun || !themeBtn) return;
+          if (mode === 'dark') {
+            iconSun.style.display = 'inline';
+            iconMoon.style.display = 'none';
+            themeBtn.dataset.mode = 'dark';
+          } else {
+            iconSun.style.display = 'none';
+            iconMoon.style.display = 'inline';
+            themeBtn.dataset.mode = 'light';
+          }
+        }
+
+        function applyTheme(theme) {
+          if (theme === 'dark') {
+            rootEl.setAttribute('data-theme', 'dark');
+            setIcons('dark');
+          } else if (theme === 'light') {
+            rootEl.setAttribute('data-theme', 'light');
+            setIcons('light');
+          } else {
+            rootEl.removeAttribute('data-theme');
+            setIcons('light');
+          }
+        }
+
+        // Initialize theme: stored -> system -> default
+        if (storedTheme === 'dark' || storedTheme === 'light') {
+          applyTheme(storedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          applyTheme('dark');
+        }
+
+        themeBtn?.addEventListener('click', () => {
+          const current = rootEl.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          localStorage.setItem('theme', next);
+          applyTheme(next);
+        });
+
+        // Sync with system changes if user hasn't explicitly chosen
+        const mql = window.matchMedia('(prefers-color-scheme: dark)');
+        mql.addEventListener?.('change', (e) => {
+          const explicit = localStorage.getItem('theme');
+          if (!explicit) {
+            applyTheme(e.matches ? 'dark' : 'light');
           }
         });
     </script>
@@ -110,6 +188,56 @@ const { activeNav } = Astro.props;
         align-items: center;
       }
 
+      #logo {
+        font-family: "Press Start 2P", monospace;
+        font-size: clamp(0.875rem, 0.5rem + 1.5vw, 1.75rem);
+        color: white;
+        letter-spacing: 0.1em;
+        text-shadow: 
+          -1px -1px 0 black,
+          1px -1px 0 black,
+          -1px 1px 0 black,
+          1px 1px 0 black,
+          -3px 0 0 black,
+          3px 0 0 black,
+          0 -3px 0 black,
+          0 3px 0 black;
+      }
+
+      :root[data-theme="dark"] #logo {
+        color: black;
+        text-shadow: 
+          -1px -1px 0 white,
+          1px -1px 0 white,
+          -1px 1px 0 white,
+          1px 1px 0 white,
+          -3px 0 0 white,
+          3px 0 0 white,
+          0 -3px 0 white,
+          0 3px 0 white;
+      }
+
+      :root[data-theme="dark"] .header {
+        background-color: #2a2a2a;
+        border-bottom: 10px solid var(--color-accent);
+      }
+
+      :root[data-theme="dark"] .menu li a,
+      :root[data-theme="dark"] .logo #home,
+      :root[data-theme="dark"] .theme-toggle,
+      :root[data-theme="dark"] .hamburger {
+        color: white;
+      }
+
+      :root[data-theme="dark"] .menu li a:hover,
+      :root[data-theme="dark"] .logo #home:hover {
+        color: white;
+      }
+
+      :root[data-theme="dark"] .theme-toggle {
+        color: white !important;
+      }
+
       .nav {
         display: flex;
         align-items: center;
@@ -119,7 +247,48 @@ const { activeNav } = Astro.props;
         display: flex;
         align-items: center;
         padding-left: 1em;
-        gap: 1rem;
+        gap: 0.5rem;
+      }
+
+      .theme-toggle {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        color: var(--color-light);
+        border-radius: 0.25rem;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .theme-toggle:hover {
+        background: transparent;
+      }
+
+      .theme-toggle .icon {
+        display: inline;
+      }
+      .theme-toggle .icon-sun {
+        display: none;
+      }
+
+      :root[data-theme="dark"] .theme-toggle {
+        color: var(--color-light);
+      }
+
+      @media (max-width: 768px) {
+        .menu {
+          /* keep existing */
+        }
+        .theme-toggle {
+          color: var(--color-light);
+        }
+        .menu.active li a {
+          color: var(--color-dark);
+        }
       }
 
       .menu {
@@ -145,44 +314,41 @@ const { activeNav } = Astro.props;
         text-underline-offset: 2px;
       }
 
+      .rss-menu-link {
+        display: flex;
+        align-items: center;
+      }
+
+      .rss-menu-link svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+
       .hamburger {
         display: none;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 24px;
-        height: 24px;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 0;
         z-index: 10;
-      }
-
-      .hamburger .line {
-        width: 24px;
-        height: 2px;
-        background-color: var(--color-light);
-        margin: 0;
-        transition: all 0.3s linear;
-        position: relative;
-        transform-origin: 1px;
-      }
-
-      .rss-link {
-        display: flex;
         color: var(--color-light);
-        align-items: center;
-        padding: 0 0.25em;
+        border-radius: 0.25rem;
       }
 
-      .rss-link svg {
+      .hamburger:hover {
+        background: transparent;
+      }
+
+      .hamburger svg {
         width: 24px;
         height: 24px;
       }
 
-      .rss-link:hover {
-        color: var(--color-light);
-      }
 
       .sr-only {
         position: absolute;

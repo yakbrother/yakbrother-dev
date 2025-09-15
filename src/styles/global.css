@@ -159,7 +159,7 @@ textarea {
 }
 
 :root {
-  --color-accent: #c84630;
+  --color-accent: #a72918;
   --color-disabled: var(--color-mid);
   --color-light: #e3e3e3;
   --color-light-shade: #898989;
@@ -187,8 +187,8 @@ textarea {
   --focus-ring: 2px solid currentColor;
   --focus-ring-offset: 2px;
   --font-base: "Radio Canada", system-ui, sans-serif;
-  --font-display: "Oleo Script", system-ui, cursive;
-  --font-statement: "Oleo Script", system-ui, cursive;
+  --font-display: "Agbalumo", system-ui, cursive;
+  --font-statement: "Agbalumo", system-ui, cursive;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
     monospace;
   --font-normal: 400;
@@ -253,6 +253,30 @@ textarea {
   --size-step-5: clamp(2.625rem, 1.6754rem + 4.7482vw, 6.75rem);
   --size-step-6: clamp(3rem, 0.0504rem + 14.7482vw, 15.8125rem);
   --size-step-7: clamp(3.8125rem, 0.0427rem + 18.8489vw, 20.1875rem);
+}
+
+/* Manual theme override via data-theme="dark" */
+:root[data-theme="dark"] {
+  --color-light: #0f1115;
+  --color-light-shade: #1a1f24;
+  --color-dark: #ffffff;
+  --color-mid: #8a949d;
+  --color-mid-shade: #55606b;
+  --color-card: #161a1e;
+  --color-pink-hover: #2b2225;
+  --shadow-hover: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Optional explicit light theme to override system when chosen */
+:root[data-theme="light"] {
+  --color-light: #e3e3e3;
+  --color-light-shade: #898989;
+  --color-dark: #1c242a;
+  --color-mid: #898989;
+  --color-mid-shade: #d4a0a7;
+  --color-card: #ffffff;
+  --color-pink-hover: #f0dadf;
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 main {
@@ -946,4 +970,21 @@ details[open] summary {
   --button-interact-bg: var(--color-primary);
   --button-interact-text: var(--color-light);
   --button-interact-border-color: var(--color-dark);
+}
+
+/* Dark mode color overrides using simple variable swaps */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Base surface/text */
+    --color-light: #0f1115;       /* page background */
+    --color-light-shade: #1a1f24; /* subtle surfaces, tracks */
+    --color-dark: #e8edf2;        /* primary text */
+    --color-mid: #8a949d;         /* secondary text, borders */
+    --color-mid-shade: #55606b;   /* accents/border shade */
+    --color-card: #161a1e;        /* card backgrounds */
+
+    /* Hovers and effects */
+    --color-pink-hover: #2b2225;  /* softer hover on dark */
+    --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
 }

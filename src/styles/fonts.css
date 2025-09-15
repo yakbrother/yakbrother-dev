@@ -1,5 +1,32 @@
 /* Font Families */
 
+/* Agbalumo - Display font for headings */
+@font-face {
+  font-family: "Agbalumo";
+  src: url("/fonts/Agbalumo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Honk - Variable font for site name */
+@font-face {
+  font-family: "Honk";
+  src: url("/fonts/Honk-Regular-VariableFont_MORF,SHLN.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Press Start 2P - Pixel font for logo */
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("/fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Oleo Script - Display font for headings */
 @font-face {
   font-family: "Oleo Script";
