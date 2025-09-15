@@ -281,8 +281,9 @@ textarea {
 
 main {
   background: var(--button-gap);
-  max-width: var(--container-max-width);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   flex: 1;
   position: relative;
   z-index: 1;
@@ -290,9 +291,11 @@ main {
 
 .page-content,
 .content {
-  max-width: 55em;
-  padding: 1em;
+  max-width: min(55em, 100vw - 2rem);
+  padding: clamp(0.75rem, 2vw, 2rem);
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
