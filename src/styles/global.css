@@ -17,6 +17,21 @@ body {
   padding: 0;
 }
 
+/* Additional browser compatibility resets */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent browser-specific rendering differences */
+main, header, footer, section, article, nav, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
   margin-block: 0;
 }
