@@ -187,8 +187,8 @@ textarea {
   --focus-ring: 2px solid currentColor;
   --focus-ring-offset: 2px;
   --font-base: "Radio Canada", system-ui, sans-serif;
-  --font-display: "Agbalumo", system-ui, cursive;
-  --font-statement: "Agbalumo", system-ui, cursive;
+  --font-display: "Oleo Script", system-ui, cursive;
+  --font-statement: "Oleo Script", system-ui, cursive;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
     monospace;
   --font-normal: 400;
