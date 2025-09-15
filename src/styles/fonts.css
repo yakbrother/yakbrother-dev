@@ -18,13 +18,14 @@
   font-display: swap;
 }
 
-/* Press Start 2P - Pixel font for logo */
+/* Press Start 2P - Pixel font for logo (optimized subset) */
 @font-face {
   font-family: "Press Start 2P";
-  src: url("/fonts/PressStart2P-Regular.ttf") format("truetype");
+  src: url("/fonts/PressStart2P-logo.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0061, U+0062, U+0068, U+006B, U+006F, U+0072, U+0074, U+0079; /* yakbrother */
 }
 
 /* Oleo Script - Display font for headings */
