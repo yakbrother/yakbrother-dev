@@ -1,23 +1,17 @@
 <footer>
-  <div class="custom-shape-divider-top-1757154761">
-    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
-    </svg>
-  </div>
   <section id="footer-content" class="footer-content flow">
-    <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved. This design is built with <a href="https://astro.build">Astro</a>, and you are free to <a href="https://github.com/yakbrother/yakbrother-dev">download</a> and use my code for your own personal or commercial projects. In case youre wondering: <a href="https://mostlytrue.life/stories/how-yaks-took-over-my-life/">Why Yak?</a></p>
+    <p>&copy; {new Date().getFullYear()} Timothy Eaton. All rights reserved. This design is built with <a href="https://astro.build">Astro</a>, and you are free to <a href="https://github.com/yakbrother/yakbrother-dev">download</a> and use my code for your own personal or commercial projects. In case you're wondering: <a href="https://mostlytrue.life/stories/how-yaks-took-over-my-life/">Why Yak?</a></p>
   </section>
 </footer>
 
 <style>
   footer {
-    position: relative; /* ensure absolute divider is positioned to footer */
     margin-top: var(--space-4xl);
     width: 100%;
     min-height: 200px;
     background-color: var(--color-primary);
     color: var(--color-light);
-    border: none;
+    border-top: 10px solid var(--color-primary-glare);
     padding: 3em 0;
   }
 
@@ -28,26 +22,6 @@
     padding: 3em 2em;
   }
 
-  .custom-shape-divider-top-1757154761 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    pointer-events: none; /* do not block links */
-}
-
-.custom-shape-divider-top-1757154761 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 21px;
-}
-
-  .custom-shape-divider-top-1757154761 .shape-fill {
-      fill: var(--color-light); /* use var(--color-mid-shade) for pink instead */
-  }
 
   footer a {
     color: var(--color-light);
