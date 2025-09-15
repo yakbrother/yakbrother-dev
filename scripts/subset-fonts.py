@@ -39,20 +39,29 @@ FONTS_TO_SUBSET = [
     {
         "input": "RadioCanada-Italic.woff2", 
         "output": "RadioCanada-Italic-latin.woff2"
+    },
+    {
+        "input": "PressStart2P-Regular.ttf",
+        "output": "PressStart2P-logo.woff2",
+        "text": "yakbrother"
     }
 ]
 
-def run_pyftsubset(input_font, output_font):
+def run_pyftsubset(input_font, output_font, text=None):
     """Run pyftsubset command to create font subset."""
     cmd = [
         "pyftsubset",
         str(FONTS_DIR / input_font),
-        f"--unicodes={','.join(UNICODE_RANGES)}",
         f"--output-file={FONTS_DIR / output_font}",
         "--flavor=woff2",
         "--layout-features=*",
         "--desubroutinize"
     ]
+    
+    if text:
+        cmd.append(f"--text={text}")
+    else:
+        cmd.append(f"--unicodes={','.join(UNICODE_RANGES)}")
     
     print(f"Creating subset: {input_font} -> {output_font}")
     try:
@@ -112,7 +121,8 @@ def main():
             
         original_size = get_file_size(input_file)
         
-        if run_pyftsubset(font_config["input"], font_config["output"]):
+        text_param = font_config.get("text")
+        if run_pyftsubset(font_config["input"], font_config["output"], text_param):
             success_count += 1
             subset_size = get_file_size(output_file)
             savings = ((original_size - subset_size) / original_size) * 100

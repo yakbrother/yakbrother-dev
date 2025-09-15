@@ -17,6 +17,23 @@ body {
   padding: 0;
 }
 
+/* Restore natural list styling */
+ul, ol {
+  margin-left: 1em;
+  padding-left: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Prevent browser-specific rendering differences on layout containers */
+main, header, footer, section, article, nav, div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 :where(body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd) {
   margin-block: 0;
 }
@@ -159,7 +176,7 @@ textarea {
 }
 
 :root {
-  --color-accent: #c84630;
+  --color-accent: #a72918;
   --color-disabled: var(--color-mid);
   --color-light: #e3e3e3;
   --color-light-shade: #898989;
@@ -255,10 +272,35 @@ textarea {
   --size-step-7: clamp(3.8125rem, 0.0427rem + 18.8489vw, 20.1875rem);
 }
 
+/* Manual theme override via data-theme="dark" */
+:root[data-theme="dark"] {
+  --color-light: #0f1115;
+  --color-light-shade: #1a1f24;
+  --color-dark: #ffffff;
+  --color-mid: #8a949d;
+  --color-mid-shade: #55606b;
+  --color-card: #161a1e;
+  --color-pink-hover: #2b2225;
+  --shadow-hover: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Optional explicit light theme to override system when chosen */
+:root[data-theme="light"] {
+  --color-light: #e3e3e3;
+  --color-light-shade: #898989;
+  --color-dark: #1c242a;
+  --color-mid: #898989;
+  --color-mid-shade: #d4a0a7;
+  --color-card: #ffffff;
+  --color-pink-hover: #f0dadf;
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
 main {
   background: var(--button-gap);
-  max-width: var(--container-max-width);
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   flex: 1;
   position: relative;
   z-index: 1;
@@ -266,9 +308,11 @@ main {
 
 .page-content,
 .content {
-  max-width: 55em;
-  padding: 1em;
+  max-width: min(55em, 100vw - 2rem);
+  padding: clamp(0.75rem, 2vw, 2rem);
   margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
@@ -946,4 +990,21 @@ details[open] summary {
   --button-interact-bg: var(--color-primary);
   --button-interact-text: var(--color-light);
   --button-interact-border-color: var(--color-dark);
+}
+
+/* Dark mode color overrides using simple variable swaps */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Base surface/text */
+    --color-light: #0f1115;       /* page background */
+    --color-light-shade: #1a1f24; /* subtle surfaces, tracks */
+    --color-dark: #e8edf2;        /* primary text */
+    --color-mid: #8a949d;         /* secondary text, borders */
+    --color-mid-shade: #55606b;   /* accents/border shade */
+    --color-card: #161a1e;        /* card backgrounds */
+
+    /* Hovers and effects */
+    --color-pink-hover: #2b2225;  /* softer hover on dark */
+    --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
 }
