@@ -17,15 +17,17 @@ body {
   padding: 0;
 }
 
-/* Additional browser compatibility resets */
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
+/* Restore natural list styling */
+ul, ol {
+  margin-left: 1em;
+  padding-left: 1em;
 }
 
-/* Prevent browser-specific rendering differences */
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Prevent browser-specific rendering differences on layout containers */
 main, header, footer, section, article, nav, div {
   margin: 0;
   padding: 0;
