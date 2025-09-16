@@ -1,7 +1,7 @@
 ---
 title: The 2025 Redesign
 author: Tim Eaton
-publicationDate: 2025-01-15T20:16:14Z
+publicationDate: 2025-09-15T20:16:14Z
 slug: site-refinements-2025
 featured: false
 public: true
