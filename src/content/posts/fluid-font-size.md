@@ -9,7 +9,7 @@ description: My approach to fluid text in my designs.
 category: dev
 ---
 
-<i>A basic knowledge of CSS is required to understand this post</i>
+_A basic knowledge of CSS is required to understand this post_
 
 I've always hated using media queries to change things like text size, spacer size, and grids, so recently I've gotten very interested in "fluid web design" instead of "responsive web design". [Utopia.fyi](https://utopia.fyi) heavily influences the way I'm currently approaching this￼ . This method is based on CSS `clamp()`, allowing for a fluid and dynamic way to manage font sizes without the complexity of multiple breakpoints. Let’s take a look.
 

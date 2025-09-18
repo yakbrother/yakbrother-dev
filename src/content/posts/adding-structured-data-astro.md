@@ -12,7 +12,7 @@ Every once in a while, I like to take another look at SEO strategies, since they
 
 This makes for nicer looking Google results, better search previews, and all those good things.
 
-_<em>\_Edit 09/09/25: In the first version, I didn't escape the quotes, which was quickly spotted later in a security check. Oops!_
+<em>Edit 09/09/25: In the first version, I didn't escape the quotes, which was quickly spotted later in a security check. Oops!</em>
 
 ## How to Add JSON-LD in Astro
 
