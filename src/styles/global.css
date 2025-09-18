@@ -18,7 +18,8 @@ body {
 }
 
 /* Restore natural list styling */
-ul, ol {
+ul,
+ol {
   margin-left: 1em;
   padding-left: 1em;
 }
@@ -28,7 +29,13 @@ li {
 }
 
 /* Prevent browser-specific rendering differences on layout containers */
-main, header, footer, section, article, nav, div {
+main,
+header,
+footer,
+section,
+article,
+nav,
+div {
   margin: 0;
   padding: 0;
   border: 0;
@@ -125,18 +132,88 @@ blockquote b {
   color: var(--color-dark);
 }
 
-/* Links */
-a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-thickness: 0.1em;
-  text-underline-offset: 0.2em;
+/* Links with animated background - main content only */
+main a,
+.page-content a,
+.content a {
+  position: relative;
+  text-decoration: none;
+  display: inline;
+  color: var(--color-primary-glare);
+  padding: 0 2px;
   font-weight: 600;
+  transition: color ease 0.3s;
 }
 
-a[href^="http"] {
-  font-weight: 600;
+main a::after,
+.page-content a::after,
+.content a::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  left: 0;
+  bottom: 0;
+  background-color: var(--color-primary-glare);
+  transition: all ease 0.3s;
 }
+
+main a:hover,
+.page-content a:hover,
+.content a:hover {
+  color: white;
+}
+
+main a:hover::after,
+.page-content a:hover::after,
+.content a:hover::after {
+  height: 100%;
+}
+
+/* Header links - remove underlines and add slide-up effect */
+header a {
+  color: var(--color-light);
+}
+
+header a::after {
+  display: none;
+}
+
+header a:hover {
+  color: var(--color-light);
+}
+
+/* Header navigation links - slide up effect */
+header .menu a {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light theme: white background slides up */
+header .menu a::after {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  transition: height ease 0.3s;
+}
+
+header .menu a:hover::after {
+  height: 100%;
+}
+
+/* Dark theme: red accent background slides up */
+:root[data-theme="dark"] header .menu a::after {
+  background-color: var(--color-accent);
+}
+
+/* Footer link styles are handled in Footer.astro component */
 
 /* Skip navigation */
 .skip-link {
@@ -281,7 +358,7 @@ textarea {
   --color-mid-shade: #55606b;
   --color-card: #161a1e;
   --color-pink-hover: #2b2225;
-  --shadow-hover: 0 4px 10px rgba(0,0,0,0.4);
+  --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Optional explicit light theme to override system when chosen */
@@ -561,28 +638,7 @@ caption {
   margin-block-start: var(--space-2xs, 0.5lh);
 }
 
-a:not([class]) {
-  color: var(--color-accent);
-  text-decoration: var(--global-style-link-text-decoration, revert);
-}
-
-a:not([class]):hover {
-  text-decoration: var(--global-style-link-hover-text-decoration, revert);
-  text-underline-offset: var(--global-style-link-hover-underline-offset);
-}
-
-:is(h1, h2, h3, h4) a:not([class]) {
-  text-decoration-thickness: var(
-    --global-style-heading-link-underline-thickness
-  );
-  text-underline-offset: var(--global-style-heading-link-underline-offset);
-}
-
-:is(h1, h2, h3, h4) a:not([class]):hover {
-  text-underline-offset: var(
-    --global-style-heading-link-hover-underline-offset
-  );
-}
+/* Removed - conflicted with main content link styling */
 
 :focus {
   outline: none;
@@ -939,11 +995,6 @@ details[open] summary {
   color: inherit;
 }
 
-#footer-content a {
-  color: inherit;
-  font-weight: 600;
-}
-
 .post-card time,
 .post-meta time,
 .post-description {
@@ -996,15 +1047,15 @@ details[open] summary {
 @media (prefers-color-scheme: dark) {
   :root {
     /* Base surface/text */
-    --color-light: #0f1115;       /* page background */
+    --color-light: #0f1115; /* page background */
     --color-light-shade: #1a1f24; /* subtle surfaces, tracks */
-    --color-dark: #e8edf2;        /* primary text */
-    --color-mid: #8a949d;         /* secondary text, borders */
-    --color-mid-shade: #55606b;   /* accents/border shade */
-    --color-card: #161a1e;        /* card backgrounds */
+    --color-dark: #e8edf2; /* primary text */
+    --color-mid: #8a949d; /* secondary text, borders */
+    --color-mid-shade: #55606b; /* accents/border shade */
+    --color-card: #161a1e; /* card backgrounds */
 
     /* Hovers and effects */
-    --color-pink-hover: #2b2225;  /* softer hover on dark */
+    --color-pink-hover: #2b2225; /* softer hover on dark */
     --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
   }
 }

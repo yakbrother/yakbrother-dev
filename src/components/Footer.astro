@@ -23,12 +23,27 @@
   }
 
 
-  footer a {
-    color: var(--color-light);
+  footer section#footer-content p a {
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: all 0.2s ease;
+    /* Use same color as surrounding text */
+    color: inherit;
   }
 
-  footer a:hover {
-    color: var(--color-light);
+  footer section#footer-content p a:hover,
+  footer section#footer-content p a:focus {
+    /* Black text for light theme (white text on green background) */
+    color: black;
+    text-decoration-thickness: 2px;
+  }
+
+  /* Dark mode: white hover text */
+  :root[data-theme="dark"] footer section#footer-content p a:hover,
+  :root[data-theme="dark"] footer section#footer-content p a:focus {
+    color: white;
   }
 
   

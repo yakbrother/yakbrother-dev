@@ -303,9 +303,13 @@ const { activeNav } = Astro.props;
       }
 
       .menu li a:hover {
+        /* Light theme: dark text on white background */
+        color: var(--color-dark);
+      }
+
+      /* Dark theme: light text on red background */
+      :root[data-theme="dark"] .menu li a:hover {
         color: var(--color-light);
-        text-decoration: underline;
-        text-underline-offset: 2px;
       }
 
 

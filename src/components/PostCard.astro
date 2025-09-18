@@ -17,38 +17,40 @@ const formattedDate = date.toLocaleDateString('en-UK', {
 });
 ---
 
-<article class="post-card">
-  <a href={`/posts/${slug}`}>
-  <div class="post-meta">
-    <time datetime={date.toISOString()}>{formattedDate}</time>
-  </div>
-  <h3 class="post-title">
-    {title}
-  </h3>
-  <p class="post-description">{description}</p>
-  </a>
-</article>
+<a href={`/posts/${slug}`} class="post-card">
+  <article>
+    <div class="post-meta">
+      <time datetime={date.toISOString()}>{formattedDate}</time>
+    </div>
+    <h3 class="post-title">
+      {title}
+    </h3>
+    <p class="post-description">{description}</p>
+  </article>
+</a>
 
 <style>
   .post-card {
+    display: block;
     padding: 1rem;
     background: var(--color-card);
     border-radius: 0.75rem;
     border: 1px solid var(--color-mid);
     transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
   }
 
   .post-card:hover {
-    border-color: var(--color-accent);
+    border-color: var(--color-mid);
     background: var(--color-pink-hover);
     box-shadow: var(--shadow-hover);
     transform: translateY(-2px);
   }
 
-  .post-card a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  .post-card::after {
+    display: none;
   }
 
   .post-meta {
@@ -68,13 +70,6 @@ const formattedDate = date.toLocaleDateString('en-UK', {
     font-weight: 600;
   }
 
-  .post-title a {
-    color: var(--color-dark);
-    text-decoration: none;
-    padding: 0;
-  }
-
-  .post-card:hover a { color: var(--color-dark); }
   .post-card:hover .post-description,
   .post-card:hover .post-meta { color: var(--color-dark); }
 
