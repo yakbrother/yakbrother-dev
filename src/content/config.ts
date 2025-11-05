@@ -7,7 +7,7 @@ export const posts = defineCollection({
     title: z.string(),
     description: z.string(),
     publicationDate: z.coerce.date(),
-    category: z.enum(["dev", "musings", "life"]),
+    category: z.enum(["dev", "musings", "life", "design"]),
     public: z.boolean().default(true),
     editDate: z.coerce.date().optional(),
     author: z.string().default(CONFIG.author),
