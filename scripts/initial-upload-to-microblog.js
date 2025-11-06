@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * Migration script to upload existing microblog posts to Micro.blog
+ * ONE-TIME migration script to upload existing local microblog posts to Micro.blog
+ * 
+ * After this initial upload, you'll post directly to Micro.blog (mobile/web)
+ * and use sync-from-microblog.js to pull new posts back to your site.
  * 
  * Usage:
  *   1. Get your Micro.blog API token from https://micro.blog/account/apps
  *   2. Set it as an environment variable: export MICROBLOG_TOKEN="your-token-here"
- *   3. Run: node scripts/migrate-to-microblog.js
+ *   3. Run: node scripts/initial-upload-to-microblog.js
  * 
  * This script uses the Micropub API standard (https://www.w3.org/TR/micropub/)
- * which is what Micro.blog implements.
  */
 
 import fs from 'fs';
@@ -32,7 +34,7 @@ if (!MICROBLOG_TOKEN && !DRY_RUN) {
   process.exit(1);
 }
 
-async function readMicroblogPosts() {
+async function readLocalPosts() {
   const microblogDir = path.join(__dirname, '../src/content/microblog');
   const files = fs.readdirSync(microblogDir).filter(f => f.endsWith('.md'));
   
@@ -46,8 +48,7 @@ async function readMicroblogPosts() {
 }
 
 async function postToMicroblog(post) {
-  // Build the Micropub request
-  // For bookmarks/links, we use the "bookmark-of" property
+  // Build the Micropub request for a bookmark
   const micropubData = {
     type: ['h-entry'],
     properties: {
@@ -95,14 +96,16 @@ async function postToMicroblog(post) {
 }
 
 async function migrate() {
-  console.log('🚀 Starting Micro.blog migration...\n');
+  console.log('🚀 Starting ONE-TIME upload to Micro.blog...\n');
+  console.log('⚠️  This uploads your existing local posts to Micro.blog.');
+  console.log('⚠️  After this, post directly to Micro.blog and sync down.\n');
   
   if (DRY_RUN) {
     console.log('🔍 DRY RUN MODE - No posts will be created\n');
   }
 
-  const posts = await readMicroblogPosts();
-  console.log(`📚 Found ${posts.length} posts to migrate\n`);
+  const posts = await readLocalPosts();
+  console.log(`📚 Found ${posts.length} local posts to upload\n`);
 
   const results = {
     success: 0,
@@ -112,7 +115,7 @@ async function migrate() {
 
   for (const post of posts) {
     const date = new Date(post.publicationDate).toLocaleDateString();
-    process.stdout.write(`📤 Posting: "${post.title}" (${date})... `);
+    process.stdout.write(`📤 Uploading: "${post.title}" (${date})... `);
 
     const result = await postToMicroblog(post);
     
@@ -136,7 +139,7 @@ async function migrate() {
   }
 
   console.log('\n' + '='.repeat(50));
-  console.log('📊 Migration Results:');
+  console.log('📊 Upload Results:');
   console.log(`   ✅ Success: ${results.success}`);
   console.log(`   ❌ Failed: ${results.failed}`);
   
@@ -151,6 +154,11 @@ async function migrate() {
 
   if (DRY_RUN) {
     console.log('\n💡 This was a dry run. Remove --dry-run to actually post.');
+  } else if (results.success > 0) {
+    console.log('\n✅ Upload complete! Next steps:');
+    console.log('   1. Verify posts at https://micro.blog');
+    console.log('   2. Future posts: Create them in Micro.blog (mobile/web)');
+    console.log('   3. Sync back: Run "node scripts/sync-from-microblog.js"');
   }
 }
 

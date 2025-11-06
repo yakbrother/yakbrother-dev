@@ -1,6 +1,6 @@
-# Micro.blog Migration Guide
+# Micro.blog Integration Guide
 
-This guide explains how to migrate your existing microblog posts to Micro.blog.
+This guide explains how to integrate Micro.blog with your site.
 
 ## Overview
 
@@ -8,95 +8,162 @@ Your site has been restructured to use a microblog format:
 - **Microblog** (formerly "Finds"): Short posts, links, and quick thoughts
 - **Essays** (formerly "Blog Posts"): Longer-form articles
 
-The microblog content can be synced to Micro.blog using the Micropub API.
+## The Workflow
 
-## Setup
+**Micro.blog is your posting interface** → Posts sync to your site → Cross-post to Bluesky
 
-### 1. Get Your Micro.blog API Token
+1. **You post** to Micro.blog (easy mobile/web interface)
+2. **Micro.blog** cross-posts to Bluesky automatically
+3. **Your site** syncs posts from Micro.blog's feed
+4. **Git commit** the new posts and deploy
 
-1. Sign up for a Micro.blog account at https://micro.blog
-2. Go to https://micro.blog/account/apps
-3. Create a new app token (you can name it "YakBrother Migration")
-4. Copy the token
+This gives you:
+- ✅ Easy mobile posting (Micro.blog app)
+- ✅ Auto cross-posting to Bluesky
+- ✅ Your own site as source of truth
+- ✅ IndieWeb principles
 
-### 2. Set Up Environment
+## Initial Setup
+
+### 1. Sign Up for Micro.blog
+
+1. Sign up at https://micro.blog
+2. Optionally set up a custom domain
+3. Configure cross-posting to Bluesky:
+   - Go to Account → Edit Apps
+   - Connect your Bluesky account
+
+### 2. Get Your API Token (for initial upload)
+
+1. Go to https://micro.blog/account/apps
+2. Create a new app token (name it "YakBrother Initial Upload")
+3. Copy the token
 
 ```bash
 export MICROBLOG_TOKEN="your-token-here"
 ```
 
-Or add it to your `.zshrc` / `.bashrc`:
-```bash
-echo 'export MICROBLOG_TOKEN="your-token-here"' >> ~/.zshrc
-source ~/.zshrc
-```
+## Step 1: Initial Upload (One-Time)
 
-## Running the Migration
+Upload your existing local posts to Micro.blog:
 
-### Dry Run (Recommended First)
-
-Test the migration without actually posting:
+### Dry Run First
 
 ```bash
-node scripts/migrate-to-microblog.js --dry-run
+node scripts/initial-upload-to-microblog.js --dry-run
 ```
 
-This will show you what would be posted without actually creating anything.
-
-### Real Migration
-
-Once you're satisfied with the dry run:
+### Real Upload
 
 ```bash
-node scripts/migrate-to-microblog.js
+node scripts/initial-upload-to-microblog.js
 ```
 
-The script will:
-- Read all posts from `src/content/microblog/`
-- Post them to Micro.blog in chronological order
-- Wait 2 seconds between posts (rate limiting)
-- Show progress and results
+This uploads your 16 existing posts to Micro.blog with their original dates.
 
-## What Gets Posted
+## Step 2: Set Up Syncing
 
-Each microblog post is converted to a Micropub "bookmark" post:
-- **Title**: The post title
-- **Link**: The external URL you're sharing
-- **Content**: The description (if provided)
-- **Category**: The post type (video, article, book, tool, website)
-- **Published Date**: The original publication date
+After the initial upload, you'll post to Micro.blog and sync back to your site.
 
-## After Migration
+### Set Your Username
 
-Once your posts are on Micro.blog, you can:
+```bash
+export MICROBLOG_USERNAME="yakbrother"
+# Or whatever your Micro.blog username is
+```
 
-1. **Set up cross-posting**: Micro.blog can cross-post to Mastodon, Bluesky, etc.
-2. **Customize your Micro.blog theme**: Match your site's design
-3. **Use Micro.blog's iOS app**: Post from your phone
-4. **Embed your Micro.blog timeline**: Show it on your main site
+### Pull New Posts
 
-## Future Posts
+Whenever you want to sync new posts from Micro.blog:
 
-For new microblog posts, you can either:
+```bash
+node scripts/sync-from-microblog.js
+```
 
-1. **Manual**: Post to Micro.blog first, then add to your site
-2. **Automated**: Create a GitHub Action to auto-post when you commit new `.md` files
-3. **Hybrid**: Keep your site as the source of truth and periodically sync
+This:
+- Fetches posts from your Micro.blog JSON feed
+- Creates markdown files in `src/content/microblog/`
+- Skips posts already synced (uses `microblog_id`)
+- Shows what was created/skipped
+
+## Daily Workflow
+
+1. **Post on Micro.blog** (mobile app or web)
+   - Share links, thoughts, etc.
+   - Micro.blog auto-posts to Bluesky
+
+2. **Sync to your site** (locally)
+   ```bash
+   node scripts/sync-from-microblog.js
+   git add src/content/microblog/
+   git commit -m "Sync new microblog posts"
+   git push
+   ```
+
+3. **Deploy** (your site rebuilds automatically)
+
+## Automation Options
+
+### GitHub Action (Recommended)
+
+Create `.github/workflows/sync-microblog.yml`:
+
+```yaml
+name: Sync Micro.blog
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm install
+      - run: node scripts/sync-from-microblog.js
+        env:
+          MICROBLOG_USERNAME: yakbrother
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Sync microblog posts"
+```
+
+Now your site auto-syncs every 6 hours!
+
+### Manual Sync
+
+Or just run the script periodically:
+
+```bash
+node scripts/sync-from-microblog.js && git add . && git commit -m "Sync" && git push
+```
 
 ## Troubleshooting
 
 ### "MICROBLOG_TOKEN is required"
-Make sure you've exported the token in your current shell session.
+Only needed for initial upload. Make sure you've exported it.
 
-### Rate Limiting Errors
-The script includes 2-second delays between posts. If you still hit limits, you can edit the script to increase the delay.
+### "Error fetching feed"
+Check your Micro.blog username and make sure your blog is public.
 
-### Authentication Errors
-Double-check your token from https://micro.blog/account/apps and make sure it hasn't expired.
+### Posts Not Syncing
+The sync script tracks `microblog_id` in frontmatter. If a post already exists with the same ID, it's skipped.
 
 ## Notes
 
-- The migration preserves original publication dates
-- Posts are uploaded chronologically (oldest first)
-- The script is idempotent-ish (Micro.blog will accept duplicate posts)
-- You can test individual posts by temporarily moving other `.md` files out of the directory
+- Initial upload preserves original publication dates
+- Micro.blog becomes your posting interface
+- Your site remains the canonical source (in git)
+- The sync is one-way: Micro.blog → Your site
+- Cross-posting to Bluesky happens automatically in Micro.blog
+
+## Why This Workflow?
+
+- ✅ **Mobile-first**: Micro.blog has great apps
+- ✅ **IndieWeb**: Your site is still the source of truth
+- ✅ **Auto cross-post**: Micro.blog → Bluesky integration
+- ✅ **Community**: Access to Micro.blog's timeline and discovery
+- ✅ **Backup**: Everything syncs to your git repo
