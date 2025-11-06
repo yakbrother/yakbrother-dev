@@ -43,6 +43,7 @@ const microblog = defineCollection({
     type: z.nativeEnum(MicroblogType),
     publicationDate: z.coerce.date(),
     public: z.boolean().default(true),
+    microblog_id: z.string().optional(), // Track Micro.blog post ID for syncing
   }),
 });
 
