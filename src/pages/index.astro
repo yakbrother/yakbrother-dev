@@ -4,17 +4,17 @@ import { getCollection } from 'astro:content';
 import LinkCard from '../components/LinkCard.astro';
 import PostCard from '../components/PostCard.astro';
 import { Image } from 'astro:assets';
-const posts = (await getCollection('posts', ({ data }) => {
+const essays = (await getCollection('posts', ({ data }) => {
     return data.public !== false;
 }))
     .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf())
-    .slice(0,5);
+    .slice(0,3);
 
-const finds = (await getCollection('finds', ({ data }) => {
+const microblog = (await getCollection('microblog', ({ data }) => {
     return data.public !== false;
 }))
     .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf())
-    .slice(0, 10);
+    .slice(0, 15);
 ---
 
 <Layout title="Home">
@@ -106,29 +106,11 @@ const finds = (await getCollection('finds', ({ data }) => {
   </section>
  -->
 
-  <section id="recent-posts" class="posts-section">
-    <h2>Latest Posts</h2>
-    <div class="posts-grid">
-        {posts.map(post => (
-            <PostCard
-                title={post.data.title}
-                description={post.data.description}
-                publicationDate={post.data.publicationDate}
-                category={post.data.category}
-                slug={post.data.slug}
-            />
-        ))}
-        <div style="display: flex; align-items: center; justify-content: center;">
-          <a href="/posts" class="button-primary">View all posts →</a>
-        </div>
-    </div>
-  </section>
-
-  <hr />
-  <section id="finds">
-    <h2>Today I Found...</h2>
-      <div class="finds-box">
-    		{finds.map(entry => (
+  <section id="microblog">
+    <h2>Microblog</h2>
+    <p class="section-intro">Quick links, finds, and micro-thoughts from around the web.</p>
+      <div class="microblog-box">
+    		{microblog.map(entry => (
         <LinkCard
           type={entry.data.type}
           title={entry.data.title}
@@ -138,7 +120,31 @@ const finds = (await getCollection('finds', ({ data }) => {
         />
       ))}
     </div>
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+      <a href="/microblog" class="button-primary">View all microblog posts →</a>
+    </div>
 	</section>
+
+  <hr />
+
+  <section id="recent-essays" class="posts-section">
+    <h2>Latest Essays</h2>
+    <p class="section-intro">Longer-form writing on development, design, and technology.</p>
+    <div class="posts-grid">
+        {essays.map(post => (
+            <PostCard
+                title={post.data.title}
+                description={post.data.description}
+                publicationDate={post.data.publicationDate}
+                category={post.data.category}
+                slug={post.data.slug}
+            />
+        ))}
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <a href="/posts" class="button-primary">View all essays →</a>
+        </div>
+    </div>
+  </section>
 
   <style>
     .card {
@@ -167,7 +173,14 @@ const finds = (await getCollection('finds', ({ data }) => {
       margin: 0.5rem 0 0;
     }
 
-    .finds-box {
+    .section-intro {
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      font-size: var(--step-0);
+      color: var(--color-text-muted);
+    }
+
+    .microblog-box {
       padding: 0;
       border: none;
       border-radius: 0;
@@ -175,51 +188,51 @@ const finds = (await getCollection('finds', ({ data }) => {
       margin: 2rem 0;
     }
 
-    /* Remove all borders from finds list */
-    #finds .link-card {
+    /* Remove all borders from microblog list */
+    #microblog .link-card {
       border: none;
       border-radius: 0;
       box-shadow: none;
     }
 
-    #finds .link-card:hover {
+    #microblog .link-card:hover {
       border: none;
       border-color: transparent;
       box-shadow: none;
     }
 
     /* Round the first and last items to create a unified box appearance */
-    #finds .link-card:first-child {
+    #microblog .link-card:first-child {
       border-radius: 8px 8px 0 0;
     }
 
-    #finds .link-card:last-child {
+    #microblog .link-card:last-child {
       border-radius: 0 0 8px 8px;
     }
 
     /* If there's only one item, round all corners */
-    #finds .link-card:only-child {
+    #microblog .link-card:only-child {
       border-radius: 8px;
     }
 
-    /* Define icon colors for finds */
-    #finds .icon-container.video {
+    /* Define icon colors for microblog */
+    #microblog .icon-container.video {
       color: #e74c3c; /* red for videos */
     }
 
-    #finds .icon-container.article {
+    #microblog .icon-container.article {
       color: #3498db; /* blue for articles */
     }
 
-    #finds .icon-container.website {
+    #microblog .icon-container.website {
       color: #2ecc71; /* green for websites */
     }
 
-    #finds .icon-container.book {
+    #microblog .icon-container.book {
       color: #9b59b6; /* purple for books */
     }
 
-    #finds .icon-container.tool {
+    #microblog .icon-container.tool {
       color: #f39c12; /* orange for tools */
     }
 
@@ -343,8 +356,8 @@ const finds = (await getCollection('finds', ({ data }) => {
     #recent-work,
     #cases,
     #til,
-    #recent-posts,
-    #finds {
+    #recent-essays,
+    #microblog {
       padding-bottom: 1.5rem;
       padding-top: 1.5rem;
     }

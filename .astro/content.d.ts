@@ -173,11 +173,11 @@ declare module 'astro:content' {
 	};
 
 	type DataEntryMap = {
-		"finds": Record<string, {
+		"microblog": Record<string, {
   id: string;
   body?: string;
-  collection: "finds";
-  data: InferEntrySchema<"finds">;
+  collection: "microblog";
+  data: InferEntrySchema<"microblog">;
   rendered?: RenderedContent;
   filePath?: string;
 }>;
