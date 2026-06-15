@@ -6,7 +6,7 @@ slug: fluid-design-ruleset
 featured: false
 public: true
 description: My starting point for creating accessible, fluid designs with AI.
-category: dev
+category: design
 ---
 
 Over the past few years, I've been refining my approach to web design, moving away from rigid breakpoints and fixed layouts toward something more natural and flexible. That work, aided by multitudes of websites and resources like [Piccalilli](https://piccalil.li), [Every Layout](https://every-layout.dev), and [Smashing Magazine](https://www.smashingmagazine.com), has culminated in what I'm calling my Fluid Design Ruleset — a comprehensive set of guidelines and CSS principles that maintain fluidity across browsers and devices.
