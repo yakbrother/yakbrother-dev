@@ -2,6 +2,7 @@
 title: "AI Ruleset: Use This in Your Designs"
 author: Tim Eaton
 publicationDate: 2025-11-05
+editDate: 2026-06-15
 slug: fluid-design-ruleset
 featured: false
 public: true
@@ -19,10 +20,10 @@ I built this on a lot of people's shoulders: the ruleset draws heavily from the 
 
 I worked with AI to create rulesets that AI understands. (It's always useful to ask a coding agent to summarize itself for itself in the future.)
 
-So, there are two docs: the human-readable one explains the philosophy, the reasoning behind each decision, and provides practical examples. There's also a file specifically formatted for AI coding assistants like Claude or Warp. It includes priorities, directives, and examples. Throw it in your rules file or reference it while you're coding.
+It's one combined doc now: the same file explains the philosophy and the reasoning behind each decision with practical examples, while also serving as machine-readable instructions for AI coding assistants like Claude or Warp — priorities, directives, and examples included. Read it yourself, then throw it in your rules file or reference it while you're coding.
 
-The fluid grids are like magic. The ruleset emphasizes semantic HTML, WCAG 2.2 AA accessibility standards, and progressive enhancement. There are fluid typography scales, spacing systems, and even guidance on when to use CSS Grid versus Flexbox. If you've read my earlier post about [responsive typography with CSS clamps](/posts/fluid-font-size), this builds on those concepts and extends them to AI guidelines.
+The fluid grids are like magic. The ruleset emphasizes semantic HTML, progressive enhancement, and accessibility — it now targets WCAG 2.2 AA, EN 301 549, the European Accessibility Act, and the EU AI Act. There are fluid typography scales, spacing systems, and even guidance on when to use CSS Grid versus Flexbox. If you've read my earlier post about [responsive typography with CSS clamps](/posts/fluid-font-size), this builds on those concepts and extends them to AI guidelines.
 
-You can [download the Fluid Design Ruleset v3.1](/yakbrother-fluid-design-ruleset-v3.1.zip) and use it however you'd like.
+You can [download the Fluid Design Ruleset v3.2](/yakbrother-fluid-design-ruleset-v3.2.zip) and use it however you'd like.
 
 But remember... Never trust AI with your CSS and accessibility. Review the code or suffer!
