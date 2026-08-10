@@ -33,20 +33,57 @@ if (!fs.existsSync(MICROBLOG_DIR)) {
 }
 
 /**
+ * Turn arbitrary feed-supplied text into a filesystem-safe slug.
+ *
+ * Feed data is untrusted: without this, a URL segment such as
+ * `..%2F..%2Fetc%2Fpasswd` would be joined straight onto MICROBLOG_DIR.
+ */
+function sanitizeSlug(rawSlug) {
+  if (typeof rawSlug !== 'string') {
+    return `post-${Date.now()}`;
+  }
+
+  let value = rawSlug;
+
+  try {
+    value = decodeURIComponent(value);
+  } catch {
+    // Malformed percent-escapes throw URIError; fall through with the raw value.
+  }
+
+  const slug = value
+    .replace(/[/\\]+/g, '')
+    .replace(/\.+/g, '')
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 200)
+    .replace(/^-+|-+$/g, '');
+
+  return slug || `post-${Date.now()}`;
+}
+
+/**
  * Fetch posts from Micro.blog JSON feed
  */
 async function fetchMicroblogPosts() {
-  console.log(`📡 Fetching posts from ${MICROBLOG_FEED_URL}...`);
-  
+  console.log('📡 Fetching posts from Micro.blog feed...');
+
   try {
     const response = await fetch(MICROBLOG_FEED_URL);
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
-    
+
     const data = await response.json();
-    console.log(`✅ Found ${data.items?.length || 0} posts\n`);
-    return data.items || [];
+    if (!Array.isArray(data.items)) {
+      throw new Error('Invalid feed format: items array not found');
+    }
+
+    console.log(`✅ Found ${data.items.length} posts\n`);
+    return data.items;
   } catch (error) {
     console.error(`❌ Error fetching feed: ${error.message}`);
     console.error('Make sure your Micro.blog username is correct and your blog is public.');
@@ -58,13 +95,15 @@ async function fetchMicroblogPosts() {
  * Convert Micro.blog post to frontmatter structure
  */
 function postToFrontmatter(item) {
-  // Generate slug from URL or title
+  // Generate slug from URL or title, then sanitize the whole fallback chain
   const urlParts = item.url?.split('/').filter(Boolean);
-  const slug = urlParts?.[urlParts.length - 1] || 
-               item.title?.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') ||
-               item.id?.replace(/[^a-z0-9-]/g, '') ||
-               `post-${Date.now()}`;
-  
+  const slug = sanitizeSlug(
+    urlParts?.[urlParts.length - 1] ||
+    item.title ||
+    item.id ||
+    `post-${Date.now()}`
+  );
+
   // Determine post type based on content
   let type = 'article';
   if (item._microblog?.is_bookmark || item.external_url) {
@@ -74,8 +113,11 @@ function postToFrontmatter(item) {
   // Extract just the link if this is a bookmark post
   const link = item.external_url || item.url;
   
+  // Spread the string so surrogate pairs survive the truncation
+  const snippet = item.content_text ? [...item.content_text].slice(0, 50).join('').trimEnd() : '';
+
   const frontmatter = {
-    title: item.title || item.content_text?.substring(0, 50) + '...' || 'Untitled',
+    title: item.title || (snippet ? `${snippet}…` : 'Untitled'),
     link: link,
     description: item.content_text || item.summary || '',
     type: type,
@@ -92,7 +134,12 @@ function postToFrontmatter(item) {
  */
 function createMarkdownFile(slug, frontmatter) {
   const filename = path.join(MICROBLOG_DIR, `${slug}.md`);
-  
+
+  // Defense in depth: never write outside the microblog directory
+  if (!path.resolve(filename).startsWith(path.resolve(MICROBLOG_DIR) + path.sep)) {
+    throw new Error(`Refusing to write outside ${MICROBLOG_DIR}: ${filename}`);
+  }
+
   // Check if file already exists
   if (fs.existsSync(filename)) {
     const existing = fs.readFileSync(filename, 'utf-8');
