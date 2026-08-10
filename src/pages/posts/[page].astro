@@ -15,13 +15,14 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 }
 
 const { page } = Astro.props;
-const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${page.currentPage}`;
+const pageTitle = page.currentPage === 1 ? 'Essays' : `Essays - Page ${page.currentPage}`;
 ---
 
 <Layout title={pageTitle}>
   <div class="page-content flow">
-    <Breadcrumbs path={['posts']} />
-    <h1>Blog Posts</h1>
+    <Breadcrumbs path={['Essays']} />
+    <h1>Essays</h1>
+    <p class="subtitle">Longer-form writing on development, design, and technology.</p>
     <hr/>
     
     <div class="posts-grid">
@@ -53,7 +54,13 @@ const pageTitle = page.currentPage === 1 ? 'Blog Posts' : `Blog Posts - Page ${p
 
   h1 {
     font-size: var(--size-step-4);
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    margin: 0 0 2rem;
+    font-size: var(--step-0);
+    color: var(--color-text-muted);
   }
 
   hr {

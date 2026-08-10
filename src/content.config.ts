@@ -11,7 +11,7 @@ export enum PostType {
   life = "life",
 }
 
-export enum FoundType {
+export enum MicroblogType {
   video = "video",
   article = "article",
   book = "book",
@@ -34,16 +34,17 @@ const posts = defineCollection({
   }),
 });
 
-const finds = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/finds" }),
+const microblog = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/microblog" }),
   schema: z.object({
     title: z.string(),
     link: z.string(),
     description: z.string().nullable().optional(),
-    type: z.nativeEnum(FoundType),
+    type: z.nativeEnum(MicroblogType),
     publicationDate: z.coerce.date(),
     public: z.boolean().default(true),
+    microblog_id: z.string().optional(), // Track Micro.blog post ID for syncing
   }),
 });
 
-export const collections = { posts, finds };
+export const collections = { posts, microblog };

@@ -7,35 +7,36 @@ import LinkCard from '../../components/LinkCard.astro';
 import Pagination from '../../components/Pagination.astro';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const allFinds = await getCollection('finds');
+  const allMicroblog = await getCollection('microblog');
   
-  const finds = allFinds
-    .filter(find => find.data.public)
+  const microblog = allMicroblog
+    .filter(post => post.data.public)
     .sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 
-  const pages = paginate(finds, { pageSize: 40 });
+  const pages = paginate(microblog, { pageSize: 40 });
   
   return pages;
 }
 
 const { page } = Astro.props;
-const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found... - Page ${page.currentPage}`;
+const pageTitle = page.currentPage === 1 ? 'Microblog' : `Microblog - Page ${page.currentPage}`;
 ---
 
 <Layout title={pageTitle}>
   <div class="page-content flow">
-    <Breadcrumbs path={['Found']} />
-    <h1>Today I Found...</h1>
+    <Breadcrumbs path={['Microblog']} />
+    <h1>Microblog</h1>
+    <p class="subtitle">Quick links, finds, and micro-thoughts from around the web.</p>
     <hr/>
     
-    <div class="finds-grid">
-      {page.data.map((find) => (
+    <div class="microblog-grid">
+      {page.data.map((post) => (
         <LinkCard
-          type={find.data.type}
-          title={find.data.title}
-          description={find.data.description}
-          link={find.data.link}
-          publicationDate={find.data.publicationDate}
+          type={post.data.type}
+          title={post.data.title}
+          description={post.data.description}
+          link={post.data.link}
+          publicationDate={post.data.publicationDate}
         />
       ))}
     </div>
@@ -43,26 +44,31 @@ const pageTitle = page.currentPage === 1 ? 'Today I Found...' : `Today I Found..
     <Pagination
       currentPage={page.currentPage}
       totalPages={page.lastPage}
-      baseUrl="/finds/"
+      baseUrl="/microblog/"
     />
   </div>
 </Layout>
 
 <style>
-  .finds-container {
+  .microblog-container {
     max-width: var(--content-width);
     margin: 0 auto;
     padding: 2rem 1rem;
   }
 
   h1 {
-    margin: 0 0 2rem;
+    margin: 0 0 0.5rem;
     color: var(--color-dark);
     width: 50%;
   }
 
+  .subtitle {
+    margin: 0 0 2rem;
+    font-size: var(--step-0);
+    color: var(--color-text-muted);
+  }
 
-  .finds-grid {
+  .microblog-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;

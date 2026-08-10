@@ -3,7 +3,7 @@ export const PATHS = {
   about: "/about",
   resume: "/resume",
   posts: "/posts",
-  finds: "/finds",
+  microblog: "/microblog",
   error404: "/404",
 } as const;
 
@@ -13,5 +13,5 @@ export const CONFIG = {
   author: "Tim Eaton",
   email: "tim@yakbrother.dev",
   description:
-    "Full-stack developer writing about code, design, typography, and miscellanious stories.",
+    "Full-stack developer writing essays about code, design, typography, and sharing microblog finds.",
 } as const;
